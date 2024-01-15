@@ -119,7 +119,7 @@ wnd.innerHTML = defaultfiles;
 
 
 // Default Main Window Titles
-const t_default = "Neurosama.top [aug-18-2023 update]"
+const t_default = "neuro.us.to [jan-16-2024 domain update]"
 const t_games = "Games"
 
 
