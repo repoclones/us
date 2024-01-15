@@ -1,0 +1,116 @@
+<html>
+<head>
+  <meta http-equiv="refresh" content="10; url=https://twitch.tv/vedal987">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+body {
+text-align: center;
+background: #ffffff;
+color:#000000;
+font-family:'Roboto';
+font-weight: 300;
+font-size: 32px;
+padding-top: 40vh;
+height: 100vh;
+overflow: hidden;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+-webkit-transform: translate3d(0,0,0);
+}
+  a:link {color:#000000;
+         background-color: transparent;
+  text-decoration: underline;}
+
+   a:visited {color:#000000;
+         background-color: transparent;
+  text-decoration: underline;}
+div {
+display: inline-block;
+overflow: hidden;
+white-space: nowrap;
+}
+div:first-of-type {
+animation: showup 7s;
+}
+div:last-of-type {
+width:0px;
+animation: reveal 7s;
+}
+div:last-of-type span {
+margin-left: -100px;
+animation: slidein 7s;
+}
+@keyframes showup {
+0% {opacity: 0;}
+20% {opacity: 1;}
+80% {opacity: 1;}
+100% {opacity: 1;}
+}
+@keyframes slidein {
+0% {margin-left: -800px; }
+20% {margin-left: -800px; }
+35% {margin-left: 0px; }
+100% {margin-left: 0px; }
+}
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:100px;}
+80% {opacity:1;}
+100% {opacity:1;}}
+
+  #fadeIn {
+			display: none;
+		}
+  #fadeIn2 {
+			display: none;
+		}
+  #fadeIn3 {
+			display: none;
+		}
+</style>
+
+
+
+  
+</head>
+<body>
+<div>neurosama</div>
+<div><span>.top?</span>
+</div>
+  <br>
+  <p style="font-size:15px" id="fadeIn">
+    The <a href="https://twitch.tv/vedal987">Neurosama</a> brand belongs to <a href="https://twitter.com/Vedal987">Vedal</a>.
+    <br>
+    So by default, you will be redirected to Neurosama's twitch in <time id="time">10</time> seconds...
+    <br>
+    - - -
+    </p>
+ 
+    <a id="fadeIn2" style="font-size:15px" href="https://twitch.tv/vedal987">Click here if you're stuck.</a><br>
+  <a id="fadeIn3" style="font-size:15px" href="./homexp">Click here for website contents.</a>
+
+
+
+  <script>
+    var count = 10;
+    setInterval(function () {count--; document.getElementById("time").innerHTML = count;
+}, 1000);
+
+
+
+    $(document).ready(function() {
+	setTimeout(function() {
+		$('#fadeIn').fadeIn();
+	}, 3000);
+      setTimeout(function() {
+		$('#fadeIn2').fadeIn();
+	}, 3400);
+      setTimeout(function() {
+		$('#fadeIn3').fadeIn();
+	}, 3800);
+});
+  </script>
+</body>
+</html>

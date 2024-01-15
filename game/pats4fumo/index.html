@@ -1,0 +1,91 @@
+
+
+<html>
+<head><link rel="stylesheet" href="https://z.ne1.co/kam/s.css">
+  <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.css">
+<link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Neurofumo Patting Simulator</title>
+          <meta property="og:type" content="website">
+        <meta property="og:title" content="Neurofumo Patting Simulator">
+      <meta property="og:description" content="Click on Neurofumo to pat!">
+        <meta property="og:url" content="https://neurosama.top/">
+       <meta name="og:image" content="./fumo.png">
+      <meta name="twitter:image" content="./fumo.png">
+        <meta name="theme-color" content="#2f3136">
+</head>
+  <body>
+<div id=center><center>
+  <img src="./fumo.png" style="width: 200px; height: 200px;" onclick="start()" id="patsimg"></img>
+  <br>
+  <p id="textsp">
+    Click on Neurofumo to pat.
+  </p>
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" id="patsprogress"></div>
+</div>
+  <br>
+  <p id="status">Pats: </p>
+  <br>
+ <button class="btn btn-primary" onclick="resetpats()"> Reset Pats </button>
+  <br>
+  <br>
+
+</center>
+  <script>
+    var pating = 0;
+    pats = localStorage.getItem("pats");
+  if (pats === null) {
+        pats = 0;
+        localStorage.setItem('pats', 0);
+      };
+    document.getElementById("status").innerHTML=`Pats: `+pats;
+  </script>
+  <script>
+ var prog1 = setInterval(check, 10);
+    function start(){
+      document.getElementById("patsimg").src="./fumopat.gif";
+      document.getElementById("patsimg").setAttribute( "onClick", "javascript: alert('you are still patting your neuro!');" );;
+      progressneuro();
+     setInterval(statuschk, 10);
+      
+    };
+
+
+    function statuschk(){
+      document.getElementById("textsp").innerHTML=`Patting... `+pating+`%`;
+    };
+
+    
+    function check(){
+       
+      if (pating >= 100){
+        pating = 100;
+        clearInterval(prog1);
+        tempcalc = localStorage.getItem("pats");
+        evalcalc = +tempcalc + 1;
+        localStorage.setItem('pats', evalcalc);
+        pats = localStorage.getItem("pats");
+        document.getElementById("status").innerHTML=`Pats: `+pats;
+        location.reload();
+      };
+    };
+
+    function progressneuro(){
+    if (pating < 100){
+      pating = pating + 1;
+      document.getElementById("patsprogress").style.width=pating + "%";
+      
+    setTimeout(progressneuro, Math.random() * 300)
+    };
+    };
+
+    function resetpats(){
+      localStorage.setItem('pats', 0);
+      location.reload();
+    };
+
+    </script>
+
+  </body>
+</html>

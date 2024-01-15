@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="BW - Idle Hands">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./Assets/thumbnail.png">
+  <meta property="og:description"
+    content="Birdwatch clicker game by CatR3kd, Adapted by Promote and Arata. Your decisions matter.">
+  <meta property="description"
+    content="Birdwatch clicker game by CatR3kd, adapted by Promote and Arata. Your decisions matter.">
+  <meta name="theme-color" content="#BF0000">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="CatR3kd">
+  <meta name="publisher" content="CatR3kd">
+  <meta name="copyright" content="CatR3kd">
+  <meta name="keywords" content="birdwatch, catr3kd, bw, game, mmo, text, adventure, fun, io, bird, penguin, pigeon">
+  <link rel="icon" href="./Assets/favicon.png" type="image/png">
+  <title>BW Idle Hands</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="dark">
+  <div id="notice">
+    <h3 id="noticeText">This game is best experienced with headphones,<br>and in fullscreen. (1920x1080)<br><br>Warning:
+      For those who have fumo<br>allergies, leave the page immediately.</h3>
+  </div>
+  <div id="upgrades">
+    <h2>Upgrades:</h2>
+    <button class="upgrade" id="mpcBttn">More Money per Click - $50</button>
+    <button class="upgrade" id="autoBttn" style="visibility: hidden">Autoclicker - $100</button>
+    <button class="upgrade" id="mpcBotBttn" style="visibility: hidden">Money per Click Bot - $100,000</button>
+    <button class="upgrade" id="autoBotBttn" style="visibility: hidden">Autoclicker Bot - $1,000,000</button>
+    <button class="upgrade" id="superBttn" style="visibility: hidden">Superclicker - $10,000,000</button>
+    <button class="upgrade" id="resetPBttn"><b>Restart(Lose all Progress)</b></button>
+  </div>
+  <div id="fade">
+    <video id="video">
+      <source src="./Assets/cutscene.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div id="middle">
+    <h1 id="money"></h1>
+    <h2 id="mpc"></h2>
+    <h2 id="mps"></h2>
+    <h2 id="cost"></h2>
+    <button id="click"><img src="neurofumo.png"></img></button>
+  </div>
+  <div id="hands">
+    <img id="lefthand" src="./Assets/hand.png">
+    <img id="rightHand" src="./Assets/hand.png">
+  </div>
+  <div id="eventShadow">
+    <div id="event">
+      <h1 id="eventName"></h1>
+      <p id="eventText"></p>
+      <img id="eventImg" src="">
+      <div id="eventBttns">
+        <button class="eventBttn" id="eventBttn3"></button>
+        <button class="eventBttn" id="eventBttn2"></button>
+        <button class="eventBttn" id="eventBttn1"></button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>NeuroSU</title>
+  <meta charset="UTF-8">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+    }
+
+    canvas {
+      border: 1px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="750" height="750" id="game"></canvas>
+  <script>
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var img = document.createElement("img");
+    fumoXPos = 0
+    fumoYPos = 0
+    function show_image(T, L) {
+      var img = document.createElement("img");
+      img.src = "assets/fum.png";
+      img.width = 100;
+      img.height = 100;
+      img.style.position = "absolute";
+      img.style.top = L + 'px';
+      img.style.left = T + 'px';
+      img.setAttribute("draggable", false);
+      // This next line will just add it to the <body> tag
+      document.body.appendChild(img);
+    }
+
+    //	canvas.width = window.innerWidth;
+    //	canvas.height = window.innerHeight;
+
+    // define the circle
+    // (we need this info for hit-testing later)
+
+
+
+
+    function drawCircle(x, y, r) {
+
+      // draw the circle so it appears onload
+      context.arc(cx, cy, radius, 0, 2 * Math.PI);
+      context.closePath(); // this makes a closed circle instead of 360 arc
+      context.fillStyle = 'white';
+      context.fill();
+      context.strokeStyle = 'white';
+      context.stroke();
+
+    }
+
+    var cx = Math.floor(Math.random() * 650) + 50;
+    var cy = Math.floor(Math.random() * 650) + 50;
+
+    var radius = 50;
+    drawCircle(cx, cy, radius);
+
+    // hit-test the circle
+    // this method does not use "expensive" Math.sqrt
+    function mouseIsInsideCircle(mouseX, mouseY, cx, cy, radius) {
+      var dx = mouseX - cx;
+      var dy = mouseY - cy;
+      return (dx * dx + dy * dy <= radius * radius);
+    }
+
+
+    function getMousePos(canvas, evt) {
+
+      var rect = canvas.getBoundingClientRect();
+
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+
+    }
+
+
+    canvas.addEventListener('mousemove', function (evt) {
+
+      var mousePos = getMousePos(canvas, evt);
+      var message = 'Mouse position: ' + parseInt(mousePos.x) + ',' + parseInt(mousePos.y);
+
+      writeMessage(canvas, message);
+
+    }, false);
+
+
+    var mousePos;
+
+
+    canvas.addEventListener('mousedown', function (evt) {
+
+      var mousePos = getMousePos(canvas, evt);
+      var mouseX = mousePos.x;
+      var mouseY = mousePos.y;
+
+      // if the mouse is inside the circle
+      if (mouseIsInsideCircle(mouseX, mouseY, cx, cy, radius)) {
+        // erase the canvas
+        context.clearRect(0, 0, 750, 750);
+
+        context.beginPath();
+        cx = Math.floor(Math.random() * 650) + 50;
+        cy = Math.floor(Math.random() * 650) + 50;
+
+        drawCircle(cx, cy, radius);
+
+        show_image(fumoXPos, fumoYPos);
+        fumoXPos += 75
+        if (fumoXPos > 750) {
+          fumoXPos = 0
+          fumoYPos += 75
+        }
+      }
+
+    }, false);
+  </script>
+</body>
+
+</html>

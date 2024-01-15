@@ -1,0 +1,172 @@
+@font-face {
+  font-family: firstcoffee;
+  src: url(First\ Coffee.otf);
+}
+body {
+    background-color: #fc8fa7;
+    position: fixed;
+}
+
+nav ul {
+  position: absolute;
+  left: 38.5vw;
+  height: 35vw; 
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch; 
+}
+
+nav ul li{
+  left: inherit;
+  border-style: solid; 
+  border-width: 3px; 
+  border-radius: 5px; 
+  margin-top: 2px;
+  text-indent: 5px; 
+  font-family: firstcoffee;
+}
+
+nav ul li #text {
+  font-size: 20px; 
+  margin: 2px; 
+  color: white; 
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#header_text{
+  position: relative;
+  left: 37vw;
+  font-size: 30px; 
+  font-family: firstcoffee; 
+  margin-top: 15px;
+}
+#header_text2{
+  position: relative;
+  left: 40vw;
+  font-size: 15px; 
+  font-family: firstcoffee; 
+  margin-top: 15px;
+}
+
+.button{
+  position: relative;
+  left: 42vw;
+  font-family: firstcoffee; 
+  color: black; 
+  border: solid; 
+  border-radius: 5px; 
+  border-color: white;
+  cursor: pointer;
+}
+
+#elomodal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 70%;
+}
+
+.modal-content3 {
+  font-family: firstcoffee;
+  color: #fc8fa7;
+  overflow-y: scroll;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; 
+  height: 50%;
+  max-height: 100%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 450px){
+  nav ul {
+    position: fixed;
+    height: 70%;
+    width: 80%;
+    left: inherit;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch; 
+  }
+  nav ul li {
+    left: inherit;
+    border-style: solid; 
+    border-width: 3px; 
+    border-radius: 5px; 
+    margin-top: 2px;
+    text-indent: 5px; 
+    font-family: firstcoffee;
+  }
+  #header_text{
+    position: relative;
+    left: 0px;
+    font-size: 30px; 
+    font-family: firstcoffee; 
+    margin-top: 15px;
+  }
+  #header_text2{
+    position: relative;
+    left: 0px;
+    font-size: 15px;
+    font-family: firstcoffee; 
+    margin-top: 15px;
+  }
+  .button{
+    position: relative;
+    left: 0px;
+    font-family: firstcoffee; 
+    color: black; 
+    border: solid; 
+    border-radius: 5px; 
+    border-color: white;
+  }
+  #elomodal {
+    display: none;
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 85%;
+    height: 80%;
+  }
+  
+  .modal-content3 {
+    font-family: firstcoffee;
+    color: #fc8fa7;
+    overflow-y: scroll;
+    width: 100%;
+    -webkit-overflow-scrolling: touch; 
+    height: 50%;
+    max-height: 100%;
+  }
+}

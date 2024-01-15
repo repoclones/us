@@ -1,0 +1,41 @@
+body {
+    background-image: url('spinningneuro.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ADD8E6;
+    color: white;
+    text-align: center;
+  }
+  .footer .text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 15px;
+    color: black;
+}
+
+.text {
+    color: black;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.box {
+    position: absolute;
+    width: 40vw;
+    height: 10vh;
+    left: 29vw;
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    background-color: #ADD8E6;
+}

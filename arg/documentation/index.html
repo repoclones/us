@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="neurosama.top">
+  <meta property="twitter:url" content="https://neurosama.top/arg/documentation">
+  <meta name="twitter:title" content="Documentation for Neuro ARG">
+  <meta name="twitter:description" content="An easier way to read and edit the documentation of the ARG.">
+  <meta name="twitter:image" content="https://neurosama.top/arg/documentation/websiterel.png">
+  <meta name="theme-color" content="#572943">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet"
+    type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <title>Neuro ARG - Documentation</title>
+  <script>
+    window.currentbutton = 'main'
+    function changeThreadColor(button) {
+      var buttons = document.getElementsByClassName("threadbutton")
+      for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].name === button.name) {
+          button.style.color = "black"
+          button.style.backgroundColor = "#a8d6bc"
+          button.style.border = "3px solid #a8d6bc"
+        } else {
+          buttons[i].style.color = "white"
+          buttons[i].style.backgroundColor = "#572943"
+          buttons[i].style.border = "3px solid #572943"
+        }
+      }
+    }
+    function changeDocsBtn() {
+
+      var pinnedDOM = document.querySelector(".pinned")
+      var documentsDOM = document.querySelector(".documents");
+      var documentsCSS = getComputedStyle(documentsDOM)
+      color = documentsCSS.getPropertyValue("color")
+      if (color == "rgb(255, 255, 255)") {
+        documentsDOM.style.color = "black";
+        documentsDOM.style.backgroundColor = "#a8d6bc";
+        documentsDOM.style.border = "3px solid #a8d6bc"
+        pinnedDOM.style.color = "white"
+        pinnedDOM.style.backgroundColor = "#572943"
+        pinnedDOM.style.border = "3px solid #572943"
+      }
+    }
+    function changePinnedBtn() {
+      var documentsDOM = document.querySelector(".documents");
+      var pinnedDOM = document.querySelector(".pinned")
+      var pinnedCSS = getComputedStyle(pinnedDOM)
+      color = pinnedCSS.getPropertyValue("color")
+      if (color == "rgb(255, 255, 255)") {
+        pinnedDOM.style.color = "black";
+        pinnedDOM.style.backgroundColor = "#a8d6bc"
+        pinnedDOM.style.border = "3px solid #a8d6bc"
+        documentsDOM.style.color = "white";
+        documentsDOM.style.backgroundColor = "#572943";
+        documentsDOM.style.border = "3px solid #572943"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="footer">
+    <p class="text">Made by Darkeew, Work in Progress</p>
+  </div>
+
+  <p class="title">Neuro ARG</p>
+  <div class="sidenav">
+    <a href="https://drive.google.com/drive/folders/1qm6GSRlstTmjbyOFCuH1OhSmPK4pi4Aa" target="_blank">Google Docs</a>
+    <a href="#">Documentation</a>
+  </div>
+
+  <div class="center-box">
+    <p class="text">Welcome to the Documentation!</p>
+    <p class="small-text">Here you will be able to navigate through the ARG documentation and personalize the way you do
+      it.</p>
+  </div>
+
+  <button name="documents" class="documents" onclick="changeToDocuments();changeDocsBtn()" style="display: inherit;"
+    ;">Documents</button>
+  <button name="pinned" class="pinned" onclick="changeToPinned();changePinnedBtn()" ;">Pinned</button>
+
+  <div class="button-bg"></div>
+
+  <div id="pinned-title-bg">
+    <p>Pinned Documents</p>
+  </div>
+
+  <div id="pinned-bg"></div>
+
+  <div id="main-title-bg" class="inUse">
+    <button name="main" onclick="changeThreadColor(this);changeThreadType(this)" class="threadbutton"
+      style="background-color: #a8d6bc; border: 3px solid #a8d6bc; color: black;">Main</p>
+      <button name="theory" onclick="changeThreadColor(this);changeThreadType(this)" class="threadbutton">Theory</p>
+  </div>
+
+  <div id="main-bg" class="inUse">
+    <a target="main-phone" class="text">Study (Phone Number)</a>
+    <a target="main-numbersi" class="text">Numbers</a>
+    <a target="main-numbersii" class="text">Numbers II</a>
+    <a target="main-study" class="text">Study</a>
+    <a target="main-psv" class="text">Public Static Void</a>
+  </div>
+  <div id="theory-bg">
+    <a target="theory-ebcol" class="text">Evidence-based Collection of Lore</a>
+    <a target="theory-mixcon" class="text">Mixing consciousness</a>
+    <a target="theory-nait" class="text">New AI theory (VedalAI)</a>
+    <a target="theory-vbt" class="text">Vedal Backstory Theory</a>
+    <a target="theory-mpcos" class="text">M3d3rick Pgf’s comment on Study</a>
+    <a target="theory-nsiaagt" class="text">“Neuro-sama Alternative Reality Game isn't actually an ARG” Theory</a>
+    <a target="theory-orbt" class="text">Orangerobot’s theory</a>
+    <a target="theory-ttotc" class="text">The Theory of The Clown</a>
+    <a target="theory-boops" class="text">Boop’s Theory</a>
+    <a target="theory-tvsaht" class="text">The very schizo Artificial -> Human theory</a>
+    <a target="theory-sasbsdatc" class="text">Study “A side” / “B side” divergence and the characters</a>
+    <a target="theory-dotsn3" class="text">Dots & 3</a>
+    <a target="theory-tst" class="text">Twisted sister theory</a>
+    <a target="theory-tast" class="text">The “already supernatural” theory</a>
+    <a target="theory-tjct" class="text">The “jailed consciousness” theory</a>
+  </div>
+
+  <div id="iframe">
+    <div id="main-phone" class="main-phone">
+      <button name="main-phone" onclick="closeiframe()">X</button>
+    </div>
+    <div id="main-numbersi" class="main-numbersi">
+      <button name="main-numbersi" onclick="closeiframe()">X</button>
+    </div>
+    <div id="main-numbersii" class="main-numbersii">
+      <button name="main-numbersii" onclick="closeiframe()">X</button>
+    </div>
+    <div id="main-study" class="main-study">
+      <button name="main-study" onclick="closeiframe()">X</button>
+    </div>
+    <div id="main-psv" class="main-psv">
+      <button name="main-psv" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-ebcol" class="theory-ebcol">
+      <button name="theory-ebcol" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-mixcon" class="theory-mixcon">
+      <button name="theory-mixcon" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-nait" class="theory-nait">
+      <button name="theory-nait" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-vbt" class="theory-vbt">
+      <button name="theory-vbt" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-mpcos" class="theory-mpcos">
+      <button name="theory-mpcos" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-nsiaagt" class="theory-nsiaagt">
+      <button name="theory-nsiaagt" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-orbt" class="theory-orbt">
+      <button name="theory-orbt" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-ttotc" class="theory-ttotc">
+      <button name="theory-ttotc" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-boops" class="theory-boops">
+      <button name="theory-boops" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-tvsaht" class="theory-tvsaht">
+      <button name="theory-tvsaht" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-sasbsdatc" class="theory-sasbsdatc">
+      <button name="theory-sasbsdatc" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-dotsn3" class="theory-dotsn3">
+      <button name="theory-dotsn3" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-tst" class="theory-tst">
+      <button name="theory-tst" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-tast" class="theory-tast">
+      <button name="theory-tast" onclick="closeiframe()">X</button>
+    </div>
+    <div id="theory-tjct" class="theory-tjct">
+      <button name="theory-tjct" onclick="closeiframe()">X</button>
+    </div>
+  </div>
+  <script>
+    changeToPinned()
+    changeToDocuments()
+
+    const iframessrc = [
+      'theory-ebcol', '<iframe name="theory-ebcol"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.3g9q2y7ikvqz"></iframe>',
+      'theory-mixcon', '<iframe name="theory-mixcon"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.xhjlu2j8up6q"></iframe>',
+      'theory-nait', '<iframe name="theory-nait"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.tm3lwdwadtf6"></iframe>',
+      'theory-vbt', '<iframe name="theory-vbt"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.dvz26l8tiy45"></iframe>',
+      'theory-mpcos', '<iframe name="theory-mpcos"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.7r5sp0lpoem8"></iframe>',
+      'theory-nsiaagt', '<iframe name="theory-nsiaagt"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.jlvic02k7xta"></iframe>',
+      'theory-orbt', '<iframe name="theory-orbt"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.z22mabngqfi4"></iframe>',
+      'theory-ttotc', '<iframe name="theory-ttotc"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.wbvnjxsgnrnz"></iframe>',
+      'theory-boops', '<iframe name="theory-boops"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.xl6gzsgbdqlp"></iframe>',
+      'theory-tvsaht', '<iframe name="theory-sasbsdatc"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.nyo5lau9gn4m"></iframe>',
+      'theory-sasbsdatc', '<iframe name="theory-sasbsdatc"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.slg28kg7dtbk"></iframe>',
+      'theory-dotsn3', '<iframe name="theory-dotsn3"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.k2235nugnxst"></iframe>',
+      'theory-tst', '<iframe name="theory-tst"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.88gpnw7cadld"></iframe>',
+      'theory-tast', '<iframe name="theory-tast"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.fuezmgdkyuqa"></iframe>',
+      'theory-tjct', '<iframe name="theory-tjct"src="https://docs.google.com/document/d/12GcN8a0Q1_etDfDi23SdLjAX6MsEZ6XhCYqTNyO3M9o/edit#heading=h.gplov06nw24p"></iframe>',
+      'main-phone', '<iframe name="main-phone"src="https://docs.google.com/document/d/1n3nEfer7vQcE4yIQAQyoBiWsi3r7f5mfgwmEUNXZ3AI"></iframe>',
+      'main-numbersi', '<iframe name="main-numbersi"src="https://docs.google.com/document/d/1DZyE3jJly8yzzS7kpD_ZltomQ3yrJU_v1pw0tWFUQa0"></iframe>',
+      'main-numbersii', '<iframe name="main-numbersii"src="https://docs.google.com/document/d/1oBEX9j0Z32UQtVnnojsNFDCIz21R7LnyuoSp_2Uila0"></iframe>',
+      'main-study', '<iframe name="main-study"src="https://docs.google.com/document/d/147DwKIZ1UvGuWnCekBmOwyWZz9XUdfNgPqHkOdiiRPc"></iframe>',
+      'main-psv', '<iframe name="main-psv"src="https://docs.google.com/document/d/1YaYAVWfOIgxDCFRkKlu4sp_yvYKKA4Qqydi_kddYGJE"></iframe>'
+    ]
+
+    $('#pinned-bg').on('click', 'a', function () {
+      var clickedEl = this;
+      for (let i = 0; i < iframessrc.length; i++) {
+        if (clickedEl.target == iframessrc[i]) {
+          $(`#${clickedEl.target}`).append(iframessrc[i + 1])
+          $(function () {$(`#${clickedEl.target}`).draggable({ containment: "body" }).resizable();});
+          $(`.${clickedEl.target}`).find("iframe").removeClass('inUse').addClass('inUse');
+          $(`.${clickedEl.target}`).find("button").removeClass('inUse').addClass('inUse');
+          $(`.${clickedEl.target}`).removeClass('inUse').addClass('inUse');
+        }
+      }
+    })
+    $('a[target]').click(function () {
+      var clickedEl = this;
+      for (let i = 0; i < iframessrc.length; i++) {
+        if (clickedEl.target == iframessrc[i]) {
+          $(`#${clickedEl.target}`).append(iframessrc[i + 1])
+          $(function () {$(`#${clickedEl.target}`).draggable({ containment: "body" }).resizable();});
+          addClick()
+        }
+      }
+    });
+
+    function changeThreadType(button) {
+      var docbuttons = document.getElementsByClassName("threadbutton")
+      for (let i = 0; i < docbuttons.length; i++) {
+        if (docbuttons[i].name == button.name) {
+          $(`#${button.name}-bg`).addClass('inUse')
+        } else {
+          $(`#${docbuttons[i].name}-bg`).removeClass('inUse')
+        }
+      }
+      window.currentbutton = button.name
+    }
+    function updatePinned() {
+      $(document).ready(function () {
+      try{
+        var targets = JSON.parse(localStorage.getItem('targets'));
+        var names = JSON.parse(localStorage.getItem('names'));
+
+        $("#pinned-bg").empty()
+        for (let i = 0; i < targets.length; i++) {
+
+          var pinned = `<a target="${targets[i]}" class="text">${names[i]}</a>`
+          $("#pinned-bg").append(pinned)
+        }
+      } catch {}
+      })
+    }
+    updatePinned()
+    function changeToPinned() {
+      $('button[name]').click(function () {
+        if (this.name === "pinned") {
+          $('#main-bg').removeClass('inUse')
+          $('#theory-bg').removeClass('inUse')
+          $('#main-title-bg').removeClass('inUse')
+          $('#pinned-bg').addClass('inUse')
+          $('#pinned-title-bg').addClass('inUse')
+        }
+      });
+    }
+
+    function changeToDocuments() {
+      $('button[name]').click(function () {
+        if (this.name === "documents") {
+          $(`#${window.currentbutton}-bg`).addClass('inUse')
+          $('#main-title-bg').addClass('inUse')
+          $('#pinned-bg').removeClass('inUse')
+          $('#pinned-title-bg').removeClass('inUse')
+        }
+      });
+    }
+
+    function closeiframe() {
+      $('button[name]').click(function () {
+        var clickedEl = this;
+        $(`.${clickedEl.name}`).find("iframe").remove()
+        $(`.${clickedEl.name}`).find("button").removeClass('inUse');
+        $(`.${clickedEl.name}`).removeClass('inUse');
+      });
+    }
+    function addClick() {
+      $('a[target]').click(function () {
+        var clickedEl = this;
+        $(`.${clickedEl.target}`).find("iframe").removeClass('inUse').addClass('inUse');
+        $(`.${clickedEl.target}`).find("button").removeClass('inUse').addClass('inUse');
+        $(`.${clickedEl.target}`).removeClass('inUse').addClass('inUse');
+      });
+    }
+    addClick()
+  </script>
+  <div id="contextMenu" class="context-menu" style="display: none">
+    <button id="context-menu-button" , onclick="pinOrUnpinDocument(this);updatePinned()" style="content: ''"
+      ;"></button>
+  </div>
+  <script>
+    document.onclick = hideMenu;
+    document.oncontextmenu = rightClick;
+
+    function hideMenu() {
+      document.getElementById("contextMenu")
+        .style.display = "none"
+    }
+
+    function pinOrUnpinDocument(button) {
+      if (button.innerHTML === "Pin") {
+        target = window.rightclicked.target.target
+        title = window.rightclicked.target.outerText
+        var targets = JSON.parse(localStorage.getItem('targets'));
+        var names = JSON.parse(localStorage.getItem('names'));
+        try {
+          targets.push(target)
+          names.push(title)
+        } catch {
+          targets = [target]
+          names = [title]
+        }
+      } else {
+        target = window.rightclicked.target.target
+        title = window.rightclicked.target.outerText
+        var targets = JSON.parse(localStorage.getItem('targets'));
+        var names = JSON.parse(localStorage.getItem('names'));
+        var index = targets.indexOf(target);
+        if (index > -1) {
+          targets.splice(index, 1);
+        }
+        var index = names.indexOf(title);
+        if (index > -1) {
+          names.splice(index, 1);
+        }
+      }
+
+      localStorage.setItem('targets', JSON.stringify(targets));
+      localStorage.setItem('names', JSON.stringify(names));
+    }
+
+    function rightClick(e) {
+      e.preventDefault();
+      window.rightclicked = e
+      if (e.target.parentElement && e.target.parentElement.id === "main-bg" || e.target.parentElement && e.target.parentElement.id === "pinned-bg") {
+        hideMenu();
+        var menu = document.getElementById("contextMenu")
+        var button = document.getElementById("context-menu-button")
+        var targets = JSON.parse(localStorage.getItem('targets'));
+        try {
+          var target = targets.find(target => target === e.target.target)
+          if (!target) {
+            button.textContent = "Pin";
+          } else {
+            button.textContent = "Unpin"
+          }
+        } catch {
+          button.textContent = "Pin";
+        }
+
+        menu.style.display = 'block';
+        menu.style.left = e.pageX + "px";
+        menu.style.top = e.pageY + "px";
+      } else {
+        hideMenu()
+      }
+    }
+  </script>
+</body>
+
+</html>

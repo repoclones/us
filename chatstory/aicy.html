@@ -1,0 +1,489 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <style>
+    body {
+      
+      overflow: hidden;
+      background-size: cover;
+      transition: filter 0.5s ease-in-out;
+      z-index: -1;
+    }
+    .icons {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+    }
+    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      cursor: url(point3.png), pointer;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .icon-label {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  </style>
+  <title>Windows XP Window</title>
+ 
+  <style>
+    .window {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .window .title-bar {
+      cursor: move;
+    }
+        .title-bar-text {
+      user-select: none; /* Make the title bar text not selectable */
+    }
+
+    .slider {
+      width: 150px !important;
+      margin: 20px;
+    }
+    .bottom-right-text {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      color: #fff;
+      font-size: 10px;
+      text-align: right;
+    }
+  </style>
+
+
+<style>
+    /* Custom styles for the chatroom */
+    .chat-container {
+      width: 95%;
+      height: 300px;
+      background-color: #ffffff;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+    }
+
+    .chat-message .user {
+      font-weight: bold;
+    }
+
+    .chat-message .time {
+      color: #808080;
+      font-size: 0.8em;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .send-button {
+      margin-top: 10px;
+      width: 100px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css">
+  
+  <script>
+window.onload = function() {
+  const windowElement = document.querySelector('.window');
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  function handleMouseDown(e, element) {
+    isDragging = true;
+    offsetX = e.clientX - element.offsetLeft;
+    offsetY = e.clientY - element.offsetTop;
+  }
+  
+  function handleMouseMove(e, element) {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+      element.style.left = x + 'px';
+      element.style.top = y + 'px';
+    }
+  }
+  
+  function handleMouseUp() {
+    isDragging = false;
+  }
+  
+  windowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mouseup', handleMouseUp);
+  
+
+  
+};
+    
+  </script>
+</head>
+<body style="background-color: #3B6EA5;">
+  
+
+
+
+
+<div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">Messenger</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="chat-container">
+        
+      </div>
+      <input type="text" class="chat-input" placeholder="Type your message..." id="inputField" oninput="matchCharacters(this.value)">
+      <button class="send-button">Send</button>
+    </div>
+  </div>
+
+  
+<!-- 
+
+  <div class="chat-message">
+          <span class="user">User1:</span>
+          <span class="message">Hello, how are you?</span>
+          <span class="time">11:30 AM</span>
+        </div> -->
+  
+<!-- website is so slow... -->
+
+
+<div class="bottom-right-text">Your progress will not be saved!<br>Only endings are saved to earn achievements.</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+  
+  <script>
+ const sendButton = document.querySelector('.send-button');
+    const chatInput = document.querySelector('.chat-input');
+    const chatContainer = document.querySelector('.chat-container');
+setInterval(function() {return currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });}, 10);
+
+
+    var chatcount = 1;
+    
+    sendButton.addEventListener('click', function() {
+      const message = chatInput.value.trim();
+      if (message == stringToMatch){
+      if (message !== '') {
+        var currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const chatMessage = `
+          <div class="chat-message">
+            <span class="user">Amy:</span>
+            <span class="message">${message}</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        chatInput.value = '';
+        stringToMatch = '';
+        chatcount++;
+        checkChatStory();
+      }
+        }
+    });
+
+    chatInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        sendButton.click();
+      }
+    });
+
+
+
+  
+
+
+    $.notify("Logged in to Amy", "success");
+    var currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    
+
+    setTimeout(chat1, 1000)
+    
+    function chat1() {
+      setTimeout(function () {
+        
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Hey Amy, what's up? Kimmy's mom, Sarah here...</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 1000);
+    setTimeout(function () {
+        
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Hi! Guess it's been about 2 years...</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 2500);
+
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Hey, sure wish you would reply...</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 4000);
+      
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Oh!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 6000);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Maybe I should have said Billy's mommy...</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 7000);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">LOL!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        return stringToMatch = "Can I help you?"
+      }, 7500);
+
+      // end of chat segment
+    }
+
+
+
+    function chat2() {
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Finally!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 2500);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Always so slow in answering!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 3200);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Never change LOL!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        return stringToMatch = "Yeah, right."
+      }, 5500);
+      
+
+      // end of chat segment
+    }
+
+
+    function chat3() {
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Wait a sec!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 1500);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">This is important!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        return stringToMatch = "I'm sure it's all a bunch of bullshit, don't wanna hear it tbh..."
+      }, 2500);
+
+
+      // end of chat segment
+    }
+
+    function chat4() {
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Come on!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 1000);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Don't be that way...</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 2000);
+      setTimeout(function () {
+        var chatMessage = `
+          <div class="chat-message">
+            <span class="user">Sarah:</span>
+            <span class="message">Got a new boyfriend!!!</span>
+            <span class="time">${currentTime}</span>
+          </div>
+        `;
+        chatContainer.innerHTML += chatMessage;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        return stringToMatch = "You don't say."
+      }, 4000);
+
+
+      // end of chat segment
+    }    
+
+
+      var stringToMatch = "";
+    
+    function matchCharacters(inputValue) {
+      var inputField = document.getElementById("inputField");
+      var matchedValue = "";
+      
+      for (var i = 0; i < inputValue.length && i < stringToMatch.length; i++) {
+      //  if (inputValue[i] === stringToMatch[i]) {
+          matchedValue += stringToMatch[i];
+      //  } else {
+      //    break;
+      //  }
+      }
+      
+      inputField.value = matchedValue;
+    }
+
+
+    function checkChatStory(){
+      switch (chatcount) {
+        case 2:
+          chat2();
+          break;
+        case 3:
+          return stringToMatch = "Forgot to block you."
+          break;
+        case 4:
+          return stringToMatch = "Goodbye."
+          break;
+        case 5:
+          chat3();
+          break;
+        case 6:
+          chat4();
+          break;
+        case 7:
+          return stringToMatch = "What happened to Derrik?"
+          break;
+        default:
+          $.notify("An unexpected error occured.", "fail");
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

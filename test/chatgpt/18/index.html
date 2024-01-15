@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Random Button</title>
+  <style>
+    body {
+  position: relative;
+}
+
+#randomButton {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+  </style>
+</head>
+<body>
+  <button id="randomButton">Press Me!</button>
+
+  <script>
+
+    function getRandomPosition() {
+  var windowHeight = window.innerHeight;
+  var windowWidth = window.innerWidth;
+  var buttonWidth = document.getElementById('randomButton').offsetWidth;
+  var buttonHeight = document.getElementById('randomButton').offsetHeight;
+
+  var maxX = windowWidth - buttonWidth;
+  var maxY = windowHeight - buttonHeight;
+
+  var randomX = Math.floor(Math.random() * maxX);
+  var randomY = Math.floor(Math.random() * maxY);
+
+  return [randomX, randomY];
+}
+
+document.getElementById('randomButton').onclick = function() {
+  var position = getRandomPosition();
+  var randomX = position[0];
+  var randomY = position[1];
+
+  this.style.left = randomX + 'px';
+  this.style.top = randomY + 'px';
+};
+
+  </script>
+</body>
+</html>

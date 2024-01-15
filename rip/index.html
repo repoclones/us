@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      display: none; /* Hide the page initially */
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .blurred-border {
+      border: 10px solid transparent;
+      border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #333) 1;
+      filter: blur(0px);
+      border-image-slice: 10;
+      border-radius: 15px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    #main-image {
+      width: 100%;
+      height: auto;
+      filter: blur(0px);
+      border-radius: 5px;
+    }
+
+    #bottom-text {
+      margin-top: 20px;
+      font-family: 'Arial', sans-serif; /* Replace with your preferred font */
+      font-size: 18px;
+      color: #333;
+    }
+    a:link {color:#333;
+           background-color: transparent;
+    text-decoration: underline;}
+
+     a:visited {color:#333;
+           background-color: transparent;
+    text-decoration: underline;}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="blurred-border">
+    <img style="width: 400px; height:400px;"id="main-image" src="bye.jpg" alt=Neurosama.top">
+  </div>
+  <div id="bottom-text">
+    <h3><i>"It was fun while it lasted."</i></h3>
+    <p>This domain will expire on February 2024 due to financial reasons.<br>The site will still function as normal but it will be gone eventually after February 2024.<br><br>If you are interested in a new domain where a copy of this site will be at, <br>feel free to visit neuro.uk.to or neuro.us.to</p>
+    
+    <p>- - -</p>
+    <p>To whom it may concern, if you are willing to buy this domain again, please use it well.</p>
+    <p>- - -</p>
+
+    <a href="https://twitch.tv/vedal987"><p>Click here for Neuro-sama</p></a>
+    <a href="../homexp"><p>Click here for website contents</p></a>
+    <a href="https://neuro.us.to"><p>Click here for NeuroUsTo</p></a>
+    <a href="https://neuro.uk.to"><p>Click here for NeuroUkTo</p></a>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('body').fadeIn(1000); // Fade in the whole page on first visit
+  });
+</script>
+
+</body>
+</html>

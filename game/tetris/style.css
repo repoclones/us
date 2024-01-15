@@ -1,0 +1,24 @@
+.game-board {
+  width: 200px;
+  height: 400px;
+  background-color: #eee;
+  margin: 0 auto;
+  position: relative;
+}
+
+.game-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-info button {
+  margin-top: 10px;
+}
+
+.block {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  background-color: #666;
+}

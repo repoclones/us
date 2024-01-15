@@ -1,0 +1,154 @@
+<html><head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+  <link href="https://mullvad.net/_app/immutable/assets/_layout.e798950a.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/static.b3301c1a.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/what-is-privacy.4ae4263e.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/what-is-vpn.9e0aea3f.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/chatcontrol.3f76e3cf.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/_page.755b298e.css" rel="stylesheet">
+		<link href="https://mullvad.net/_app/immutable/assets/Hero.3e1f521f.css" rel="stylesheet">
+  <link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/0.2b0847da.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/_layout.d5b63c48.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/i18n-util.async.8e01ea99.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/preload-helper.41c905a7.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/i18n-util.f55c3e94.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/entry/_layout.svelte.d3148975.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/index.46b61411.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/stores.215369cb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/singletons.5037cccb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/index.54aa14dd.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/i18n-svelte.970f8f3e.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/IconExternalLinkAlt.5a6e99b5.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/public.07a10e19.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/navigation.24cb00d8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/IconAngleDown.57888a24.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/1.61b55d35.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/entry/error.svelte.b002106a.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/79.b8db94d5.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/_page.549f74c1.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/entry/_lang_-page.svelte.cbd6bc86.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/WrappedTranslation.87d7f615.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/desktop-2023.6f5787b7.js"><link rel="modulepreload" as="script" crossorigin="" href="https://mullvad.net/_app/immutable/chunks/Hero.0c3fe56c.js">
+<style>
+.printer-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.printer {
+  position: relative;
+  width: 200px;
+  height: 220px;
+  border: 2px solid #ccc;
+  background-color: #878787;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.printer-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #666;
+}
+
+.printer-paper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  margin: 20px 10px;
+}
+
+.ticket {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.printer-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #666;
+}
+
+.print-button {
+  margin-top: 20px;
+}
+
+.printer-printing {
+  animation: printing 2s linear;
+}
+
+@keyframes printing {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+</style>
+
+  
+</head>
+<body><div class="printer-container">
+  <div class="printer">
+    <div class="printer-top"></div>
+    <div class="printer-paper">
+      <div class="ticket">
+        <span class="ticket-number"></span>
+      </div>
+    </div>
+    <div class="printer-bottom"></div>
+  </div>
+  <button class="print-button">Print ticket</button>
+
+
+
+   <div class="svelte-1bpwj22"><svg class="illustration-account-number-svg svelte-pof6x5" width="360" height="270" viewBox="0 0 360 270" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="strip-path" d="M0 13L15 0l14 13L44 0l14 13L73 0l14 13 15-13 14 13v546l-14-12.494L87 559l-14-12.494L58 559l-14-12.494L29 559l-14-12.494L0 559z"></path><mask id="strip-mask" x="-10" y="-10" width="136" height="579"><path fill="#fff" d="M-10-10h136v579H-10z"></path><use xlink:href="#strip-path"></use></mask><linearGradient id="cover-grad" x1="0%" y1="0%" x2="0%" y2="90%"><stop offset="0%" style="stop-color:rgb(245,245,245);stop-opacity:0"></stop><stop offset="100%" style="stop-color:rgb(245,245,245);stop-opacity:1"></stop></linearGradient></defs><g id="Grafik" fill="none" fill-rule="evenodd"><g id="Group"><rect id="Combined-Shape" fill-opacity=".05" fill="#000" x="11" y="29" width="339" height="102" rx="5.622"></rect><rect id="Rectangle-24" fill="#F9CF22" y="0" width="360" height="121" rx="6"></rect><ellipse id="Oval-9" fill="#D2943B" opacity=".3" cx="277.438" cy="58.426" rx="8.438" ry="8.426"></ellipse><ellipse id="Oval-9-Copy" fill="#44AD4D" cx="309.438" cy="58.426" rx="8.438" ry="8.426"></ellipse><rect id="Rectangle-24-Copy" fill="#000" opacity=".4" x="45" y="53" width="174.375" height="16.853" rx="2.811"></rect><g class="animation svelte-pof6x5" id="paper-strip" style="animation-play-state: running;"><g id="Rectangle-24-Copy-2" transform="translate(74)"><use fill="#F8F8F8" xlink:href="#strip-path"></use><use stroke-opacity=".05" stroke="#000" mask="url(#strip-mask)" stroke-width="20" stroke-linejoin="round" xlink:href="#strip-path"></use></g><g class="paper-strip-numbers-text svelte-pof6x5"><text fill="#4a4a4a">neurosamaTop</text></g><path d="M174.394 536.25V19.792" id="Path-7" stroke="#1D2A3A" stroke-width="5.622" stroke-dasharray="11.245" opacity=".3"></path><path d="M92.394 536.25V21.5" id="Path-7-Copy" stroke="#1D2A3A" stroke-width="5.622" stroke-dasharray="11.245" opacity=".3"></path></g><rect id="Rectangle-24-Copy-12" fill="#F9CF22" x="35" y="0" width="195" height="53.087" rx="6"></rect><rect id="Rectangle-24-Copy" fill="#957C14" opacity=".4" x="45" y="53" width="174.375" height="9.72" rx="2.811"></rect><rect id="bottom-cover" fill="url(#cover-grad)" x="30" y="200" width="200" height="70"></rect></g></g></svg></div>
+
+
+
+
+  <div class="svelte-1bpwj22"><svg class="illustration-set-up-vpn-svg svelte-31urso" width="360" height="200" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><defs><mask id="setup-code-mask"><rect fill="#FFFFFF" id="setup-code-mask-rect" x="44" y="11" width="270" height="160"></rect></mask><mask id="setup-done-mask"><rect fill="#FFFFFF" id="setup-done-mask-rect" rx="2" x="36" y="11" width="289" height="160"></rect></mask></defs><g id="setup-Symbols" fill="none" fill-rule="evenodd"><g id="setup-Getting-Started"><g id="setup-Group-4"><g id="setup-Lappy"><rect id="setup-Rectangle-127" fill-opacity=".05" fill="#000" y="180.851" width="360" height="19.149" rx="9.563"></rect><rect id="setup-Rectangle-127-Copy" fill-opacity=".05" fill="#000" x="8.727" y="19.149" width="342.545" height="172.34" rx="9.563"></rect><rect id="setup-Rectangle-24-Copy-6" fill="#1D4C22" x="24.545" width="310.909" height="180.851" rx="6.641"></rect><ellipse id="setup-Oval-9-Copy-3" fill="#203D5C" cx="180" cy="5.319" rx="2.727" ry="2.66"></ellipse><rect id="setup-Rectangle-24-Copy-8" fill="#FDFDFD" x="36" y="10.638" width="289.091" height="159.574" rx="2.656"></rect><path d="M0 180.85h360v5.32c0 2.938-2.382 5.32-5.315 5.32H5.315C2.38 191.49 0 189.1 0 186.17v-5.32z" id="setup-Combined-Shape" fill="#44AD4D"></path><path id="setup-Rectangle-24-Copy-9" fill-opacity=".2" fill="#000" d="M145.91 180.85h68.522v4.98H145.91z"></path><g id="setup-code" mask="url(#setup-code-mask)"><g id="setup-code-content"><path d="M310 41.223H50" id="setup-Path-7-Copy-2" stroke="#1D2A3A" stroke-width="7.467" opacity=".3"></path><path d="M310 139.628H50" id="setup-Path-7" stroke="#1D2A3A" stroke-width="7.467" opacity=".3"></path><g class="animation svelte-31urso" id="setup-account-number-wrapper" style="animation-play-state: running;"><text id="setup-account-number" fill="#4A4A4A" class="svelte-31urso"><tspan>neurosamaTop</tspan> </text></g><rect class="animation svelte-31urso" id="setup-code-cover" x="45" y="20" width="269" height="140" fill="#ffffff" style="animation-play-state: running;"></rect></g></g><g class="animation svelte-31urso" id="setup-cursor" style="animation-play-state: running;"><rect class="animation svelte-31urso" id="setup-cursor-rect" width="8" height="74" style="animation-play-state: running;"></rect></g><g class="animation svelte-31urso" id="done-screen" mask="url(#setup-done-mask)" style="animation-play-state: running;"><rect x="0" y="0" width="350" height="180" class="animation green-bg svelte-31urso" fill="#44AD4D" style="animation-play-state: running;"></rect><g class="animation svelte-31urso" id="done-tick" fill="none" fill-rule="evenodd" style="animation-play-state: running;"><circle fill-opacity=".4" fill="#000" opacity=".2" cx="40.5" cy="40.5" r="40.5"></circle><circle fill="#FDFDFD" cx="40" cy="40" r="29"></circle><path stroke="#44AD4D" stroke-width="4" d="M28 44l9 7 15-21"></path></g></g></g></g></g></g></svg></div>
+
+<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="20" width="160" height="100" rx="10" fill="#ddd"/>
+  <rect x="30" y="35" width="140" height="70" rx="5" fill="#fff"/>
+  <rect x="30" y="105" width="140" height="15" fill="#333"/>
+  <rect x="40" y="120" width="120" height="5" fill="#333"/>
+</svg>
+<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Laptop body -->
+  <rect x="20" y="20" width="320" height="160" rx="10" fill="#fff" stroke="#000" stroke-width="2"/>
+  <!-- Screen -->
+  <rect x="40" y="40" width="280" height="120" rx="5" fill="#eee" stroke="#000" stroke-width="2"/>
+  <!-- Error dialog -->
+  <rect x="80" y="70" width="200" height="80" rx="10" fill="#fff" stroke="#f00" stroke-width="2"/>
+  <text x="100" y="100" font-size="18">Error: Something went wrong!</text>
+</svg>
+
+
+
+  
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+  $(".print-button").click(function() {
+    // Generate a random ticket number
+    var ticketNumber = Math.floor(Math.random() * 1000000);
+    // Display the ticket number in the ticket
+    $(".ticket-number").text(ticketNumber);
+    // Add the "printer-printing" class to the printer paper
+    $(".printer-paper").addClass("printer-printing");
+    // Remove the "printer-printing" class after the animation ends
+    setTimeout(function() {
+      $(".printer-paper").removeClass("printer-printing");
+    }, 2000);
+  });
+});
+
+</script>
+
+ 
+</body>
+
+</html>

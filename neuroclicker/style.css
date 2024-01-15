@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+.dark{
+  --bg: #000522;
+  --button: #686a73;
+  --buttonSecondary: #bdc0cb;
+  --text: #ededed;
+  --buttonBorder: #cccccc;
+  --shadow: #5e5e5e80;
+}
+
+.light{
+  --bg: #ffffff;
+  --button: #FFE878;
+  --buttonSecondary: #fff9d6;
+  --text: #000000;
+  --buttonBorder: #000000;
+  --shadow: #00000080;
+}
+
+.evil{
+  --bg: #000000;
+  --button: #cc3333;
+  --buttonSecondary: #d67a7a;
+  --text: #cc3333;
+  --buttonBorder: #cc3333;
+  --shadow: #5e5e5e80;
+}
+
+*{
+  font-family: Inconsolata, monospace;
+  color: var(--text);
+  transition: color 1.5s;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body{
+  background: var(--bg);
+  box-shadow: none;
+  transition: box-shadow 5s, background 3s;
+}
+
+#notice{
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+#noticeText{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+#upgrades{
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100vh;
+  width: 15vw;
+  overflow-x: hidden;
+  padding: 5px;
+  text-align: center;
+}
+
+#upgrades h2{
+  margin: 5px;
+}
+
+.upgrade{
+  width: inherit;
+  padding: 12px 3px;
+  border: 2px solid var(--buttonBorder);
+  border-radius: 6px;
+  background: transparent;
+  transition: transform .1s;
+}
+
+.upgrade:hover{
+  transform: scale(1.025);
+}
+
+.upgrade:active{
+  transform: scale(1);
+}
+
+.upgrade:not(:nth-child(1)){
+  margin-top: 10px;
+}
+
+#middle{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  text-align: center;
+  pointer-events: none;
+}
+
+#click{
+  margin-top: 10px;
+  border-radius: 50%;
+  max-width: 120px;
+  max-height: 120px;
+  width: 20vw;
+  height: 20vw;
+  border: 8px solid var(--button);
+  color: var(--button);
+  background: var(--buttonSecondary);
+  font-size: 40px;
+  transition: transform .15s, box-shadow .15s, border 1s, color 1s, background 1s;
+  pointer-events: auto;
+}
+
+#click:hover{
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#click:active{
+  transform: scale(1);
+  box-shadow: none;
+}
+
+#click img{
+  height: 40px;
+  width: 40px;
+  margin-top: 8px;
+}
+
+#hands{
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -35%);
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: -100;
+}
+
+#hands img{
+  width: 125px;
+  height: 125px;
+}
+
+#leftHand{
+  margin-right: 90px;
+}
+
+#rightHand{
+  margin-left: 90px;
+  transform: scaleX(-1);
+}
+
+#event{
+  border-radius: 6px;
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%, -35%);
+  transform: translate(-50%, -35%);
+  box-shadow: rgba(149, 157, 165, 0.15) 0px 8px 24px;
+  padding: 10px;
+  background: var(--bg);
+  width: 60vw;
+  font-size: 18px;
+  transition: background 1s;
+}
+
+#eventShadow{
+  background: var(--shadow);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+	z-index: 100;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+#eventName{
+  margin-top: 5px;
+}
+
+#eventImg{
+  position: relative;
+  bottom: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+}
+
+#eventBttns{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  visibility: inherit;
+}
+
+.eventBttn{
+  padding: 5px 10px;
+  border: 1px solid var(--buttonBorder);
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  transition: transform .2s;
+  font-size: 17px;
+}
+
+.eventBttn:hover{
+  transform: scale(1.025);
+}
+
+.eventBttn:active{
+  transform: scale(.975);
+}
+
+#fade{
+  animation: fade 30s cubic-bezier(0.97, 0.35, 0.95, 0.57) 1 paused;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background: #000000;
+  pointer-events: none;
+}
+
+@keyframes fade{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+#video{
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+}

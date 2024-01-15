@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ping Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Ping Website</h1>
+      <p>Ping a website with a press of a button</p>
+      <div class="form-group">
+        <label for="url">Website URL:</label>
+        <input type="text" class="form-control" id="url" placeholder="Enter website URL">
+      </div>
+      <button type="button" class="btn btn-primary" id="ping-btn">Ping Website</button>
+      <div id="ping-results" class="mt-3"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#ping-btn').click(function() {
+          var url = $('#url').val();
+          $('#ping-results').html('Pinging ' + url + '...');
+          $.ajax({
+            url: url,
+            type: 'HEAD',
+            timeout: 5000,
+            success: function() {
+              $('#ping-results').html('Website ' + url + ' is up and running!');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              $('#ping-results').html('Error pinging website ' + url + ': ' + textStatus);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

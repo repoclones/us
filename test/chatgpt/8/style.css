@@ -1,0 +1,68 @@
+.flash-update-dialog {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.flash-update-dialog-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+}
+
+.flash-update-dialog-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flash-update-dialog-close {
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.flash-update-dialog-body {
+  padding: 20px 0;
+}
+
+.flash-update-dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flash-update-dialog-remind-me-later {
+  background-color: #ddd;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.flash-update-dialog-install-now {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden!important;
+  }
+      .unscrollable-container {
+    height: 100%;
+    overflow: hidden!important;
+  }

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Messaging App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Header section -->
+                <div class="header" style="position: fixed;top: 0;left: 0;right: 0;background-color: #fff;padding: 10px;margin-left: 15%;margin-right: 15%;">
+                    <img src="../../fumoo.png" alt="Profile picture">
+                    <div class="user-details">
+                        <h3>John Doe</h3>
+                        <p class="status">Online</p>
+                    </div>
+                </div>
+                <!-- Messages section -->
+                <div class="messages">
+                  <div class="message time-separator">
+        <span class="time">10:00 AM</span>
+    </div>
+                    <div class="message sent">
+                        <p>Hello!</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Hey, what's up?</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Long time no see!</p>
+                        
+                    </div>
+                    <div class="message sent">
+                        <p>Yeah, it's been a while.</p>
+                        
+                    </div>
+
+
+                   <div class="message sent">
+                        <p>Hello!</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Hey, what's up?</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Long time no see!</p>
+                        
+                    </div>
+                    <div class="message sent">
+                        <p>Yeah, it's been a while.</p>
+                        
+                    </div>
+                   <div class="message sent">
+                        <p>Hello!</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Hey, what's up?</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Long time no see!</p>
+                        
+                    </div>
+                    <div class="message sent">
+                        <p>Yeah, it's been a while.</p>
+                        
+                    </div>
+                   <div class="message sent">
+                        <p>Hello!</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Hey, what's up?</p>
+                        
+                    </div>
+                    <div class="message received">
+                        <p>Long time no see!</p>
+                        
+                    </div>
+                    <div class="message sent">
+                        <p>Yeah, it's been a while.</p>
+                        
+                    </div>
+                </div>
+                <!-- Input section -->
+                <div class="input-section">
+                    <input id="sds" type="text" placeholder="Type a message..." disabled>
+                    <button><i class="fas fa-paper-plane"></i></button>
+                  
+                  
+                </div>
+              <div class="buttons buttonsd">
+                        <a href="javascript:void(0)" id="ch1">...</a>
+                <br>
+                        <a href="javascript:void(0)" id="ch2">...</a>
+                <br>
+                        <a href="javascript:void(0)" id="ch3">...</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script>
+
+
+
+
+    
+$(document).ready(function() {
+  // Initialize a boolean variable to false
+  var firstDisabled = false;
+  var secondDisabled = true;
+  var thirdDisabled = true;
+  var cs1 = "...";
+  var cs2 = "...";
+  var cs3 = "...";
+  var story = 0;
+setInterval(function(){
+    $('#ch1').html(cs1);
+  $('#ch2').html(cs2);
+  $('#ch3').html(cs3);// Code to be executed
+}, 10);
+
+  
+  // Click handler for the first link
+  $('#ch1').click(function() {
+    // Check if the third link has been clicked
+    if (firstDisabled) {
+      return;
+    }
+
+    $('#sds').val('Input value for the first link clicked');
+  });
+
+  
+  // Click handler for the second link
+  $('#ch2').click(function() {
+
+    if (secondDisabled) {
+      return;
+    }
+    
+    $('#sds').val('Input value for the second link clicked');
+  });
+  
+  // Click handler for the third link
+  $('#ch3').click(function() {
+    // Update the boolean variable to true
+    if (thirdDisabled) {
+      return;
+    }
+
+    $('#sds').val('Input value for the third link clicked');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

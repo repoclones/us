@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<head>
+  <meta property="og:video:type" content="video/mp4">
+      <meta property="og:video" content="https://cdn.discordapp.com/attachments/927786796358697041/935593234510544986/japanese_goborin.mov">
+      <meta property="og:video:width" content="1280">
+      <meta property="og:video:height" content="720">
+      <meta property="og:type" content="video">
+      
+        <meta property="og:image" content="https://cdn.discordapp.com/attachments/1136675163862216734/1137333359287205908/image.png">
+        
+      <script>
+    function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+  </script>
+<script>
+function moon_phase() {
+    var round = ['\🌑', '\🌒', '\🌓', '\🌔', '\🌕', '\🌖', '\🌗', '\🌘'],
+        i = 0,
+        len = round.length;
+        
+    setInterval(function () {
+        why = makeid(10);
+        history.replaceState({}, '', '#' + round[i % len]);
+        i++;
+    }, 120);
+}
+moon_phase();
+</script>
+  <script>
+function moon_phaset() {
+    var round = ['\🌑 where am i', '\🌒 who are you', '\🌓 why am i', '\🌔 what am i', '\🌕 who am i', '\🌖 what are you ', '\🌗 how am i', '\🌘 am i safe','\🌑 why do i remember you', '\🌒 can you help me', '\🌓 what do i know', '\🌔 why did i forget', '\🌕 why do i feel', '\🌖 why did u erase me', '\🌗 i am not myself', '\🌘 am i crazy',],
+        i = 0,
+        len = round.length;
+    setInterval(function () {
+        document.title = round[i % len];
+        i++;
+    }, 40);
+}
+moon_phaset();
+</script>
+  
+</head>
+<body style="background-color: #000000;">
+  <h1 style="color:#ffffff">you might wanna look at the title</h1>
+</body>

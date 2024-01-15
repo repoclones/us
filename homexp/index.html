@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <style>
+    body {
+      
+      overflow: hidden;
+      background: url(./wallpaper.png) no-repeat center center fixed; 
+      background-size: cover;
+      transition: filter 0.5s ease-in-out;
+      z-index: -1;
+    }
+    .icons {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+    }
+    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      cursor: url(point3.png), pointer;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .icon-label {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  </style>
+  <title>Neurosama Scuffed XP</title>
+ 
+  <style>
+    .window {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .window .title-bar {
+      cursor: move;
+    }
+        .title-bar-text {
+      user-select: none; /* Make the title bar text not selectable */
+    }
+
+    .slider {
+      width: 150px !important;
+      margin: 20px;
+    }
+  </style>
+
+
+<style>
+    /* Custom styles for the chatroom */
+    .chat-container {
+      width: 95%;
+      height: 300px;
+      background-color: #ffffff;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+    }
+
+    .chat-message .user {
+      font-weight: bold;
+    }
+
+    .chat-message .time {
+      color: #808080;
+      font-size: 0.8em;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .send-button {
+      margin-top: 10px;
+      width: 100px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  .marquee {
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+  .logo {
+  fill: #fff;
+}
+.bodys {
+  width:100%
+  height: 100%;
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+  </style>
+
+  
+  <script>
+window.onload = function() {
+  const windowElement = document.querySelector('.window');
+  const settingsWindowElement = document.querySelector('#w-settings');
+  const baWindowElement = document.querySelector('#w-ba');
+  const testWindowElement = document.querySelector('#w-test');
+  const smolscaredWindowElement = document.querySelector('#w-smolscared');
+  const evildanceWindowElement = document.querySelector('#w-evildance');
+  const neurorollWindowElement = document.querySelector('#w-neuroroll');
+
+  
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  function handleMouseDown(e, element) {
+    isDragging = true;
+    offsetX = e.clientX - element.offsetLeft;
+    offsetY = e.clientY - element.offsetTop;
+  }
+  
+  function handleMouseMove(e, element) {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+      element.style.left = x + 'px';
+      element.style.top = y + 'px';
+    }
+  }
+  
+  function handleMouseUp() {
+    isDragging = false;
+  }
+  
+  windowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mouseup', handleMouseUp);
+  
+  settingsWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, settingsWindowElement);
+  });
+  
+  settingsWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, settingsWindowElement);
+  });
+  
+  settingsWindowElement.addEventListener('mouseup', handleMouseUp);
+
+  baWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, baWindowElement);
+  });
+  
+  baWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, baWindowElement);
+  });
+  
+  baWindowElement.addEventListener('mouseup', handleMouseUp);
+
+
+
+  testWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, testWindowElement);
+  });
+  
+  testWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, testWindowElement);
+  });
+  
+  testWindowElement.addEventListener('mouseup', handleMouseUp);
+
+
+
+  
+
+    smolscaredWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, smolscaredWindowElement);
+  });
+  
+  smolscaredWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, smolscaredWindowElement);
+  });
+  
+  smolscaredWindowElement.addEventListener('mouseup', handleMouseUp);
+
+
+
+
+   evildanceWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, evildanceWindowElement);
+  });
+  
+  evildanceWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, evildanceWindowElement);
+  });
+  
+  evildanceWindowElement.addEventListener('mouseup', handleMouseUp);
+
+ neurorollWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, neurorollWindowElement);
+  });
+  
+  neurorollWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, neurorollWindowElement);
+  });
+  
+  neurorollWindowElement.addEventListener('mouseup', handleMouseUp);
+
+
+ 
+  
+};
+    
+  </script>
+</head>
+<body style="background-color: #3B6EA5;">
+   <script src="jquery.js"></script>
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text" id="title-window">Neurosama.top [aug-18-2023 update]</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow">
+    </div>
+  </div>
+
+   <div class="window" id="w-settings" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text" id="title-settings">Settings</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-settings"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-settings">
+      <ul class="icons">
+        <li class="icon" id="settings-wallpaper">
+          <img src="./icons/change_wallpaper.png" alt="Change Wallpaper">
+          <div class="icon-label">Change<br>Wallpaper</div>
+        </li>
+       <li class="icon">
+          <img src="./icons/change_theme.png" alt="Change Theme">
+          <div class="icon-label">Change<br>Theme</div>
+        </li>
+        <!-- Add more icons here (dont forget to change app.js) -->
+      </ul>
+      
+    </div>
+  </div>
+
+    <div class="window" id="w-ba" style="display:none; width:415px;">
+    <div class="title-bar">
+      <div class="title-bar-text">Bad Apple</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-ba"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-ba">
+      <p class="badappletext" id="badappletxt">Are you sure you want to play Bad Apple? <br><b>You won't be able to pause or stop until Bad Apple finishes.</b></p>
+          <section class="field-row" style="justify-content: flex-end" id="ba-buttonint1">
+      <button onclick="BA3()">Play</button>
+    </section>
+    </div>
+  </div>
+
+
+
+   <div class="window" id="w-test" style="display:none; width: 150px;">
+    <div class="title-bar">
+      <div class="title-bar-text">test app</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-test"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-test">
+  
+      
+    </div>
+
+</div>
+
+
+<div class="window" id="w-evildance" style="display:none; width: 150px;">
+    <div class="title-bar">
+      <div class="title-bar-text">Evil Dance</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-evildance"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-evildance">
+  
+      
+    </div>
+
+</div>
+
+  
+<div class="window" id="w-neuroroll" style="display:none; width: 200px;">
+    <div class="title-bar">
+      <div class="title-bar-text">Start NeuroRoll DVD</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-neuroroll"></button>
+      </div>
+    </div>
+    <div class="window-body" style="margin: 25px;" id="nwindow-neuroroll">
+  
+      <p>NeuroRoll Widget not started!</p>
+      <button id="neuroroll-startw" disabled>Widget disabled</button>
+      <button id="neuroroll-fullpage">Open in full page</button>
+    </div>
+
+</div>
+ 
+
+ 
+<!-- test test code (i removed the code, fuck it! no widget for now)-->
+
+  </script>
+
+
+  
+  
+  <div class="window" id="w-smolscared" style="display:none; width: 150px;">
+    <div class="title-bar">
+      <div class="title-bar-text">SmolScared</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-smolscared"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-smolscared">
+    <img id="neurolingu" src="./neurolingScared.gif" alt="Neuroling">
+      <p><strong style="font-size: 20px">SmolScared</strong><br>Click the neuroling before it goes away! <span style="color: #ff0000;">Before playing this game, make sure the GIF is fully loaded.</span></p>
+
+<button id="play-smolscared">Play Game</button>
+      
+<button id="difficulty">Difficulty: Very Easy</button>
+      
+<button onclick="restartGif()">Restart GIF</button>
+<button onclick="atr()">test</button>
+<script>
+  function restartGif() {
+  var gif = document.getElementById("neurolingu");
+  var src = gif.getAttribute("src");
+  gif.setAttribute("src", "");
+  setTimeout(function() {
+    gif.setAttribute("src", src);
+  }, 10);
+}
+
+function getRandomPosition() {
+  var windowHeight = window.innerHeight;
+  var windowWidth = window.innerWidth;
+  var buttonWidth = document.getElementById('w-smolscared').offsetWidth;
+  var buttonHeight = document.getElementById('w-smolscared').offsetHeight;
+
+  var maxX = windowWidth //- buttonWidth;
+  var maxY = windowHeight //- buttonHeight;
+
+  var randomX = Math.floor(Math.random() * maxX);
+  var randomY = Math.floor(Math.random() * maxY);
+
+  return [randomX, randomY];
+}
+
+function atr() {
+  var position = getRandomPosition();
+  var randomX = position[0];
+  var randomY = position[1];
+
+  document.getElementById('w-smolscared').style.left = randomX + 'px';
+  document.getElementById('w-smolscared').style.top = randomY + 'px';
+};
+
+
+</script>
+      
+    </div>
+</div>
+
+
+  
+   <div class="window" id="w-achievementsinfo" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">Information</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-achievementsinfo"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-achievementsinfo">
+      <p>This window lists all the achievements you can get.</p>
+      
+      <ul class="tree-view" style="height: 300px; overflow: auto;">
+        <details>
+      <summary><strong>🏆 Types of Achievements 🏆</strong></summary>
+      <ul> 
+        <details>
+           <summary>🔑 External Achievements</summary>
+          <ul>
+          <li>External Achievements can only be obtained by entering a code.</li>
+            
+            </ul>
+        </details>
+                <details>
+           <summary>🎉 Website Achievements</summary>
+          <ul>
+          <li>Website Achievements can only be obtained inside the website.</li>
+            </ul>
+        </details>
+      </ul>
+    </details>
+        <!-- Achievements Below -->
+        <details>
+      <summary>🎉 Welcome</summary>
+      <ul> 
+ <li>Open the Bad Apple application and watch until the end.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>🔑 fun ai fun ai fun ai</summary>
+      <ul> 
+ <li>Visit neurosama.fun and enter the code "funisinfinite".</li>
+      </ul>
+    </details>
+    <details>
+      <summary>🔑 ???</summary>
+      <ul> 
+ <li>[construction]</li>
+      </ul>
+    </details>
+      <details>
+      <summary>🎉 Bad Apple</summary>
+      <ul> 
+ <li>Open the Bad Apple application and watch until the end.</li>
+      </ul>
+    </details>
+      <details>
+      <summary>🎉 The Beloved Neurofumo</summary>
+      <ul> 
+ <li>Play Neurofumo Patting Simulator and reach 10 pats.</li>
+      </ul>
+    </details>
+</ul>
+      
+    </div>
+
+  <div class="window" id="w-achievements" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">Achievements</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-achievements"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-achievements">
+    </div>
+  </div>
+
+
+     
+  </div>
+  
+
+
+
+
+
+
+  
+
+  
+<!-- website is so slow... -->
+
+
+
+
+ 
+  <script src="app.js"></script>
+</body>
+</html>

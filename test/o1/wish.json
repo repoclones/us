@@ -1,0 +1,13 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "chiluno",
+	"model": "chiluno.moc",
+ "layout": {
+        "center_x": 0,
+        "center_y": -0.65,
+        "width": 2
+    },
+	"textures": [
+		"chiluno_00.png"
+	]
+}

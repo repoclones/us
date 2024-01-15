@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AVG Text Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      crossorigin="anonymous">
+      
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      crossorigin="anonymous"></script>
+      
+    <style>
+      .avg-text {
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 50px;
+        text-align: center;
+        font-size: 24px;
+      }
+      .avg-text p {
+        margin: 0;
+        padding: 0;
+      }
+      .btn-continue {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2 avg-text">
+          <p id="avg-message"></p>
+          <button type="button" class="btn btn-primary btn-continue">Continue</button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      var messages = ["Hi.", "Welcome...", "...", "As you can see...", "There's really nothing here, at this moment.", "You can go back. Don't press the button anymore.", "...", "...", "...", "You're wasting your time here.", "Time is gold.", "[end of message]", "[end of message]", "[end of message]", "You're still here?", "Bruh. Seriously..."];
+      var currentMessage = 0;
+      var isDisplayingMessage = false;
+
+      function displayMessage() {
+        if (!isDisplayingMessage && currentMessage < messages.length) {
+          var message = messages[currentMessage];
+          var messageBox = $("#avg-message");
+          var messageLength = message.length;
+          var i = 0;
+          messageBox.text("");
+          isDisplayingMessage = true;
+          var intervalId = setInterval(function() {
+            if (i < messageLength) {
+              messageBox.append(message.charAt(i));
+              i++;
+            } else {
+              clearInterval(intervalId);
+              currentMessage++;
+              isDisplayingMessage = false;
+            }
+          }, 50);
+        }
+      }
+
+      $(document).ready(function() {
+        displayMessage();
+        $(".btn-continue").click(function() {
+          if (!isDisplayingMessage) {
+            $(this).prop("disabled", true);
+            displayMessage();
+            setTimeout(function() {
+              $(".btn-continue").prop("disabled", false);
+            }, messages[currentMessage - 1].length * 50);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Live2D Model</title>
+    <script src=".{{ live2d }}"></script>
+    <script src=".{{ physics }}"></script>
+</head>
+<body>
+    <canvas id="live2d" width="300" height="400"></canvas>
+    <script>
+        var live2d_canvas = document.getElementById('live2d');
+        var live2d = new Live2DModel({
+            canvas: live2d_canvas,
+            modelUrl: '/static/model.model3.json',
+            //poseUrl: '/static/pose.json',
+            physicsUrl: '/static/model.cdi3.json',
+            //motionUrl: '/static/motions/motion_30.json',
+            motionGroup: 'idle',
+            //expressionUrl: '/static/expressions/angry.json'
+        });
+        live2d.start();
+    </script>
+</body>
+</html>

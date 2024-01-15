@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #000;
+    }
+    #video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #video-player {
+      width: 640px;
+      height: 360px;
+      background-color: #000;
+      position: relative;
+    }
+    #video-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+    #play-pause-button {
+      width: 30px;
+      height: 30px;
+      background-image: url('https://image.flaticon.com/icons/png/512/149/149217.png');
+      background-size: cover;
+      cursor: pointer;
+    }
+    #duration {
+      color: #fff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="video-container">
+    <div id="video-player">
+      <video id="video" src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
+      <div id="video-controls">
+        <div id="play-pause-button"></div>
+        <div id="duration">00:00 / 00:00</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script>
+    var video = $('#video')[0];
+    var playPauseButton = $('#play-pause-button');
+    var duration = $('#duration');
+
+    playPauseButton.click(function() {
+      if (video.paused) {
+        video.play();
+        playPauseButton.css('background-image', 'url(https://image.flaticon.com/icons/png/512/149/149220.png)');
+      } else {
+        video.pause();
+        playPauseButton.css('background-image', 'url(https://image.flaticon.com/icons/png/512/149/149217.png)');
+      }
+    });
+
+    video.addEventListener('timeupdate', function() {
+      var currentTime = video.currentTime;
+      var durationTime = video.duration;
+      var formattedTime = formatTime(currentTime);
+      var formattedDuration = formatTime(durationTime);
+      duration.text(formattedTime + ' / ' + formattedDuration);
+    });
+
+    function formatTime(time) {
+      var minutes = Math.floor(time / 60);
+      var seconds = Math.floor(time % 60);
+      var formattedTime = '';
+      formattedTime += (minutes < 10 ? '0' : '') + minutes;
+      formattedTime += ':';
+      formattedTime += (seconds < 10 ? '0' : '') + seconds;
+      return formattedTime;
+    }
+  </script>
+</body>
+</html>

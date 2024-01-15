@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Screen Background</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url("path/to/background-image.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+    #chibi-character {
+  position: relative;
+  cursor: pointer;
+}
+
+.speech-bubble {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#chibi-character:hover .speech-bubble {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+    <div class="content d-flex flex-column justify-content-center align-items-center">
+    <h1>Hello, World!</h1>
+    <p>This is some centered content.</p>
+          <div id="chibi-character">
+  <img src="chibi1.png" alt="Chibi Character" style="width:300px;height:300px;">
+  <div class="speech-bubble">
+    <p></p>
+  </div>
+</div>
+  </div>
+
+  <div class="footer">
+    <p>Here's a message in the footer.</p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Set height of content to viewport height
+      $(".content").height($(window).height());
+
+      // Adjust height of content on window resize
+      $(window).resize(function() {
+        $(".content").height($(window).height());
+      });
+    
+    var messages = ["Hi there!", "What's up?", "How's it going?", "Nice to see you!", "How can I help you?"];
+      var randomIndex = Math.floor(Math.random() * messages.length);
+    $(".speech-bubble p").text(messages[randomIndex]);
+  $("#chibi-character").click(function() {
+    var randomIndex = Math.floor(Math.random() * messages.length);
+    $(".speech-bubble p").text(messages[randomIndex]);
+    $(".speech-bubble").toggle();
+  });
+      
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<html>
+<head>
+  <meta http-equiv="refresh" content="7; url=./rip">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+body {
+text-align: center;
+background: #ffffff;
+color:#000000;
+font-family:'Roboto';
+font-weight: 300;
+font-size: 32px;
+padding-top: 40vh;
+height: 100vh;
+overflow: hidden;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+-webkit-transform: translate3d(0,0,0);
+animation: bye 5s;
+}
+  a:link {color:#000000;
+         background-color: transparent;
+  text-decoration: underline;}
+
+   a:visited {color:#000000;
+         background-color: transparent;
+  text-decoration: underline;}
+div {
+display: inline-block;
+overflow: hidden;
+white-space: nowrap;
+}
+div:first-of-type {
+animation: showup 7s;
+}
+div:last-of-type {
+width:0px;
+animation: reveal 7s;
+}
+div:last-of-type span {
+margin-left: -100px;
+animation: slidein 7s;
+}
+@keyframes showup {
+0% {opacity: 0;}
+20% {opacity: 1;}
+80% {opacity: 1;}
+100% {opacity: 1;}
+}
+@keyframes slidein {
+0% {margin-left: -800px; }
+20% {margin-left: -800px; }
+35% {margin-left: 0px;}
+100% {margin-left: 0px; }
+}
+@keyframes bye{
+  0% {background-color:#fff; color:#000;}
+  100% {background-color:#000; color:#fff;}
+
+}
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:100px;}
+80% {opacity:1;}
+100% {opacity:1;}}
+
+  #fadeIn {
+			display: none;
+		}
+  #fadeIn2 {
+			display: none;
+		}
+  #fadeIn3 {
+			display: none;
+		}
+</style>
+
+
+
+  
+</head>
+<body>
+<div>neurosama</div>
+<div><span>.top?</span>
+</div>
+  
+
+
+
+  <script>
+    var count = 10;
+    setInterval(function () {count--; document.getElementById("time").innerHTML = count;
+}, 1000);
+
+
+
+    $(document).ready(function() {
+	setTimeout(function() {
+    $("body").css("background-color","black");
+    $("body").css("color","white");
+	}, 3000);
+     
+});
+  </script>
+</body>
+</html>

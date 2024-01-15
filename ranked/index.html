@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="neurosama.top">
+    <meta property="twitter:url" content="https://neurosama.top/ranked">
+    <meta name="twitter:title" content="Elo Viewer">
+    <meta name="twitter:description" content="View your ELO from The Ranked Stream.">
+    <meta name="theme-color" content="#fc8fa7">
+    <title>Elo Viewer</title>
+
+</head>
+<body>
+  
+    <input id='input' class='button' style="width: 160px;" type="text" placeholder="Search for twitch user...">
+    <button class='button' id='getuserbutton'>Submit</button>
+    <div id="notfound"></div>
+    <div>
+      <header id="header_text">The Ranked Stream Leaderboard</header>
+      <header id="header_text2">(click on any username to see their details)</header>
+    </div>
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+    <div id="elomodal" style="display: none;">
+      <div class='modal-content'>
+        <span class="close">&times;</span>
+        <h1 style="text-indent: 15px; font-family: firstcoffee;  font-family: firstcoffee;">Details</h1>
+        <div class ='modal-content2'></div>
+        <div class ='modal-content3'></div>
+      </div>
+    </div>
+        <script>
+          fetch("./ranks.json")
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            data.forEach(function callback(element, index) {
+                $(document).ready(function() {
+                points = element['points']
+                place = index+1
+                if(element['points'] >= 50)  image = 'bronze1'
+                if(element['points'] >= 100) image = 'bronze2'
+                if(element['points'] >= 150) image = 'bronze3'
+                if(element['points'] >= 200) image = 'bronze4'
+                if(element['points'] >= 250) image = 'silver1'
+                if(element['points'] >= 300) image = 'silver2'
+                if(element['points'] >= 350) image = 'silver3'
+                if(element['points'] >= 400) image = 'silver4'
+                if(index == 0) image = 'first'
+                if(index == 1) image = 'second'
+                if(index == 2) image = 'third'
+                $("ul").append($(`<li id=${element['chatter']} style='list-style-image: url(images/${image}_16.png); cursor: pointer;' onclick='get_user("${element['chatter']}", "${image}", "${points}", "${place}")'>`).html(`<p id=text>#${place} ${element['chatter']} (${element['points']} ELO)`));
+            });   
+            });
+          });
+          var elomodal = document.getElementById('elomodal')
+          var elo_content = document.getElementsByClassName("modal-content2")[0];
+          var elo_content2 = document.getElementsByClassName("modal-content3")[0];
+
+          function get_user(displayname, image, points, place){
+            messages = []
+            fetch(`logs/${displayname}.json`)
+            .then(response => response.json())
+            .then(data => {
+              length = data.messages.length
+                data.messages.forEach(user => {
+                const result = new Date(user.seconds * 1000)
+                .toISOString()
+                .slice(11, 19);
+                  messages.push(`<p>[${result}] ${user.user}: ${user.message}<br></p>`)
+                });
+                text_style = `text-indent: 15px; font-family: firstcoffee;  font-family: firstcoffee;`
+                elo_content.innerHTML = `
+                <div'><img style='float:left;' src='images/${image}_64.png'>
+                <h1 style='${text_style}'>#${place} ${displayname}</h1>
+                <h2 style='${text_style}'>Total messages sent: ${length}</h2>
+                <h2 style='${text_style}'>Total ELO: ${points}</h2></div>
+                <h2 style='${text_style}'>Chat Log:</h2></div>
+                `
+                elo_content2.innerHTML = messages.join("")       
+                elomodal.style.display = "block";
+            })
+          }
+
+
+          var span = document.getElementsByClassName("close")[0];
+          span.onclick = function() {
+          elomodal.style.display = "none";
+          elo_content.innerHTML = ''
+          elo_content2.innerHTML = ''
+          }
+
+          window.onclick = function(event) {
+          if (event.target == elomodal) {
+              elomodal.style.display = "none";
+              elo_content.innerHTML = ''
+              elo_content2.innerHTML = ''
+            }
+          } 
+          var button = document.getElementById('getuserbutton')
+
+          button.onclick = function() {
+            var inputValue = document.getElementById("input").value
+            var allow = false
+            fetch("./ranks.json")
+              .then((res) => {
+                return res.json();
+              })
+              .then((data) => {
+                data.forEach(element => {
+                  if(element['chatter'] == inputValue){
+                    notfound = document.getElementById('notfound')
+                    notfound.innerHTML = ''
+                    document.getElementById(inputValue).click();
+                    allow = true
+                  }
+                })
+                if (!allow){
+                notfound = document.getElementById('notfound')
+                notfound.innerHTML = `<p style='position: relative; text-indent: 15px; font-family: firstcoffee; left: 43vw; font-family: firstcoffee;'> '${inputValue}' was not found!</p>`
+                }
+              })
+            }
+
+          var input = document.getElementById("input")
+          input.addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("getuserbutton").click();
+          }
+        }); 
+        </script>
+</body>
+</html>

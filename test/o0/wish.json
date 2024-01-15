@@ -1,0 +1,13 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "Hanasaki",
+	"model": "Hanasaki.moc",
+      "layout": {
+        "center_x": 0,
+        "center_y": -0.65,
+        "width": 2
+    },
+	"textures": [
+		"hanasaki_00.png"
+	]
+}

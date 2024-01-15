@@ -1,0 +1,33 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Neurofumov1Blink.moc3",
+		"Textures": [
+			"Neurofumov1Blink.256/texture_00.png"
+		],
+		"Physics": "Neurofumov1Blink.physics3.json",
+		"DisplayInfo": "Neurofumov1Blink.cdi3.json",
+		"Expressions": [
+			{
+				"File": "blinkv2 delay.exp3.json"
+			}
+		],
+		"Motions": {
+			"Idle": [{
+				"File": "blinkv2 delay.motion3.json"
+			}]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

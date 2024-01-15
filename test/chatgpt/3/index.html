@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Visual Novel Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      text-align: center;
+    }
+    .message {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .btn-next {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 40px;
+    }
+    .choice {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      Welcome to My Visual Novel Game!
+    </div>
+    <div id="storyline">
+      It was a beautiful day outside. Birds were singing and flowers were blooming.
+    </div>
+    <button id="next-button" class="btn btn-primary btn-next">Next</button>
+     <div id="choice-buttons">
+      <button class="btn btn-primary btn-choice" data-choice="1">Wish for a lifetime supply of pizza</button>
+      <button class="btn btn-primary btn-choice" data-choice="2">Wish for the ability to fly</button>
+      <button class="btn btn-primary btn-choice" data-choice="3">Wish for a million dollars</button>
+    </div>
+  </div>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha256-98vAGjEDGN79TjHkYWVD4s87rvWkdWLHPs5MC3FvFX4=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script>
+    // Set up the storyline
+    var storyline = [
+      "It was a beautiful day outside. Birds were singing and flowers were blooming.",
+      "You were walking through the park when you saw a strange creature in the distance.",
+      "As you got closer, you realized it was a unicorn!",
+      "The unicorn spoke to you and asked for your help.",
+      "It seems that the unicorn had lost its magical powers and could no longer grant wishes.",
+"The unicorn asked if you would help him find a magical flower that could restore his powers.",
+"You agreed to help the unicorn and set off on your journey.",
+"After hours of walking, you finally reached a clearing in the forest.",
+"In the center of the clearing was a beautiful flower that glowed with a magical light.",
+"As you reached out to pick the flower, you heard a voice behind you.",
+"It was the evil witch who had been hunting the unicorn and its powers for years!",
+"She demanded that you hand over the flower, but you refused.",
+"A battle ensued between you and the witch, and after a long and grueling fight, you emerged victorious.",
+"You picked the magical flower and returned it to the unicorn, who was grateful beyond words.",
+"The unicorn used the flower to restore its powers and thanked you by granting you three wishes.",
+"And so, you lived happily ever after with your three wishes and the knowledge that you had helped a magical creature in need."
+];
+
+    // Set up the current storyline index
+var currentStorylineIndex = 0;
+
+// Get the next button element
+var nextButton = document.getElementById('next-button');
+
+// Add an event listener to the next button
+nextButton.addEventListener('click', function() {
+  // Update the storyline with the next message
+  currentStorylineIndex++;
+  var storylineElement = document.getElementById('storyline');
+  if (currentStorylineIndex < storyline.length) {
+    storylineElement.innerText = storyline[currentStorylineIndex];
+  } else {
+    storylineElement.innerText = "The end. Thanks for playing!";
+    nextButton.style.display = 'none';
+  }
+});
+
+// Add event listeners to the choices
+var choiceButtons = document.querySelectorAll('.btn-choice');
+for (var i = 0; i < choiceButtons.length; i++) {
+  choiceButtons[i].addEventListener('click', function(event) {
+    var choice = event.target.getAttribute('data-choice');
+    // Update the storyline based on the user's choice
+    switch (choice) {
+      case '1':
+        storyline = [
+          "You wished for a lifetime supply of pizza.",
+          "You wished for the ability to fly.",
+          "You wished for a million dollars.",
+          "And so, you lived happily ever after with your three wishes and the knowledge that you had helped a magical creature in need."
+        ];
+        break;
+      case '2':
+        storyline = [
+          "You wished for world peace.",
+          "You wished for an end to hunger and poverty.",
+          "You wished for the cure to all diseases.",
+          "And so, you lived happily ever after with your three wishes and the knowledge that you had helped a magical creature in need."
+        ];
+        break;
+      case '3':
+        storyline = [
+          "You wished for the ability to time travel.",
+          "You wished for the ability to speak and understand all languages.",
+          "You wished for the power of telekinesis.",
+          "And so, you lived happily ever after with your three wishes and the knowledge that you had helped a magical creature in need."
+        ];
+        break;
+      default:
+        storyline = [
+          "You didn't make any wishes and returned home, but you always wondered what could have been.",
+          "And so, you lived the rest of your life with the knowledge that you had helped a magical creature in need, but with a slight feeling of regret."
+        ];
+        break;
+    }
+    });};
+    currentStorylineIndex = 0;
+    var storylineElement = document.getElementById('storyline');
+    storylineElement.innerText = storyline[currentStorylineIndex];
+    
+    // Hide the choice buttons
+document.getElementById('choice-buttons').style.display = 'none';
+
+// Show the input field and button for user input
+//document.getElementById('user-input').style.display = 'block';
+//document.getElementById('submit-btn').style.display = 'block';
+
+// Add an event listener to the input field to listen for user input
+//var userInputElement = document.getElementById('user-input-field');
+    
+    /*
+userInputElement.addEventListener('keydown', function(event) {
+if (event.key === 'Enter') {
+// Get the user's input and clear the input field
+var userInput = userInputElement.value;
+userInputElement.value = '';
+  handleUserInput(userInput);
+  }
+});
+
+// Define the handleUserInput function
+function handleUserInput(userInput) {
+// Get the next storyline element based on the user's input
+var nextStorylineIndex;
+if (currentStorylineIndex === 0) {
+if (userInput.toLowerCase() === 'yes') {
+nextStorylineIndex = 1;
+} else {
+nextStorylineIndex = 5;
+}
+} else if (currentStorylineIndex === 1) {
+if (userInput.toLowerCase() === 'approach') {
+nextStorylineIndex = 2;
+} else {
+nextStorylineIndex = 3;
+}
+} else if (currentStorylineIndex === 2) {
+nextStorylineIndex = 4;
+} else if (currentStorylineIndex === 3) {
+nextStorylineIndex = 0;
+} else if (currentStorylineIndex === 4) {
+nextStorylineIndex = 5;
+} else if (currentStorylineIndex === 5) {
+if (userInput.toLowerCase() === 'yes') {
+nextStorylineIndex = 6;
+} else {
+nextStorylineIndex = 7;
+}
+} else if (currentStorylineIndex === 6) {
+nextStorylineIndex = 8;
+} else if (currentStorylineIndex === 7) {
+nextStorylineIndex = 9;
+} else if (currentStorylineIndex === 8) {
+nextStorylineIndex = 10;
+} else if (currentStorylineIndex === 9) {
+nextStorylineIndex = 10;
+} else if (currentStorylineIndex === 10) {
+if (userInput.toLowerCase() === 'yes') {
+nextStorylineIndex = 11;
+} else {
+nextStorylineIndex = 12;
+}
+} else if (currentStorylineIndex === 11) {
+nextStorylineIndex = 13;
+} else if (currentStorylineIndex === 12) {
+nextStorylineIndex = 13;
+} else if (currentStorylineIndex === 13) {
+if (userInput.toLowerCase() === 'yes') {
+nextStorylineIndex = 14;
+} else {
+nextStorylineIndex = 15;
+}
+} else if (currentStorylineIndex === 14) {
+nextStorylineIndex = 16;
+} else if (currentStorylineIndex === 15) {
+nextStorylineIndex = 16;
+} else if (currentStorylineIndex === 16) {
+if (userInput.toLowerCase() === 'yes') {
+nextStorylineIndex = 17;
+} else {
+nextStorylineIndex = 18;
+}
+} else if (currentStorylineIndex === 17) {
+nextStorylineIndex = 19;
+} else if (currentStorylineIndex === 19)
+  {
+nextStorylineIndex = 21;
+} else if (currentStorylineIndex === 21) {
+nextStorylineIndex = 24;
+}
+// Update the storyline index and display the next storyline
+currentStorylineIndex = nextStorylineIndex;
+storylineElement.innerText = storyline[currentStorylineIndex];
+
+// If the current storyline index is a choice, show the choice buttons
+if (currentStorylineIndex === 3 || currentStorylineIndex === 10 || currentStorylineIndex === 15) {
+showChoiceButtons();
+} else {
+hideChoiceButtons();
+}
+//}
+*/
+// Add event listeners to the choice buttons
+var choiceButtonElements = document.getElementsByClassName('choice-button');
+for (var i = 0; i < choiceButtonElements.length; i++) {
+choiceButtonElements[i].addEventListener('click', handleChoiceButtonClick);
+}
+</script>
+
+</body>
+</html>

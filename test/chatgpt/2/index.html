@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Visual Novel Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      text-align: center;
+    }
+    .message {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .btn-next {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      Welcome to My Visual Novel Game!
+    </div>
+    <div id="storyline">
+      It was a beautiful day outside. Birds were singing and flowers were blooming.
+    </div>
+    <button id="next-button" class="btn btn-primary btn-next">Next</button>
+  </div>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSBmJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script>
+    // Set up the storyline
+    var storyline = [
+      "It was a beautiful day outside. Birds were singing and flowers were blooming.",
+      "You were walking through the park when you saw a strange creature in the distance.",
+      "As you got closer, you realized it was a unicorn!",
+      "The unicorn spoke to you and asked for your help.",
+      "It seems that the unicorn had lost its magical powers and could no longer grant wishes.",
+      "The unicorn asked if you would help him find a magical flower that could restore his powers.",
+      "You agreed to help the unicorn and set off on your journey.",
+"After hours of walking, you finally reached a clearing in the forest.",
+"In the center of the clearing was a beautiful flower that glowed with a magical light.",
+"As you reached out to pick the flower, you heard a voice behind you.",
+"It was the evil witch who had been hunting the unicorn and its powers for years!",
+"She demanded that you hand over the flower, but you refused.",
+"A battle ensued between you and the witch, and after a long and grueling fight, you emerged victorious.",
+"You picked the magical flower and returned it to the unicorn, who was grateful beyond words.",
+"The unicorn used the flower to restore its powers and thanked you by granting you three wishes.",
+"And so, you lived happily ever after with your three wishes and the knowledge that you had helped a magical creature in need."
+];
+
+
+// Set up the current storyline index
+var currentStorylineIndex = 0;
+
+// Get the next button element
+var nextButton = document.getElementById('next-button');
+
+// Add an event listener to the next button
+nextButton.addEventListener('click', function() {
+  // Update the storyline with the next message
+  currentStorylineIndex++;
+  var storylineElement = document.getElementById('storyline');
+  if (currentStorylineIndex < storyline.length) {
+    storylineElement.innerText = storyline[currentStorylineIndex];
+  } else {
+    storylineElement.innerText = "The end. Thanks for playing!";
+    nextButton.style.display = 'none';
+  }
+});
+  </script>
+</body>
+</html>

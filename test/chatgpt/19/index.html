@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flip and Match Cards Game</title>
+  <style>
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  perspective: 600px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.front {
+  background-color: #ddd;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.matched {
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+  <h1>Flip and Match Cards Game</h1>
+  <div class="game-board">
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+    <div class="card" data-card="1">
+      <div class="front"></div>
+      <div class="back">
+        <img src="image1.jpg">
+      </div>
+    </div>
+
+    <!-- Repeat the above card div 11 times to create a total of 12 cards -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  var flippedCards = [];
+  var matchedCards = [];
+
+  $(".card").click(function() {
+    var $this = $(this);
+
+    // Check if the card is already flipped or matched
+    if ($this.hasClass("flipped") || $this.hasClass("matched")) {
+      return;
+    }
+
+    // Flip the card
+    $this.addClass("flipped");
+
+    // Add the flipped card to the flippedCards array
+    flippedCards.push($this);
+
+    // Check if two cards are flipped
+    if (flippedCards.length === 2) {
+      var card1 = flippedCards[0];
+      var card2 = flippedCards[1];
+
+      // Check if the cards match
+      if (card1.data("card") === card2.data("card")) {
+        // Add the matched cards to the matchedCards array
+        matchedCards.push(card1, card2);
+
+        // Mark the matched cards
+        card1.addClass("matched");
+        card2.addClass("matched");
+      } else {
+        // Flip the cards back after a short delay
+        setTimeout(function() {
+          card1.removeClass("flipped");
+          card2.removeClass("flipped");
+        }, 1000);
+      }
+
+      // Clear the flippedCards array
+      flippedCards = [];
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
