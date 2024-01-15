@@ -1,0 +1,884 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon.png">
+  <link rel="icon" href="img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="promote">
+  <meta name="keywords" content="Neurosama, Test Website">
+  
+    <meta name="description" content="A blog of NickHopps">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Neurosama on Top!">
+<meta property="og:url" content="index.html">
+<meta property="og:site_name" content="Neurosama on Top!">
+<meta property="og:description" content="">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="NickHopps">
+<meta property="article:tag" content="Math, Computer-Science, Algorithm, Efficiency, Front-End, Back-End">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Nick&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="../fastly.jsdelivr.net/npm/bootstrap%404/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="../at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="../at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"infiniture.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="js/utils.js" ></script>
+  <script  src="js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <strong>Nick&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="archives/index.html">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="categories/index.html">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="tags/index.html">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="about/index.html">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="links/index.html">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/bg-full.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="读万卷书，行万里路">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2023/03/13/On%20Fairy%20Stories/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/202303130219689.jpg" srcset="/img/loading.gif" lazyload alt="On Fairy-Stories">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2023/03/13/On%20Fairy%20Stories/index.html" target="_self">
+          On Fairy-Stories
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2023/03/13/On%20Fairy%20Stories/index.html" target="_self">
+          
+          by J.R.R. Tolkien  I propose to speak about fairy-stories, though I am aware that this is a rash adventure. Faerie is a perilous land, and in it are pitfalls for the unwary and dungeons for the overb
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-13 02:08" pubdate>
+              2023-03-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e7%94%9f%e6%b4%bb/index.html">生活</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e8%89%ba%e6%9c%af/index.html">艺术</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2022/08/10/WordPress%e4%b8%bb%e9%a2%98%e6%9e%84%e5%bb%ba%ef%bc%9aCustomizer/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/202208162237749.jpg" srcset="/img/loading.gif" lazyload alt="WordPress主题构建：Customizer">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2022/08/10/WordPress%e4%b8%bb%e9%a2%98%e6%9e%84%e5%bb%ba%ef%bc%9aCustomizer/index.html" target="_self">
+          WordPress主题构建：Customizer
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2022/08/10/WordPress%e4%b8%bb%e9%a2%98%e6%9e%84%e5%bb%ba%ef%bc%9aCustomizer/index.html" target="_self">
+          
+          Customizer 对象 WordPress 主题自定义界面主要包含四种 Customizer 对象：  Settings（设置项） Controls（控制器） Sections（栏目） Panels（面板）  它们都由 WP_Customize_Manager 进行管理。  使用 customize_register 钩子来控制任意 Customizer 对象： 12345678910111
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-10 02:46" pubdate>
+              2022-08-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/PHP/index.html">PHP</a>
+            
+              <a href="categories/PHP/WordPress/index.html">WordPress</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/WordPress/index.html">WordPress</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2022/07/06/Vuejs%e5%89%8d%e7%ab%afUT%e5%ae%9e%e8%b7%b5/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/202207060138871.jpg" srcset="/img/loading.gif" lazyload alt="Vuejs前端UT实践">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2022/07/06/Vuejs%e5%89%8d%e7%ab%afUT%e5%ae%9e%e8%b7%b5/index.html" target="_self">
+          Vuejs前端UT实践
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2022/07/06/Vuejs%e5%89%8d%e7%ab%afUT%e5%ae%9e%e8%b7%b5/index.html" target="_self">
+          
+          方案选型 参考 Vue Test Utils 的官方文档[1]和Vue测试指南[2]的内容，目前 Vue2.x 单元测试方案主要有以下3种：  方案1：Jest（省心全家桶） 方案2：Mocha + 【mochapack &amp; jsdom】 + 【chai &amp; sinon &amp; istanbul】 方案3：Mocha + 【Karma】 + 【chai &amp; sinon
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-06 01:19" pubdate>
+              2022-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e5%89%8d%e7%ab%af/index.html">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95/index.html">单元测试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2022/05/29/%e4%ba%ba%e4%bd%93%e7%b3%bb%e7%bb%9f%e8%b0%83%e4%bc%98%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%8c%87%e5%8d%97/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/202205291448977.jpg" srcset="/img/loading.gif" lazyload alt="人体系统调优不完全指南">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2022/05/29/%e4%ba%ba%e4%bd%93%e7%b3%bb%e7%bb%9f%e8%b0%83%e4%bc%98%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%8c%87%e5%8d%97/index.html" target="_self">
+          人体系统调优不完全指南
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2022/05/29/%e4%ba%ba%e4%bd%93%e7%b3%bb%e7%bb%9f%e8%b0%83%e4%bc%98%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%8c%87%e5%8d%97/index.html" target="_self">
+          
+          背景 去年 5 月曾经写了一篇文章介绍了下 Lex Fridman 大佬的日常生活安排，后续我也根据他的方法对自己的日常生活做了一系列规范和改进。这一年整体实行下来，效果还是非常显著的，本文的最后会对我的一些实践以及借助的工具做一些分享。 最近几个月，偶然在油管上看到了个 Rich Roll 采访 Andrew Huberman 的 podcast，介绍了如何提升我们日常工作，学习表现的相关神经
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-29 14:36" pubdate>
+              2022-05-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e7%94%9f%e6%b4%bb/index.html">生活</a>
+            
+              <a href="categories/%e7%94%9f%e6%b4%bb/%e6%96%87%e7%ab%a0%e6%94%b6%e8%97%8f/index.html">文章收藏</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e5%81%a5%e5%ba%b7/index.html">健康</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2021/06/13/ES6%e7%9a%84import%e5%92%8cexport/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/javascript.jpg" srcset="/img/loading.gif" lazyload alt="ES6的import和export">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2021/06/13/ES6%e7%9a%84import%e5%92%8cexport/index.html" target="_self">
+          ES6的import和export
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2021/06/13/ES6%e7%9a%84import%e5%92%8cexport/index.html" target="_self">
+          
+          import 基本语法 1234567891011121314151617181920212223242526272829&#x2F;&#x2F; 默认导入，即导入 export default 中的模块import defaultExport from &quot;module-name&quot;;&#x2F;&#x2F; 通过一个别名 name 导入所有模块import * as name from &quot;module-n
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-13 04:56" pubdate>
+              2021-06-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/JavaScript/index.html">JavaScript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/ES6/index.html">ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2021/03/18/%e6%96%87%e8%bf%9c%e7%9f%a5%e8%a1%8c%e7%ac%94%e8%af%95%e9%a2%98/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/exam.jpg" srcset="/img/loading.gif" lazyload alt="文远知行前端笔试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2021/03/18/%e6%96%87%e8%bf%9c%e7%9f%a5%e8%a1%8c%e7%ac%94%e8%af%95%e9%a2%98/index.html" target="_self">
+          文远知行前端笔试题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2021/03/18/%e6%96%87%e8%bf%9c%e7%9f%a5%e8%a1%8c%e7%ac%94%e8%af%95%e9%a2%98/index.html" target="_self">
+          
+          题目要求 使用html + js写一个马赛克画板（2.1版）：  页面加载时，要求用户输入两个整数，对应长和宽，例如100, 200 页面显示100*200个格子，要求占满整个窗口，不能有滚动条 当窗口大小变化时，依然要满足上述条件 鼠标左键点击任意一个格子时，填入一个随机颜色，即#000000-#FFFFFF中的一种 鼠标右键点击此格子时，擦除颜色 每次进行上述的第4点或者第5点的操作时，显示
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-18 18:13" pubdate>
+              2021-03-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e5%89%8d%e7%ab%af/index.html">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e9%9d%a2%e8%af%95/index.html">面试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2021/03/10/%e5%89%8d%e7%ab%af%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb%e6%80%bb%e7%bb%93/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/20210329152634.jpg" srcset="/img/loading.gif" lazyload alt="前端知识体系总结">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2021/03/10/%e5%89%8d%e7%ab%af%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb%e6%80%bb%e7%bb%93/index.html" target="_self">
+          前端知识体系总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2021/03/10/%e5%89%8d%e7%ab%af%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb%e6%80%bb%e7%bb%93/index.html" target="_self">
+          
+          网络基础  1. TCP 连接的建立和释放  TCP 建立连接（三次握手） 服务器保持监听状态，客户端主动发起连接，收到服务器响应后建立连接，服务器收到客户端连接请求后进一步确认客户端可连接，收到客户端响应后建立连接，此时客户端服务端双方都已确认各自可收发。（最后一次握手的作用：防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误）   TCP连接释放（四次挥手） 客户端主动发起连接释放
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-10 16:44" pubdate>
+              2021-03-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e5%89%8d%e7%ab%af/index.html">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e9%9d%a2%e8%af%95%e5%bf%85%e5%a4%87/index.html">面试必备</a>
+            
+              <a href="tags/%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb/index.html">知识体系</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2020/12/03/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86%e9%97%ae%e9%a2%98/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/algorithm.jpg" srcset="/img/loading.gif" lazyload alt="二叉树的遍历问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2020/12/03/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86%e9%97%ae%e9%a2%98/index.html" target="_self">
+          二叉树的遍历问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2020/12/03/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86%e9%97%ae%e9%a2%98/index.html" target="_self">
+          
+          先序遍历 根-&gt;左子树-&gt;右子树  递归实现 1234567void preOrder(BiTNode *root) &amp;#123;  if (root !&#x3D; NULL) &amp;#123;    visit(root);    preOrder(root-&gt;lchild);    preOrder(root-&gt;rchild);  &amp;#125;&amp;#125;  非递归实现 通过分析
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-03 00:33" pubdate>
+              2020-12-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/C/index.html">C++</a>
+            
+              <a href="categories/C/%e7%ae%97%e6%b3%95/index.html">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/%e4%ba%8c%e5%8f%89%e6%a0%91%e9%9d%9e%e9%80%92%e5%bd%92%e9%81%8d%e5%8e%86/index.html">二叉树非递归遍历</a>
+            
+              <a href="tags/%e4%ba%8c%e5%8f%89%e6%a0%91%e9%87%8d%e5%bb%ba/index.html">二叉树重建</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2020/04/19/Drupal8%e5%85%a5%e5%9d%91%e6%8c%87%e5%8d%97/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/drupal8.jpg" srcset="/img/loading.gif" lazyload alt="Drupal8入坑指南">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2020/04/19/Drupal8%e5%85%a5%e5%9d%91%e6%8c%87%e5%8d%97/index.html" target="_self">
+          Drupal8入坑指南
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2020/04/19/Drupal8%e5%85%a5%e5%9d%91%e6%8c%87%e5%8d%97/index.html" target="_self">
+          
+          为什么选择 Drupal？ 我们先来看看3大开源 CMS 系统各自的主要特点： WordPress：  用户友好，非常适合非开发人员 免费和付费的插件、主题数量庞大 拥有最活跃的社区（WP市场占有率60%以上） 优秀的本地化支持  Joomla：  注重用户友好的同时，兼顾了自定义开发，平衡了 WP 和 Drupal 各自的优点 优秀的本地化支持  Drupal：  强大的自定义开发支持，非常适
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-19 13:56" pubdate>
+              2020-04-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e5%90%8e%e7%ab%af/index.html">后端</a>
+            
+              <a href="categories/%e5%90%8e%e7%ab%af/PHP/index.html">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/CMS/index.html">CMS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="2020/03/03/%e7%bb%99%e5%8d%9a%e5%ae%a2%e6%b7%bb%e5%8a%a0Live2D%e7%9c%8b%e6%9d%bf%e5%a8%98/index.html" target="_self">
+          <img src="../hexo-1251051422.cos.ap-guangzhou.myqcloud.com/live2d.jpg" srcset="/img/loading.gif" lazyload alt="给博客添加Live2D看板娘">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="2020/03/03/%e7%bb%99%e5%8d%9a%e5%ae%a2%e6%b7%bb%e5%8a%a0Live2D%e7%9c%8b%e6%9d%bf%e5%a8%98/index.html" target="_self">
+          给博客添加Live2D看板娘
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="2020/03/03/%e7%bb%99%e5%8d%9a%e5%ae%a2%e6%b7%bb%e5%8a%a0Live2D%e7%9c%8b%e6%9d%bf%e5%a8%98/index.html" target="_self">
+          
+          突然心血来潮想给自己的 Hexo 博客也整一个看板娘，刚刚好手上又有一个比较喜欢的角色模型，于是就开始动手，很快就找到了 hexo-helper-live2d[1]这个插件，配置也非常简单，三下五除二就搞定了，效果还不错，甚至觉得有点无聊，因为没有一点儿挑战性😃  正当我准备收手的时候，我突然发现有点儿不对劲😕：模型除了会根据鼠标位置转头之外就没了，非常单调，这让准完美主义（指强迫症）的我非常
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-03 16:03" pubdate>
+              2020-03-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="categories/%e5%89%8d%e7%ab%af/index.html">前端</a>
+            
+              <a href="categories/%e5%89%8d%e7%ab%af/JavaScript/index.html">JavaScript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="tags/Live2D/index.html">Live2D</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="page/2/index.html#board">2</a><a class="page-number" href="page/3/index.html#board">3</a><a class="extend next" rel="next" href="page/2/index.html#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io/" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="../fastly.jsdelivr.net/npm/nprogress%400/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="../fastly.jsdelivr.net/npm/nprogress%400/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="../fastly.jsdelivr.net/npm/jquery%403/dist/jquery.min.js" ></script>
+<script  src="../fastly.jsdelivr.net/npm/bootstrap%404/dist/js/bootstrap.min.js" ></script>
+<script  src="js/events.js" ></script>
+<script  src="js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="js/local-search.js" ></script>
+
+
+
+  
+    <script  src="js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script  src="../fastly.jsdelivr.net/npm/typed.js%402/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="js/boot.js" ></script>
+
+
+</body>
+
+<!-- infiniture.cn -->
+</html>

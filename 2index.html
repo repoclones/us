@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <style>
+
+    .icons {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .icon-label {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  </style>
+  <title>Windows XP Window</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/xp.css/dist/xp.css">
+  <style>
+    .window {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .window .title-bar {
+      cursor: move;
+    }
+        .title-bar-text {
+      user-select: none; /* Make the title bar text not selectable */
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      const windowElement = document.querySelector('.window');
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+      
+      windowElement.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        offsetX = e.clientX - windowElement.offsetLeft;
+        offsetY = e.clientY - windowElement.offsetTop;
+      });
+      
+      window.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+          const x = e.clientX - offsetX;
+          const y = e.clientY - offsetY;
+          windowElement.style.left = x + 'px';
+          windowElement.style.top = y + 'px';
+        }
+      });
+      
+      window.addEventListener('mouseup', function() {
+        isDragging = false;
+      });
+    };
+  </script>
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">A Window With Stuff In It</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <ul class="icons">
+        <li class="icon">
+          <img src="fumoo.png" alt="Icon 1">
+          <div class="icon-label">Icon 1</div>
+        </li>
+        <li class="icon">
+          <img src="fumoo.png" alt="Icon 2">
+          <div class="icon-label">Icon 2</div>
+        </li>
+        <li class="icon">
+          <img src="fumoo.png" alt="Icon 3">
+          <div class="icon-label">Icon 3</div>
+        </li>
+        <!-- Add more icons here -->
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
