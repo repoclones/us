@@ -1,0 +1,213 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <style>
+    body {
+      
+      overflow: hidden;
+      background-size: cover;
+      transition: filter 0.5s ease-in-out;
+      z-index: -1;
+    }
+    .icons {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+    }
+    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      cursor: url(point3.png), pointer;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .icon-label {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  </style>
+  <title>Windows XP Window</title>
+ 
+  <style>
+    .window {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .window .title-bar {
+      cursor: move;
+    }
+        .title-bar-text {
+      user-select: none; /* Make the title bar text not selectable */
+    }
+
+    .slider {
+      width: 150px !important;
+      margin: 20px;
+    }
+    .bottom-right-text {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      color: #fff;
+      font-size: 10px;
+      text-align: right;
+    }
+  </style>
+
+
+<style>
+    /* Custom styles for the chatroom */
+    .chat-container {
+      width: 95%;
+      height: 300px;
+      background-color: #ffffff;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+    }
+
+    .chat-message .user {
+      font-weight: bold;
+    }
+
+    .chat-message .time {
+      color: #808080;
+      font-size: 0.8em;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .send-button {
+      margin-top: 10px;
+      width: 100px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css">
+  
+  <script>
+window.onload = function() {
+  const windowElement = document.querySelector('.window');
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  function handleMouseDown(e, element) {
+    isDragging = true;
+    offsetX = e.clientX - element.offsetLeft;
+    offsetY = e.clientY - element.offsetTop;
+  }
+  
+  function handleMouseMove(e, element) {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+      element.style.left = x + 'px';
+      element.style.top = y + 'px';
+    }
+  }
+  
+  function handleMouseUp() {
+    isDragging = false;
+  }
+  
+  windowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mouseup', handleMouseUp);
+  
+
+  
+};
+    
+  </script>
+</head>
+<body style="background-color: #3B6EA5;">
+  
+
+
+
+
+<div class="window" id="cmdlite" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">Command Prompt Lite</div>
+      <div class="title-bar-controls">
+        
+      </div>
+    </div>
+    <div class="window-body">
+      <iframe width="380px" height="400px" src="./cmd.html" scrolling="true"></iframe>
+      
+    </div>
+  </div>
+
+  
+<!-- 
+
+  <div class="chat-message">
+          <span class="user">User1:</span>
+          <span class="message">Hello, how are you?</span>
+          <span class="time">11:30 AM</span>
+        </div> -->
+  
+<!-- website is so slow... -->
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+  
+<script>
+    function open() {
+    var cmdlite = document.getElementById('cmdlite');
+    cmdlite.style.display = 'block';
+  }
+
+  
+  setTimeout(open, 2000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

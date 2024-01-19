@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Prompt</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #output {
+            height: 100%;
+            overflow: auto;
+            padding: 10px;
+        }
+
+        #input-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            padding: 10px;
+            box-sizing: border-box;
+            border-top: 1px solid white;
+        }
+
+        #input {
+            flex: 1;
+            font-family: "Courier New", Courier, monospace;
+            background-color: black;
+            color: white;
+            border: none;
+            outline: none;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="output">
+        <div>The <a href="https://twitch.tv/vedal987">Neurosama</a> brand belongs to <a href="https://twitter.com/Vedal987">Vedal</a>.</div>
+        <div>So you can either click into any of the text above or type "win" below to continue.</div>
+        <div style="height: 18px"></div>
+    </div>
+    <div id="input-container">
+        <span>&gt;</span>
+        <input type="text" id="input" autocomplete="off">
+    </div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const outputContainer = document.getElementById("output");
+            const inputField = document.getElementById("input");
+            const maxOutputLines = 17;
+            inputField.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            const command = inputField.value.trim(); // Trim removes leading/trailing whitespace
+            if (command !== "") {
+                executeCommand(command);
+            }
+            inputField.value = "";
+        }
+    });
+
+            function executeCommand(command) {
+                let result;
+                
+    switch (command.toLowerCase()) {
+        case "help":
+            result = 'The "help" command is unavailable for this instance.';
+            break;
+        case "date":
+            result = new Date().toLocaleString();
+            break;
+        case "win":
+            // Redirect to a specific page when "win" is typed
+            window.parent.location.href = "../homexp";
+            break;
+        default:
+            result = "Command not recognized: " + command;
+            break;
+    }
+    checkAndClearConsole();
+    appendOutput("Visitor> "+ command)
+    appendOutput(result);
+    appendOutput(" ");
+    
+            }
+
+            function appendOutput(text) {
+                const outputLine = document.createElement("div");
+                outputLine.style.minHeight = text.trim() === "" ? "18px" : "";
+                outputLine.textContent = text;
+                outputContainer.appendChild(outputLine);
+                outputContainer.scrollTop = outputContainer.scrollHeight;
+            }
+            function clearOutput() {
+        outputContainer.innerHTML = `<div>The <a href="https://twitch.tv/vedal987">Neurosama</a> brand belongs to <a href="https://twitter.com/Vedal987">Vedal</a>.</div>
+        <div>So you can either click into any of the text above or type "win" below to continue.</div>
+        <div style="height: 18px"></div>`;
+        
+    }
+
+    function checkAndClearConsole() {
+        const outputLines = outputContainer.childElementCount;
+        if (outputLines > maxOutputLines) {
+            clearOutput();
+        }
+    }
+
+        });
+
+        
+    </script>
+</body>
+</html>
