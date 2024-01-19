@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+        html {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            background-color: #858585;
+          }
+        </style>
+    </head>
+    <body>
+        
+        <div id="hey">
+            <img src="./assets/monika_neuro.png" id="monika" style="width:400px;height:492px;text-align: center;"></img></div>
+                <br>
+                <b><p id="status">If you close, leave, or refresh this page, Monika Neuro will die.</p></b>
+              <p>You stayed for <span id="sw">0</span> seconds.</p>
+              <a href="./homexp">Go back!</a>
+
+        <script>
+            haveyoukilledmonikaneuro = localStorage.getItem("haveyoukilledmonikaneuro");
+            timex = localStorage.getItem("timex");
+        if (haveyoukilledmonikaneuro === null) {
+            haveyoukilledmonikaneuro = 0;
+            timex = 0;
+            localStorage.setItem('haveyoukilledmonikaneuro', 1);
+            localStorage.setItem('timex', 0);
+          };
+        if (haveyoukilledmonikaneuro == 1) {
+          document.getElementById("monika").src="./assets/moneurokill.png";
+          document.getElementById("status").innerHTML=`You killed Monika Neuro.`;
+          document.getElementById("sw").innerHTML=timex;
+          };
+          if (haveyoukilledmonikaneuro == 0) {
+            setInterval(iefn, 1000);
+          };
+
+          function iefn(){
+            timex++;
+            document.getElementById("sw").innerHTML=timex;
+            localStorage.setItem('timex', timex);
+          };
+        
+        </script>
+    </body>
+    
+</html>
