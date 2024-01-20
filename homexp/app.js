@@ -55,11 +55,11 @@ const gamefiles = `
         </li>
         <li class="icon">
           <img src="./icons/smolscared.png" alt="SmolGames" id="app-smolscared">
-          <div class="icon-label">SmolScared</div>
+          <div class="icon-label">???</div>
         </li>
         <li class="icon">
-          <img src="./icons/smolscared.png" alt="Monika Neuro" id="app-monika">
-          <div class="icon-label">SmolScared</div>
+          <img src="./icons/mnicon.png" alt="Monika Neuro" id="ref-monika">
+          <div class="icon-label">Monika Neuro</div>
         </li>
         <!-- Add more icons here -->
       </ul>
@@ -153,7 +153,9 @@ const t_pages = "Pages"
 function defgames(){
   document.getElementById("back2tops").addEventListener("click", back2top);
   document.getElementById("app-smolscared").addEventListener("click", function(){ document.getElementById("w-smolscared").style.display = "block"; });
-}
+  document.getElementById("ref-monika").addEventListener("click", function(){ window.location.href = "../monika.html"; });
+
+} 
 
 function folder_games(){
   wnd.innerHTML = gamefiles;
