@@ -1,0 +1,267 @@
+    <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <style>
+    body {
+      
+      overflow: hidden;
+      background: url(./wallpaper.png) no-repeat center center fixed; 
+      background-size: cover;
+      transition: filter 0.5s ease-in-out;
+      z-index: -1;
+    }
+    .icons {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+    }
+    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      cursor: url(point3.png), pointer;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .icon-label {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  </style>
+  <title>Neurosama Scuffed XP</title>
+ 
+  <style>
+    .window {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .window .title-bar {
+      cursor: move;
+    }
+        .title-bar-text {
+      user-select: none; /* Make the title bar text not selectable */
+    }
+
+    .slider {
+      width: 150px !important;
+      margin: 20px;
+    }
+  </style>
+
+
+<style>
+    /* Custom styles for the chatroom */
+    .chat-container {
+      width: 95%;
+      height: 300px;
+      background-color: #ffffff;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+    }
+
+    .chat-message .user {
+      font-weight: bold;
+    }
+
+    .chat-message .time {
+      color: #808080;
+      font-size: 0.8em;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .send-button {
+      margin-top: 10px;
+      width: 100px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  .marquee {
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+  .logo {
+  fill: #fff;
+}
+.bodys {
+  width:100%;
+  height: 100%;
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.credits {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      color: #000000;
+      font-size: 17px;
+      text-align: right;
+      z-index: -1;
+    }
+   
+
+    .success {
+      color: green;
+    }
+
+    .failure {
+      color: red;
+    }
+  </style>
+
+  
+  <script>
+window.onload = function() {
+  const windowElement = document.querySelector('.window');
+  const codeWindowElement = document.querySelector('#w-code');
+
+
+  
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  function handleMouseDown(e, element) {
+    isDragging = true;
+    offsetX = e.clientX - element.offsetLeft;
+    offsetY = e.clientY - element.offsetTop;
+  }
+  
+  function handleMouseMove(e, element) {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+      element.style.left = x + 'px';
+      element.style.top = y + 'px';
+    }
+  }
+  
+  function handleMouseUp() {
+    isDragging = false;
+  }
+  
+  windowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, windowElement);
+  });
+  
+  windowElement.addEventListener('mouseup', handleMouseUp);
+  
+
+
+  codeWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, codeWindowElement);
+  });
+  
+  codeWindowElement.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, codeWindowElement);
+  });
+  
+  codeWindowElement.addEventListener('mouseup', handleMouseUp);
+
+
+
+  
+
+
+
+ 
+  
+};
+    
+  </script>
+</head>
+<body style="background-color: #3B6EA5;">
+   <script src="../jquery.js"></script>
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text" id="title-window">Loading...</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow">
+    </div>
+  </div>
+
+   <div class="window" id="w-code" style="display:none; width: 300px;">
+    <div class="title-bar">
+      <div class="title-bar-text">Enter Code</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="close-code"></button>
+      </div>
+    </div>
+    <div class="window-body" id="nwindow-code">
+      <p>Enter a code below to get an achievement.</p>
+      <p id="statustext"></p>
+      <div class="field-row">
+        <label for="code21">Code</label>
+        <input id="code21" type="text" style="width: 200px;" />
+      </div>
+      <br>
+      <section class="field-row" style="justify-content: flex-end">
+        <button id="confirmac" onclick="checkCode()">Confirm</button>
+        <button id="close-code2">Back</button>
+      </section>
+      
+    </div>
+
+</div>
+
+
+
+
+
+     
+  </div>
+  
+
+
+
+
+
+
+  
+
+  
+<!-- website is so slow... -->
+
+
+
+<div class="credits">Art by @MarisaUnaTyusha</div>
+ 
+  <script src="app.js"></script>
+  <script src="code.js"></script>
+</body>
+</html>

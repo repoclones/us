@@ -3,11 +3,11 @@ const wnd = document.getElementById("nwindow");
 const defaultfiles = `
 <ul class="icons">
         <li class="icon">
-          <img src="./icons/games.png" alt="Games" id="folder-games">
+          <img src="./icons/games.gif" alt="Games" id="folder-games">
           <div class="icon-label">Games</div>
         </li>
         <li class="icon">
-          <img src="./icons/fumoo.png" alt="Icon 2">
+          <img src="./icons/pages.png" alt="Pages" id="folder-pages">
           <div class="icon-label">Pages</div>
         </li>
         <li class="icon">
@@ -19,11 +19,11 @@ const defaultfiles = `
           <div class="icon-label">Bad Apple</div>
         </li>
         <li class="icon">
-          <img src="./icons/fumoo.png" alt="Test App" id="app-test">
-          <div class="icon-label">Test App</div>
+          <img src="./icons/changelog.png" alt="Changelog" id="app-changelog">
+          <div class="icon-label">Changelog</div>
         </li>
         <li class="icon">
-          <img src="./icons/fumoo.png" alt="Calculator" id="app-lcalc">
+          <img src="./icons/calculator.png" alt="Calculator" id="app-lcalc">
           <div class="icon-label">Calculator</div>
         </li>
         
@@ -32,6 +32,10 @@ const defaultfiles = `
       </ul>
       <br>
       <ul class="icons">
+      <li class="icon">
+          <img src="./icons/fumoo.png" alt="Test App" id="app-test">
+          <div class="icon-label">Test App</div>
+        </li>
       <li class="icon">
           <img src="./icons/fumoo.png" alt="Evil Dance" id="app-evildance">
           <div class="icon-label">Evil Dance</div>
@@ -50,8 +54,28 @@ const gamefiles = `
           <div class="icon-label">Back</div>
         </li>
         <li class="icon">
-          <img src="./icons/smolscared.png" alt="Games" id="app-smolscared">
+          <img src="./icons/smolscared.png" alt="SmolGames" id="app-smolscared">
           <div class="icon-label">SmolScared</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/smolscared.png" alt="Monika Neuro" id="app-monika">
+          <div class="icon-label">SmolScared</div>
+        </li>
+        <!-- Add more icons here -->
+      </ul>
+
+`
+
+// add all pages
+const pagefiles = `
+<ul class="icons">
+        <li class="icon">
+          <img src="./icons/fumoo.png" alt="Back" id="back2tops">
+          <div class="icon-label">Back</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/achievements.png" alt="Achievements" id="ref-achievements">
+          <div class="icon-label">Achievements</div>
         </li>
         <!-- Add more icons here -->
       </ul>
@@ -119,9 +143,9 @@ wnd.innerHTML = defaultfiles;
 
 
 // Default Main Window Titles
-const t_default = "neuro.us.to [jan-16-2024 domain update]"
+const t_default = "neuro.us.to [jan-21-2024 update]"
 const t_games = "Games"
-
+const t_pages = "Pages"
 
 // Games Folder Integration
 
@@ -141,6 +165,29 @@ function folder_games(){
 
 // End of Games Integration (link folder to default apps)
 
+
+
+
+// Pages Folder Integration
+
+
+function defpages(){
+  document.getElementById("back2tops").addEventListener("click", back2top);
+  document.getElementById("ref-achievements").addEventListener("click", function(){ window.location.href = "./achievements"; });
+}
+
+function folder_pages(){
+  wnd.innerHTML = pagefiles;
+  document.getElementById("title-window").innerHTML = t_pages;
+  defpages();
+}
+
+
+
+// End of Games Integration (link folder to default apps)
+
+
+
 // Default Apps Integration
 
 function defdef(){
@@ -158,6 +205,7 @@ document.getElementById("app-lcalc").addEventListener("click", function(){ windo
   
 
   document.getElementById("folder-games").addEventListener("click", folder_games);
+  document.getElementById("folder-pages").addEventListener("click", folder_pages);
   document.getElementById("title-window").innerHTML = t_default;
 };
 
