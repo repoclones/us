@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    
+  <title>Neuro-sama Art Archives</title>
+
+   
+  
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting.css'>
+<link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting-cells.css'>
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background: #000;
+	padding: 24px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3em;
+	font-weight: 600;
+}
+
+p {
+    max-width: 600px;
+    color: #fff;
+    font-size: 1.25em;
+}
+
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: gray;
+}
+
+/* mouse over link */
+a:hover {
+  color: yellow;
+}
+
+/* selected link */
+a:active {
+  color: orange;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <h1 data-splitting>The Neuro-sama Art Archives</h1>
+<p data-splitting="words">You can't really trust a Discord server or any site to archive stuff forever so we made this archive for everyone who enjoys Neuro! The archive is available in different links and you can help us archive more. Please open readme.txt for more information. The archive can be found below:<br><br><a href="https://drive.google.com/drive/folders/1PtsCXxlrzH_bSz9ybBhfkPcNZpPgHVLP">Google Drive</a> | <a href="https://mega.nz/folder/aDpT3KBa#tzLuHG0LARb3bT89dYOMYA">MEGA</a> | <a href="https://www.mirrored.to/multilinks/r0lykuglnt">Mirrored.to (has pop-up ads!)</a></p>
+  <script src='https://unpkg.com/splitting/dist/splitting.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'></script>
+      <script>
+// splitting.js
+Splitting();
+
+// gsap
+var tl = gsap.timeline();
+
+tl.from(".char", {
+  x: "random(-100, 100)",
+  y: "random(-100, 100)",
+  rotate: "random(-90, 90)",
+  filter: "blur(20px)",
+  opacity: 0,
+  ease: "power3.out",
+  duration: 1.5,
+  stagger: {
+    amount: 2 } });
+
+
+tl.from(
+"p",
+{
+  filter: "blur(20px)",
+  opacity: 0,
+  ease: "power3.out",
+  duration: 0.5,
+  stagger: {
+    amount: 3 } },
+
+
+"-=1");
+    </script>
+
+  
+</body>
+
+</html>
