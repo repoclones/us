@@ -281,7 +281,7 @@ function BA3() {
   (() => {
   const audioElement = document.createElement("audio");
   audioElement.style.display = "none";
-  audioElement.src = "https://neuro.nya.pub/homexp/output.mp3";
+  audioElement.src = "https://cdn.discordapp.com/attachments/781217049757089843/1217272083122360360/output.mp3";
   audioElement.volume = 0.4;
   document.body.append(audioElement);
 
