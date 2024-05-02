@@ -197,7 +197,10 @@ document.getElementById("app-ba").addEventListener("click", function(){ document
   
 document.getElementById("app-settings").addEventListener("click", function(){ document.getElementById("w-settings").style.display = "block"; });
 
-document.getElementById("app-test").addEventListener("click", function(){ document.getElementById("w-test").style.display = "block"; });
+document.getElementById("app-test").addEventListener("click", function(){ document.getElementById("w-test").style.display = "block"; var agh = document.body;
+
+    agh.style = "animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);";
+});
 
 document.getElementById("app-evildance").addEventListener("click", function(){ document.getElementById("w-evildance").style.display = "block"; });
   
