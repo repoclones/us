@@ -284,7 +284,7 @@ function BA3() {
   (() => {
   const audioElement = document.createElement("audio");
   audioElement.style.display = "none";
-  audioElement.src = "https://cdn.discordapp.com/attachments/500416964620189706/809600830730141696/output.mp3";
+  audioElement.src = "https://web.archive.org/web/20231115133701/https://cdn.discordapp.com/attachments/500416964620189706/809600830730141696/output.mp3";
   audioElement.volume = 0.4;
   document.body.append(audioElement);
 
