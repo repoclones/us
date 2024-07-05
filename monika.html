@@ -8,6 +8,7 @@
             background-color: #858585;
           }
         </style>
+        <link rel="stylesheet" type="text/css" href="./2common.css">
         <meta property="og:title" content="Monika Neuro">
         <meta name="twitter:title" content="Monika Neuro">
         <meta name="theme-color" content="#000000">
@@ -26,10 +27,13 @@
                 <b><p id="status">If you close, leave, or refresh this page, Monika Neuro will die.</p></b>
               <p>You stayed for <span id="sw">0</span> seconds.</p>
               <a href="./homexp">Go back!</a>
-
+              <script src="./assets/jquery.js"></script>
+              <script src="./assets/achievement.js"></script>
         <script>
             haveyoukilledmonikaneuro = localStorage.getItem("haveyoukilledmonikaneuro");
             timex = localStorage.getItem("timex");
+            getAchievement('Ng');
+          getAchievement('Nw');
         if (haveyoukilledmonikaneuro === null) {
             haveyoukilledmonikaneuro = 0;
             timex = 0;
@@ -40,6 +44,7 @@
           document.getElementById("monika").src="./assets/moneurokill.png";
           document.getElementById("status").innerHTML=`You killed Monika Neuro.`;
           document.getElementById("sw").innerHTML=timex;
+          
           };
           if (haveyoukilledmonikaneuro == 0) {
             setInterval(iefn, 1000);
@@ -51,7 +56,11 @@
             localStorage.setItem('timex', timex);
           };
         
+
+
+
         </script>
+        
     </body>
     
 </html>

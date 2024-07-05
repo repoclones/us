@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement Box</title>
+    <style>
+        .achievement-box {
+            position: fixed;
+            top: -100px;
+            right: 20px;
+            width: 250px;
+            padding: 10px;
+            background: linear-gradient(to bottom, #0055a5, #3572b0);
+            color: #fff;
+            border-radius: 10px;
+            border: 1px solid #003e7e;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            z-index: 1000;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+        .achievement-icon {
+            margin-right: 10px;
+            border: 1px solid #003e7e;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .achievement-text {
+            flex-grow: 1;
+        }
+        .achievement-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function showAchievement(iconUrl, achievementText) {
+        // Create the achievement box
+        var $box = $('<div class="achievement-box">')
+            .append('<img src="' + iconUrl + '" class="achievement-icon" width="40" height="40">')
+            .append('<div class="achievement-text"><div class="achievement-title">Achievement Get</div><div>' + achievementText + '</div></div>')
+            .appendTo('body');
+
+        // Animate the achievement box
+        $box.animate({ top: '20px', opacity: 1 }, 500, function() {
+            // Fade out after 3 seconds
+            setTimeout(function() {
+                $box.animate({ top: '-100px', opacity: 0 }, 500, function() {
+                    $box.remove();
+                });
+            }, 3000);
+        });
+    }
+
+    // Example usage
+    $(document).ready(function() {
+        $('#trigger-achievement').on('click', function() {
+            showAchievement('https://via.placeholder.com/40', 'You completed a task!');
+        });
+    });
+</script>
+
+<!-- Button to trigger the achievement box for demonstration purposes -->
+<button id="trigger-achievement">Show Achievement</button>
+
+</body>
+</html>

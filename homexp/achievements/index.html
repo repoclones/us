@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
+  <link rel="stylesheet" type="text/css" href="/2common.css">
   <style>
     body {
       
@@ -260,8 +261,13 @@ window.onload = function() {
 
 
 <div class="credits">Art by @MarisaUnaTyusha</div>
- 
+  <script src="/assets/achievement.js"></script>
   <script src="app.js"></script>
+  <script>
+    $(document).ready(function() {
+    setInterval(checkValid, 100);
+});
+  </script>
   <script src="code.js"></script>
 </body>
 </html>

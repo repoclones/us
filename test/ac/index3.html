@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement Box Example</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include the achievement CSS -->
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+<!-- Button to trigger the achievement box for demonstration purposes -->
+<button id="trigger-achievement">Show Achievement</button>
+
+<!-- Include the achievement JS -->
+<script src="achievement.js"></script>
+<script>
+    // Example usage
+    $(document).ready(function() {
+        $('#trigger-achievement').on('click', function() {
+            showAchievement('https://via.placeholder.com/40', 'You completed a task!');
+        });
+    });
+</script>
+
+</body>
+</html>

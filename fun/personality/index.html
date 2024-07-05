@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Personality Generator</title>
+<style>
+    body, html {
+  height: 100%;
+  margin: 0;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#text-output {
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="centered-container">
+    <div id="text-output">Loading...</div>
+    <input type="number" id="number-input" value="3">
+    <button id="generate-button">Go</button>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

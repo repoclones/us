@@ -66,14 +66,14 @@ const defaultfiles = `
       </ul>
     </details>
     <details>
-      <summary>🎉 You're not CJ at least</summary>
+      <summary>🎉 You monster</summary>
       <ul> 
- <li>Stay with Monika Neuro for at least 1 second.</li>
+ <li>Kill Monika Neuro in less than 1 second.</li>
  <li><i>Obtained:</i> <span id="ach007">❌</span></li>
       </ul>
     </details>
     <details>
-      <summary>🔑 The Reset... I need it!</summary>
+      <summary>🔑 She's back</summary>
       <ul> 
  <li>Enter a code that gives a reset to Monika Neuro.</li>
  <li><i>Obtained:</i> <span id="ach008">❌</span></li>
@@ -404,6 +404,53 @@ const defaultfiles = `
 wnd.innerHTML = defaultfiles;
 
 
+
+function getCompletedTasks() {
+  const completed = localStorage.getItem('completedTasks');
+  return completed ? JSON.parse(completed) : [];
+}
+function isAchievementCompleted(taskID) {
+  return getCompletedTasks().includes(taskID);
+}
+
+function checkValid(){
+
+  for (let taskID in achievements) {
+    switch (taskID) {
+        case 'MQ':
+        case 'Mg':
+          if (isAchievementCompleted(taskID)) {
+            document.getElementById("ach002").innerHTML = "✔️";
+        };
+        break;
+        case 'Mw':
+        case 'NA':
+        case 'OQ':
+          if (isAchievementCompleted(taskID)) {
+            document.getElementById("ach009").innerHTML = "✔️";
+        };
+        break;
+        default:
+            console.log('Unknown achievement:', atob(taskID));
+            break;
+    }
+  }
+
+
+}
+
+
+/*
+if (isAchievementCompleted(taskID)) {
+                console.log('Achievement', atob(taskID), 'is completed.');
+            } else {
+                console.log('Achievement', atob(taskID), 'is not completed.');
+            }
+            break;
+
+            */
+
+// document.getElementById("ach002").innerHTML = "✔️";
 
 
 /*

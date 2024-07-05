@@ -1,3 +1,4 @@
+var actualCode = ""
 function checkCode() {
     var codeInput = document.getElementById("code21").value;
     var actualCode = codeInput.toLowerCase();
@@ -6,6 +7,7 @@ function checkCode() {
     switch (actualCode) {
         case "neurosama.top":
             updateStatus("Glad you were here from the start! Here's an achievement!", 'success');
+            getAchievement("Mg");
             break;
         case "monika.chr":
             updateStatus("Monika Neuro has been reset.", 'success');
@@ -58,6 +60,15 @@ function checkCode() {
         }
       }
       
+
+
+
+      
+
+
+
+
+
       function updateStatus(message, statusClass) {
         // Update the status text with the specified class for color
         var statusText = document.getElementById("statustext");

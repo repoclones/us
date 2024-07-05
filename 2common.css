@@ -1,0 +1,35 @@
+/* achievement.css */
+
+.achievement-box {
+    position: fixed;
+    top: -100px;
+    right: 20px;
+    width: 250px;
+    padding: 10px;
+    background: linear-gradient(to bottom, #0055a5, #3572b0);
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #003e7e;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    z-index: 1000;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.achievement-icon {
+    margin-right: 10px;
+    border: 1px solid #003e7e;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.achievement-text {
+    flex-grow: 1;
+}
+
+.achievement-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
