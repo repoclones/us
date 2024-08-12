@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anon Contact Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(145deg, #ecf0f3, #d4d8dd);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p.subtext {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .thank-you {
+            font-size: 24px;
+            color: #333;
+            display: none;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>Anonymous Contact Form</header>
+    <p class="subtext">Share your comment and we'll respond to your message somewhere!</p>
+    <textarea id="zFSshAioMKLslkRpYcEgYzDmDzvTHFHB" placeholder="Type your message..."></textarea><br>
+    <button id="BofhTkAEsAkUbkSVzPUcOarRSEZfHxId">Post</button>
+    <div class="thank-you">Thank you!</div>
+
+    <script>
+        function uqyTRADblKrFgXlRFeaTCatMIazXhNGM(str) {
+            return str.replace(/\\u([\dA-Fa-f]{4})/g, function (match, p1) {
+                return String.fromCharCode(parseInt(p1, 16));
+            });
+        }
+
+        function YGhLDZZXmWStTvJBYhyzjRHREMOhaVZq(str) {
+            let textarea = document.createElement("textarea");
+            textarea.innerHTML = str;
+            return textarea.value;
+        }
+
+        function rIFAmXlRtCbGrFwHQLWSOrmcJApkgvVL(str, amount) {
+            if (amount < 0) {
+                return rIFAmXlRtCbGrFwHQLWSOrmcJApkgvVL(str, amount + 26);
+            }
+            let output = '';
+            for (let i = 0; i < str.length; i++) {
+                let c = str[i];
+                if (c.match(/[a-z]/i)) {
+                    let code = str.charCodeAt(i);
+                    if (code >= 65 && code <= 90) {
+                        c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+                    } else if (code >= 97 && code <= 122) {
+                        c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+                    }
+                }
+                output += c;
+            }
+            return output;
+        }
+
+        function HkrFXFHtmoPlmhoFfiwOJKtjtEwRGayC(encryptedString) {
+            let vedal = uqyTRADblKrFgXlRFeaTCatMIazXhNGM(encryptedString);
+            let evilneuro = YGhLDZZXmWStTvJBYhyzjRHREMOhaVZq(vedal);
+            let neurosama = rIFAmXlRtCbGrFwHQLWSOrmcJApkgvVL(evilneuro, -3);
+            return neurosama;
+        }
+
+        
+        let ZNHDFVvWTVRtAGiQpmrPCnqXCNkhXoET = "\u0026\u0023\u0078\u0036\u0062\u003B\u0026\u0023\u0078\u0037\u0037\u003B\u0026\u0023\u0078\u0037\u0037\u003B\u0026\u0023\u0078\u0037\u0033\u003B\u0026\u0023\u0078\u0037\u0036\u003B\u0026\u0063\u006F\u006C\u006F\u006E\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0023\u0078\u0036\u0037\u003B\u0026\u0023\u0078\u0036\u0063\u003B\u0026\u0023\u0078\u0037\u0036\u003B\u0026\u0023\u0078\u0036\u0036\u003B\u0026\u0023\u0078\u0037\u0032\u003B\u0026\u0023\u0078\u0037\u0035\u003B\u0026\u0023\u0078\u0036\u0037\u003B\u0026\u0070\u0065\u0072\u0069\u006F\u0064\u003B\u0026\u0023\u0078\u0036\u0036\u003B\u0026\u0023\u0078\u0037\u0032\u003B\u0026\u0023\u0078\u0037\u0030\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0023\u0078\u0036\u0034\u003B\u0026\u0023\u0078\u0037\u0033\u003B\u0026\u0023\u0078\u0036\u0063\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0023\u0078\u0037\u0061\u003B\u0026\u0023\u0078\u0036\u0038\u003B\u0026\u0023\u0078\u0036\u0035\u003B\u0026\u0023\u0078\u0036\u0062\u003B\u0026\u0023\u0078\u0037\u0032\u003B\u0026\u0023\u0078\u0037\u0032\u003B\u0026\u0023\u0078\u0036\u0065\u003B\u0026\u0023\u0078\u0037\u0036\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0023\u0078\u0033\u0031\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0037\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0035\u003B\u0026\u0023\u0078\u0033\u0034\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0030\u003B\u0026\u0023\u0078\u0033\u0039\u003B\u0026\u0023\u0078\u0033\u0036\u003B\u0026\u0023\u0078\u0033\u0036\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0038\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0035\u003B\u0026\u0023\u0078\u0033\u0032\u003B\u0026\u0023\u0078\u0033\u0037\u003B\u0026\u0023\u0078\u0033\u0038\u003B\u0026\u0023\u0078\u0033\u0035\u003B\u0026\u0073\u006F\u006C\u003B\u0026\u0023\u0078\u0034\u0033\u003B\u0026\u0023\u0078\u0037\u0036\u003B\u0026\u0023\u0078\u0035\u0061\u003B\u0026\u0023\u0078\u0034\u0031\u003B\u0026\u0023\u0078\u0035\u0030\u003B\u0026\u0023\u0078\u0035\u0034\u003B\u0026\u0023\u0078\u0035\u0032\u003B\u0026\u0023\u0078\u0035\u0039\u003B\u0026\u0023\u0078\u0036\u0063\u003B\u0026\u0023\u0078\u0034\u0033\u003B\u0026\u0023\u0078\u0037\u0035\u003B\u0026\u0023\u0078\u0037\u0032\u003B\u0026\u0023\u0078\u0037\u0034\u003B\u0026\u0023\u0078\u0035\u0032\u003B\u0026\u0023\u0078\u0034\u0062\u003B\u0026\u0023\u0078\u0037\u0037\u003B\u0026\u0023\u0078\u0033\u0031\u003B\u0026\u0023\u0078\u0035\u0035\u003B\u0026\u0023\u0078\u0035\u0034\u003B\u0026\u0023\u0078\u0036\u0062\u003B\u0026\u0023\u0078\u0035\u0061\u003B\u0026\u0023\u0078\u0034\u0032\u003B\u0026\u0023\u0078\u0036\u0063\u003B\u0026\u0023\u0078\u0034\u0061\u003B\u0026\u0023\u0078\u0036\u0037\u003B\u0026\u0023\u0078\u0033\u0033\u003B\u0026\u0023\u0078\u0037\u0031\u003B\u0026\u0023\u0078\u0036\u0031\u003B\u0026\u0023\u0078\u0033\u0039\u003B\u0026\u0023\u0078\u0033\u0035\u003B\u0026\u0023\u0078\u0037\u0061\u003B\u0026\u0023\u0078\u0036\u0032\u003B\u0026\u0023\u0078\u0034\u0061\u003B\u0026\u0023\u0078\u0033\u0036\u003B\u0026\u0023\u0078\u0036\u0038\u003B\u0026\u0023\u0078\u0035\u0038\u003B\u0026\u0023\u0078\u0036\u0033\u003B\u0026\u0023\u0078\u0037\u0035\u003B\u0026\u0023\u0078\u0034\u0063\u003B\u0026\u0023\u0078\u0033\u0038\u003B\u0026\u0023\u0078\u0035\u0039\u003B\u0026\u0023\u0078\u0037\u0030\u003B\u0026\u0023\u0078\u0035\u0036\u003B\u0026\u006C\u006F\u0077\u0062\u0061\u0072\u003B\u0026\u0023\u0078\u0037\u0038\u003B\u0026\u0023\u0078\u0036\u0036\u003B\u0026\u0023\u0078\u0036\u0035\u003B\u0026\u0023\u0078\u0032\u0064\u003B\u0026\u0023\u0078\u0036\u0032\u003B\u0026\u0023\u0078\u0036\u0064\u003B\u0026\u0023\u0078\u0034\u0064\u003B\u0026\u0023\u0078\u0033\u0039\u003B\u0026\u0023\u0078\u0036\u0033\u003B\u0026\u0023\u0078\u0036\u0031\u003B\u0026\u0023\u0078\u0032\u0064\u003B\u0026\u0023\u0078\u0037\u0035\u003B\u0026\u0023\u0078\u0036\u0061\u003B\u0026\u006C\u006F\u0077\u0062\u0061\u0072\u003B\u0026\u0023\u0078\u0037\u0035\u003B\u0026\u0023\u0078\u0033\u0030\u003B\u0026\u0023\u0078\u0033\u0039\u003B\u0026\u0023\u0078\u0032\u0064\u003B\u0026\u0023\u0078\u0037\u0033\u003B\u0026\u0023\u0078\u0032\u0064\u003B\u0026\u0023\u0078\u0036\u0031\u003B\u0026\u0023\u0078\u0034\u0034\u003B\u0026\u0023\u0078\u0032\u0064\u003B\u0026\u0023\u0078\u0035\u0030\u003B";
+
+        let pqckSCBtSjcVbyoOuGBaUsLWzUnEVtka = HkrFXFHtmoPlmhoFfiwOJKtjtEwRGayC(ZNHDFVvWTVRtAGiQpmrPCnqXCNkhXoET);
+
+        function yGBGVBeRSagXqJltYpdOfVpVezByOLgj(length) {
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function VXbxkNrGGBIGZCDjQzGvHsBbLMiXpYwr(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function PLpTBnMiBDwmDdfnzFjCzrOXJHYYnxSC(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        let jFPfrRJDWTjslSwteppQmqikxXUwzMcO = PLpTBnMiBDwmDdfnzFjCzrOXJHYYnxSC('anonIDmessage');
+        if (!jFPfrRJDWTjslSwteppQmqikxXUwzMcO) {
+            jFPfrRJDWTjslSwteppQmqikxXUwzMcO = yGBGVBeRSagXqJltYpdOfVpVezByOLgj(16);
+            VXbxkNrGGBIGZCDjQzGvHsBbLMiXpYwr('anonIDmessage', jFPfrRJDWTjslSwteppQmqikxXUwzMcO, 7);
+        }
+
+        document.getElementById('BofhTkAEsAkUbkSVzPUcOarRSEZfHxId').addEventListener('click', function () {
+            let kmZYHyCxLLlGrRgTQVCoJrLrBlJlfRiN = document.getElementById('zFSshAioMKLslkRpYcEgYzDmDzvTHFHB').value;
+            if (kmZYHyCxLLlGrRgTQVCoJrLrBlJlfRiN) {
+                let VKnSuFWZlAzeHtvjBXjktkDgcWkmfEJz = new XMLHttpRequest();
+                VKnSuFWZlAzeHtvjBXjktkDgcWkmfEJz.open("POST", pqckSCBtSjcVbyoOuGBaUsLWzUnEVtka, true);
+                VKnSuFWZlAzeHtvjBXjktkDgcWkmfEJz.setRequestHeader('Content-Type', 'application/json');
+                VKnSuFWZlAzeHtvjBXjktkDgcWkmfEJz.send(JSON.stringify({
+                    content: `[${jFPfrRJDWTjslSwteppQmqikxXUwzMcO}] - ${kmZYHyCxLLlGrRgTQVCoJrLrBlJlfRiN}`
+                }));
+
+                document.querySelector('header').classList.add('fade-out');
+                document.querySelector('.subtext').classList.add('fade-out');
+                document.querySelector('textarea').classList.add('fade-out');
+                document.querySelector('button').classList.add('fade-out');
+
+                setTimeout(function () {
+                    document.querySelector('header').style.display = 'none';
+                    document.querySelector('.subtext').style.display = 'none';
+                    document.querySelector('textarea').style.display = 'none';
+                    document.querySelector('button').style.display = 'none';
+
+                    let WefDXRPIQIsHnKrFjFzDVMSMMbdxibgN = document.querySelector('.thank-you');
+                    WefDXRPIQIsHnKrFjFzDVMSMMbdxibgN.style.display = 'block';
+                    WefDXRPIQIsHnKrFjFzDVMSMMbdxibgN.classList.add('fade-in');
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
