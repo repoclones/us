@@ -1,0 +1,12 @@
+[
+    {"Title": "News Item 1", "Image": "images/news_thumbnail2.jpg", "Href": "./pages/i/pagename1.html"},
+    {"Title": "News Item 2", "Image": "images/news_thumbnail2.jpg", "Href": "./pages/i/pagename2.html"},
+    {"Title": "News Item 3", "Image": "images/news_thumbnail2.jpg", "Href": "./pages/i/pagename3.html"},
+    {"Title": "News Item 4", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename4.html"},
+    {"Title": "News Item 5", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename5.html"},
+    {"Title": "News Item 6", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename6.html"},
+    {"Title": "News Item 7", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename7.html"},
+    {"Title": "News Item 8", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename8.html"},
+    {"Title": "News Item 9", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename9.html"},
+    {"Title": "News Item 10", "Image": "images/news_thumbnail3.jpg", "Href": "./pages/i/pagename10.html"}
+]

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pxls Flag Survey</title>
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .gradient-background {
+            background: linear-gradient(45deg, #492e2e, #2e0000, #000000, #330000);
+            background-size: 400% 400%;
+            animation: gradientAnimation 30s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .question, .result {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-background"></div>
+    
+    <div class="container" id="mainContainer">
+        <h1>Pxls Flag Survey</h1>
+        <p>Determine to see whether your flag on pxls will be <b>nuked</b> or <b>spared</b>.</p>
+        <button id="startBtn">Start</button>
+    </div>
+
+    <div class="container hidden" id="questionContainer">
+        <div class="question" id="question1">
+            <h2>Is it a Flag?</h2>
+            <button class="yesBtn" data-next="question2">Yes</button>
+            <button class="noBtn" data-result="leave">No</button>
+        </div>
+        <div class="question" id="question2">
+            <h2>Is it Flat?</h2>
+            <button class="yesBtn" data-result="kill">Yes</button>
+            <button class="noBtn" data-next="question3">No</button>
+        </div>
+        <div class="question" id="question3">
+            <h2>Is it Regional?</h2>
+            <button class="yesBtn" data-next="question4">Yes</button>
+            <button class="noBtn" data-result="leave">No</button>
+        </div>
+        <div class="question" id="question4">
+            <h2>Is the owner persona non grata or is the flag causing issues?</h2>
+            <button class="yesBtn" data-result="kill">Yes</button>
+            <button class="noBtn" data-result="leave">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="resultContainer">
+        <h2 id="resultText"></h2>
+        <button id="xd" disabled>Refresh to try again</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $mainContainer = $('#mainContainer');
+            const $questionContainer = $('#questionContainer');
+            const $resultContainer = $('#resultContainer');
+            const $resultText = $('#resultText');
+
+            $('#startBtn').click(function() {
+                $mainContainer.addClass('hidden');
+                setTimeout(() => {
+                    $mainContainer.hide();
+                    $questionContainer.removeClass('hidden');
+                    $('#question1').fadeIn();
+                }, 500);
+            });
+
+            $('.yesBtn').click(function() {
+                const next = $(this).data('next');
+                const result = $(this).data('result');
+                const $currentQuestion = $(this).closest('.question');
+
+                $currentQuestion.fadeOut(() => {
+                    if (next) {
+                        $('#' + next).fadeIn();
+                    } else if (result) {
+                        displayResult(result);
+                    }
+                });
+            });
+
+            $('.noBtn').click(function() {
+                const next = $(this).data('next');
+                const result = $(this).data('result');
+                const $currentQuestion = $(this).closest('.question');
+
+                $currentQuestion.fadeOut(() => {
+                    if (next) {
+                        $('#' + next).fadeIn();
+                    } else if (result) {
+                        displayResult(result);
+                    }
+                });
+            });
+
+            $('#xd').click(function() {
+                $resultContainer.addClass('hidden');
+                setTimeout(() => {
+                    $resultContainer.hide();
+                    $questionContainer.removeClass('hidden');
+                    $('#question1').fadeIn();
+                }, 500);
+            });
+
+            function displayResult(result) {
+                const resultMessage = result === 'kill' ? 'Kill!' : 'Spared';
+                $resultText.text(resultMessage);
+                $questionContainer.addClass('hidden');
+                setTimeout(() => {
+                    $questionContainer.hide();
+                    $resultContainer.removeClass('hidden').fadeIn();
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
