@@ -1,0 +1,35 @@
+<html>
+<head>
+  <link rel="stylesheet" href="css/s.css">
+  <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+  <title>KAM</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KAM">
+  <meta property="og:description" content="This game features a lot of scenarios and situations with 3 choices for you to choose.">
+  <meta property="og:url" content="https://z.ne1.co/">
+  <meta name="og:image" content="testImage">
+  <meta name="theme-color" content="#2f3136">
+</head>
+<body>
+  <div id="center">
+    <center>
+        <img src="gameImage" alt="Game Image" id="gameImage">
+        <h1 id="title">Title</h1>
+        <p id="body">Scenario description goes here...</p>
+        <p id="answers"></p>
+        <div id="nsm">
+            <button onclick="answer(1);" class="btn btn-dark btn-outline-light">A</button>
+            <button onclick="answer(2);" class="btn btn-dark btn-outline-light">B</button>
+            <button onclick="answer(3);" class="btn btn-dark btn-outline-light">C</button>
+        </div>
+        <button id="invButton" onclick="toggleInventory()" style="display: none;">INV</button>
+<div id="inventoryGui" style="display: none;">
+  <h3>Inventory</h3>
+  <ul id="inventoryList"></ul>
+</div>
+
+    </center>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+</html>

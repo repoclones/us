@@ -1,0 +1,26 @@
+{
+    "items": [
+      {
+        "itemID": "001",
+        "name": "Healing Potion",
+        "callback": "healPlayer",
+        "callbackJS": "heal.js",
+        "blocked": ["scn-03", "scn-05"]
+      },
+      {
+        "itemID": "002",
+        "name": "Shield",
+        "callback": "activateShield",
+        "callbackJS": "shield.js",
+        "blocked": []
+      },
+      {
+        "itemID": "003",
+        "name": "None",
+        "callback": "none",
+        "callbackJS": "none",
+        "blocked": []
+      }
+    ]
+  }
+  

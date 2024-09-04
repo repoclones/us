@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Rogue AI",
+        "body": "An AI has gone rogue and trapped you into a room. You see a laptop, a vent, and a stone pickaxe. What do you do?",
+        "answers": ["A. Try to hack the AI using the Laptop", "B. Crawl through the vent", "C. Mine your way out"],
+        "outcomes": ["lose", "win", "lose"],
+        "img": "https://cdn.discordapp.com/emojis/1069989552669868074.gif?size=256"
+    },
+    {
+        "title": "Another Scenario",
+        "body": "Another scenario description goes here.",
+        "answers": ["Option 1", "Option 2", "Option 3"],
+        "outcomes": ["win", "lose", "lose"],
+        "img": null
+    }
+]
