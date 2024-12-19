@@ -1,12 +1,580 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=https://twitch.tv/vedal987">
+<html><head>
+<meta charset="UTF-8">
+<title>Neuro-sama's 2nd Birthday Art Gallery!</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: 'First Coffee';
+    src: url('https://fonts.cdnfonts.com/css/first-coffee') format('woff2');
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #371927;
+    font-family: 'First Coffee', cursive;
+    overflow-x: hidden;
+}
+
+.background-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: rotate(7deg);
+}
+
+.heart {
+    position: absolute;
+    fill: rgba(255, 150, 180, 0.5);
+    width: 30px;
+    height: 30px;
+    animation: floatHeart 20s infinite linear;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.art-piece {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: scale(0);
+    animation: appear 0.5s forwards;
+    cursor: pointer;
+}
+
+.art-piece img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.art-piece:hover img {
+    transform: scale(1.05);
+}
+
+.artist-credit {
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px 20px;
+    transform: rotate(-5deg);
+    z-index: 1;
+    min-width: 150px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.artist-credit::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-top: 10px solid rgba(0,0,0,0.8);
+    border-left: 10px solid transparent;
+}
+
+.artist-credit a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.artist-credit a:hover {
+    color: #FFB6C1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    max-width: 90%;
+    max-height: 90vh;
+    animation: zoomIn 0.3s forwards;
+    cursor: move;
+    transition: transform 0.3s ease;  
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.zoom-btn {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+@keyframes zoomIn {
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) rotate(7deg); }
+    100% { transform: translateY(-100px) rotate(7deg); }
+}
+
+@keyframes appear {
+    from { 
+        transform: scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+    to { 
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.7);
+    animation: titleAppear 1s ease-out;
+}
+
+@keyframes titleAppear {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 192, 203, 0.3);
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    animation: footerAppear 1s ease-out;
+}
+
+footer p {
+    color: white;
+    font-size: 1.2em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.7);
+}
+
+@keyframes footerAppear {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="https://twitch.tv/vedal987">click here</a>.</p>
+
+<h1>Neuro-sama's 2nd Birthday Art Gallery</h1>
+
+<div class="background-hearts" id="hearts"></div>
+
+<div class="gallery" id="gallery">
+    <!-- Gallery items will be loaded via JavaScript -->
+</div>
+
+<div class="modal" id="imageModal">
+    <div class="modal-close">&times;</div>
+    <img class="modal-content" id="modalImage">
+    <div class="modal-controls">
+        <button class="zoom-btn" id="zoomIn">+</button>
+        <button class="zoom-btn" id="zoomOut">-</button>
+        <button class="zoom-btn" id="resetZoom">Reset</button>
+    </div>
+</div>
+
+<footer>
+    <p>Made with ♥</p>
+</footer>
+<script>
+// Art gallery data
+const artworkData = [
+    
+    {
+        "artist": "PBorzoi",
+        "artistUrl": "https://x.com/Deueeuui223",
+        "imageUrl": "./borzoi.png",
+        "alt": "PBorzoi"
+    },
+    {
+        "artist": "Clord",
+        "artistUrl": "https://bsky.app/profile/clord124.bsky.social",
+        "imageUrl": "./Clord.png",
+        "alt": "Clord"
+    },
+    {
+        "artist": "Dafalgan",
+        "artistUrl": "https://x.com/dafalgan09",
+        "imageUrl": "./Dafalgan.png",
+        "alt": "Dafalgan"
+    },
+    {
+        "artist": "Eris",
+        "artistUrl": "https://x.com/233Eris",
+        "imageUrl": "./eris with phone.png",
+        "alt": "Eris"
+    },
+    {
+        "artist": "fians",
+        "artistUrl": "https://x.com/fiansand",
+        "imageUrl": "./fians.png",
+        "alt": "fians"
+    },
+    {
+        "artist": "food",
+        "artistUrl": "https://x.com/tanhuluu",
+        "imageUrl": "./Food 1.png",
+        "alt": "food"
+    },
+    {
+        "artist": "food",
+        "artistUrl": "https://x.com/tanhuluu",
+        "imageUrl": "./food final slide.png",
+        "alt": "food"
+    },
+    {
+        "artist": "HatKid",
+        "artistUrl": "#",
+        "imageUrl": "./HatKid.png",
+        "alt": "HatKid"
+    },
+    {
+        "artist": "heren",
+        "artistUrl": "#",
+        "imageUrl": "./heren.png",
+        "alt": "heren"
+    },
+    {
+        "artist": "shinbaru",
+        "artistUrl": "https://x.com/_shinbaru",
+        "imageUrl": "./Image_122381987541062.png",
+        "alt": "shinbaru"
+    },
+    {
+        "artist": "sanocake",
+        "artistUrl": "#",
+        "imageUrl": "./IMG_0961.png",
+        "alt": "sanocake"
+    },
+    {
+        "artist": "KamaMecca",
+        "artistUrl": "https://x.com/KamaMecca",
+        "imageUrl": "./KamaMecca.png",
+        "alt": "KamaMecca"
+    },
+    {
+        "artist": "Limesacc",
+        "artistUrl": "https://x.com/limesacc",
+        "imageUrl": "./Limesacc.jpg",
+        "alt": "Limesacc"
+    },
+    {
+        "artist": "Memeow",
+        "artistUrl": "https://www.twitch.tv/mayo8gg",
+        "imageUrl": "./memeow.png",
+        "alt": "MeMeow"
+    },
+    {
+        "artist": "MrFish",
+        "artistUrl": "https://x.com/mrfish399/",
+        "imageUrl": "./MrFish.jpg",
+        "alt": "MrFish"
+    },
+    {
+        "artist": "P3R",
+        "artistUrl": "https://x.com/atari_desu",
+        "imageUrl": "./P3R.png",
+        "alt": "P3R"
+    },
+    {
+        "artist": "Paccha",
+        "artistUrl": "https://linktr.ee/paccha_",
+        "imageUrl": "./paccha.gif",
+        "alt": "Paccha"
+    },
+    {
+        "artist": "ppchan",
+        "artistUrl": "https://x.com/pinkpink939",
+        "imageUrl": "./pchan.jpg",
+        "alt": "ppchan"
+    },
+    {
+        "artist": "ramen_bucket",
+        "artistUrl": "https://x.com/ramenbucket",
+        "imageUrl": "./ramen_bucket.jpg",
+        "alt": "ramen_bucket"
+    },
+    {
+        "artist": "reyforn",
+        "artistUrl": "https://x.com/reyforn_",
+        "imageUrl": "./reyfornpng.png",
+        "alt": "reyforn"
+    },
+    {
+        "artist": "Reznyan",
+        "artistUrl": ".",
+        "imageUrl": "./Reznyan.png",
+        "alt": "Reznyan"
+    },
+    {
+        "artist": "Rune",
+        "artistUrl": "https://www.pixiv.net/users/25170019",
+        "imageUrl": "./Rune.png",
+        "alt": "Rune"
+    },
+    {
+        "artist": "SisterSpectrus",
+        "artistUrl": ".",
+        "imageUrl": "./sisterspectrus.png",
+        "alt": "SisterSpectrus"
+    },
+    {
+        "artist": "Skull Mercenary",
+        "artistUrl": ".",
+        "imageUrl": "./SkullMercenary.png",
+        "alt": "SkullMercenary"
+    },
+    {
+        "artist": "SprayCactus",
+        "artistUrl": "https://x.com/SprayCactus",
+        "imageUrl": "./SprayCactus.png",
+        "alt": "SprayCactus"
+    },
+    {
+        "artist": "TripleAAABattery",
+        "artistUrl": "https://discord.com/channels/574720535888396288/1316851999496736908",
+        "imageUrl": "./TripleAAABattery.png",
+        "alt": "TripleAAABattery"
+    },
+    {
+        "artist": "WILDSAKE",
+        "artistUrl": "https://wlldsake.tumblr.com/",
+        "imageUrl": "./WILDSAKE.png",
+        "alt": "WILDSAKE"
+    }
+
+];
+
+// Function to load gallery items
+function loadGallery() {
+    const gallery = document.getElementById('gallery');
+    
+    artworkData.forEach((artwork, index) => {
+        const artPiece = document.createElement('div');
+        artPiece.className = 'art-piece';
+        artPiece.style.animationDelay = (index * 0.2) + 's';
+        
+        artPiece.innerHTML = `
+            <div class="artist-credit">
+                <a href="${artwork.artistUrl}" target="_blank">${artwork.artist}</a>
+            </div>
+            <img src="${artwork.imageUrl}" alt="${artwork.alt}">
+        `;
+        
+        gallery.appendChild(artPiece);
+    });
+}
+
+// Create floating hearts background
+function createHearts() {
+    const heartsContainer = document.getElementById('hearts');
+    const numberOfHearts = 50;
+    
+    for (let i = 0; i < numberOfHearts; i++) {
+        const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        heart.setAttribute("class", "heart");
+        heart.setAttribute("viewBox", "0 0 24 24");
+        
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
+        
+        heart.appendChild(path);
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 20 + 's';
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        heartsContainer.appendChild(heart);
+    }
+}
+
+// Modal functionality
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const closeBtn = document.querySelector('.modal-close');
+let scale = 1;
+let isDragging = false;
+let startPos = { x: 0, y: 0 };
+let currentPos = { x: 0, y: 0 };
+
+// Initialize event listeners for gallery items
+function initializeGalleryEvents() {
+    document.querySelectorAll('.art-piece').forEach(piece => {
+        piece.addEventListener('click', function(e) {
+            // Don't open modal if clicking on artist link
+            if (e.target.tagName === 'A') return;
+            
+            const img = this.querySelector('img');
+            modal.style.display = "block";
+            setTimeout(() => modal.classList.add('active'), 10);
+            modalImg.src = img.src;
+            scale = 1;
+            currentPos = { x: 0, y: 0 };
+            updateImageTransform();
+        });
+    });
+}
+
+// Rest of the modal and zoom functionality remains the same
+closeBtn.addEventListener('click', closeModal);
+
+function closeModal() {
+    modal.classList.remove('active');
+    setTimeout(() => modal.style.display = "none", 300);
+}
+
+modalImg.addEventListener('mousedown', startDragging);
+
+function startDragging(e) {
+    e.preventDefault();
+    isDragging = true;
+    startPos = {
+        x: e.clientX - currentPos.x,
+        y: e.clientY - currentPos.y
+    };
+}
+
+window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    currentPos = {
+        x: e.clientX - startPos.x,
+        y: e.clientY - startPos.y
+    };
+    updateImageTransform();
+});
+
+window.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+document.getElementById('zoomIn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    scale = Math.min(5, scale * 1.2);
+    updateImageTransform();
+});
+
+document.getElementById('zoomOut').addEventListener('click', (e) => {
+    e.stopPropagation();
+    scale = Math.max(0.5, scale / 1.2);
+    updateImageTransform();
+});
+
+document.getElementById('resetZoom').addEventListener('click', (e) => {
+    e.stopPropagation();
+    scale = 1;
+    currentPos = { x: 0, y: 0 };
+    updateImageTransform();
+});
+
+function updateImageTransform() {
+    modalImg.style.transform = `translate(${currentPos.x}px, ${currentPos.y}px) scale(${scale})`;
+}
+
+// Initialize everything
+createHearts();
+loadGallery();
+initializeGalleryEvents();
+
+// Prevent zoom buttons from triggering modal close
+document.querySelector('.modal-controls').addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+// Close modal when clicking outside the image
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+</script>
+
 </body>
 </html>
