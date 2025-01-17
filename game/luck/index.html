@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luck Gacha Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="preloader" class="screen">
+    <div class="loading-container">
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="loading-text">Loading assets... <span id="loading-percentage">0%</span></div>
+      <button id="skip-loading" class="skip-button">Skip Loading</button>
+    </div>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <div id="intro-screen" class="screen">
+      <img src="./intro.png" alt="Lucky Girl Intro" class="game-image">
+      <button id="roll-button">Test Your Luck!</button>
+    </div>
+    
+    <div id="rolling-screen" class="screen hidden">
+      <img src="./speed.gif" alt="Rolling Animation" class="game-image">
+      <p>Rolling...</p>
+    </div>
+    
+    <div id="result-screen" class="screen hidden">
+      <img id="result-image" class="game-image" alt="Luck Result">
+      <button id="retry-button">Try Again!</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
