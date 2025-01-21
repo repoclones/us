@@ -1,0 +1,37 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.bee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fly-random {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(calc(100vw * var(--random-x1)), calc(100vh * var(--random-y1))) rotate(90deg);
+  }
+  50% {
+    transform: translate(calc(100vw * var(--random-x2)), calc(100vh * var(--random-y2))) rotate(180deg);
+  }
+  75% {
+    transform: translate(calc(100vw * var(--random-x3)), calc(100vh * var(--random-y3))) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
