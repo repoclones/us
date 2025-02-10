@@ -115,6 +115,13 @@ const defaultfiles = `
       </ul>
     </details>
     <details>
+      <summary>🎉 I'm not a robot</summary>
+      <ul> 
+ <li>Complete the captcha.</li>
+<li><i>Obtained:</i> <span id="ach013">❌</span></li>
+      </ul>
+    </details>
+    <details>
       <summary>🎉 I read it all, let me in already</summary>
       <ul> 
  <li>Read and agree to the warning before playing Troubled Chat Lite.</li>

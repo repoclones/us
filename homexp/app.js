@@ -143,7 +143,7 @@ wnd.innerHTML = defaultfiles;
 
 
 // Default Main Window Titles
-const t_default = "neuro.us.to [july-7-2024 beta achievement update]"
+const t_default = window.location.hostname + " [february-10-2025 smol update]"
 const t_games = "Games"
 const t_pages = "Pages"
 

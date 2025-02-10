@@ -1,0 +1,319 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.captcha-box {
+  width: 300px;
+  height: 74px;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.captcha-box:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.checkbox-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.checkbox {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #dfe1e5;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.checkbox-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4285F4;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke: white;
+  stroke-width: 3;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+.checkmark-path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+.captcha-text {
+  color: #202124;
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.captcha-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recaptcha-logo {
+  width: 24px;
+  height: 24px;
+  fill: #4285F4;
+}
+
+.captcha-logo span {
+  color: #70757a;
+  font-size: 13px;
+}
+
+.checkbox-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.checkbox-loading.active {
+  display: block;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 1.5s linear infinite;
+}
+
+.loading-spinner circle {
+  stroke: #4285F4;
+  stroke-width: 3;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  0% { stroke-dashoffset: 60; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -60; }
+}
+
+.challenge-container {
+  position: absolute;
+  top: -250px;
+  left: -100px;
+  width: 500px;
+  background: white;
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.challenge-container.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.challenge-header {
+  padding: 20px;
+  border-bottom: 1px solid #dfe1e5;
+  font-size: 14px;
+  color: #4285F4;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.challenge-object {
+  display: block;
+  font-size: 28px;
+  margin: 8px 0;
+  color: #202124;
+  font-weight: normal;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  background-color: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-cell:hover {
+  background-color: #f1f3f4;
+}
+
+.grid-cell.selected {
+  border-color: #4285F4;
+  background-color: rgba(66, 133, 244, 0.08);
+}
+
+.grid-cell.selected::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: #4285F4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+
+.challenge-footer {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #dfe1e5;
+}
+
+.challenge-footer-text {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #70757a;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.verify-btn, .control-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.verify-btn {
+  background-color: #4285F4;
+  color: white;
+}
+
+.verify-btn:hover {
+  background-color: #1a73e8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.control-btn {
+  background-color: transparent;
+  color: #70757a;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.error-message {
+  color: #d93025;
+  font-size: 13px;
+  margin-right: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.error-message.active {
+  opacity: 1;
+}
+
+/* Success Animation */
+.checkbox.checked .checkbox-background {
+  transform: scale(1);
+}
+
+.checkbox.checked .checkmark {
+  transform: scale(1);
+  animation: checkmark-stroke 0.3s ease-in-out;
+}
+
+@keyframes checkmark-stroke {
+  0% { stroke-dashoffset: 48; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 600px) {
+  .challenge-container {
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+  }
+  
+  .challenge-container.active {
+    transform: translateX(-50%) translateY(0);
+  }
+}
