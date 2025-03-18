@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="submitPassword()">Submit</button>
+    <script>
+        async function submitPassword() {
+            const password = document.getElementById('password').value;
+            localStorage.setItem("password01", password);
+            checkAccess();
+        }
+
+        async function checkAccess() {
+            const storedPassword = localStorage.getItem("password01");
+            if (!storedPassword) return;
+            
+            const response = await fetch("https://p.gbp.workers.dev/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ password: storedPassword })
+            });
+            
+            if (response.ok) {
+                const htmlContent = await response.text();
+                document.open();
+                document.write(htmlContent);
+                document.close();
+            }
+        }
+
+        checkAccess();
+    </script>
+</body>
+</html>
