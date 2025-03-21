@@ -48,7 +48,7 @@ function generateGears() {
         gearElement.classList.add('gear');
         
         // Use the provided SVG file
-        fetch('2789-200.svg')
+        fetch('./2789-200.svg')
             .then(response => response.text())
             .then(svgText => {
                 let color, strokeWidth, stroke;
