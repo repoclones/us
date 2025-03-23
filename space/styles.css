@@ -299,14 +299,14 @@ body {
 .typewriter-title {
     font-size: 30px;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff;
     margin-bottom: 10px;
 }
 
 .typewriter-subtitle {
     font-size: 50px;
     letter-spacing: 3px;
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff;
 }
 
 @media (max-width: 1349px) {
