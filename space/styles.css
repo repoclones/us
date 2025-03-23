@@ -7,6 +7,9 @@
     --video-bg-x: 100%;
     --video-bg-y: 50%;
     --video-bg-scale: 170%;
+    --donors-bg-x: 100%;
+    --donors-bg-y: 50%;
+    --donors-bg-scale: 100%;
 }
 body {
     font-family: Arial, sans-serif;
@@ -644,6 +647,22 @@ body {
 }
 
 /* Donors section */
+
+
+#donors-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/ppchan.jpg');
+    background-position: var(--donors-bg-x, 100%) var(--donors-bg-y, 70%);
+    background-size: var(--donors-bg-scale, 100%);
+    opacity: 0.5;
+    z-index: -1;
+}
+
 .donors-list {
     display: flex;
     flex-wrap: wrap;
@@ -653,7 +672,7 @@ body {
 }
 
 .donor-name {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(82, 134, 182, 0.5);
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 1rem;
@@ -662,7 +681,7 @@ body {
 }
 
 .donor-name:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(82, 134, 182, 0.2);
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
