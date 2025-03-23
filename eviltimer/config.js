@@ -2,7 +2,7 @@
 // Set the target date in Unix timestamp (seconds since Jan 1, 1970)
 export const config = {
     // Example: December 31, 2023 at midnight UTC
-    targetDate: 1742929200, // Change this to your desired timestamp
+    targetDate: 1742900400, // Change this to your desired timestamp
     
     // Customize gear appearance
     gears: {
