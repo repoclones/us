@@ -150,12 +150,14 @@ body {
     left: var(--left-pos, 5%);
     bottom: var(--bottom-pos, 10%);
     animation: floatLeft 3s ease-in-out infinite;
+    transition: all 0.3s ease;
 }
 
 .right {
     right: var(--right-pos, 5%);
     bottom: var(--bottom-pos, 10%);
     animation: floatRight 4s ease-in-out infinite;
+    transition: all 0.3s ease;
 }
 
 /* Mobile character adjustments */
@@ -173,6 +175,16 @@ body {
     }
 }
 
+@media (max-width: 831px) {
+    :root {
+        --donors-bg-x: 80%;
+        --donors-bg-y: 100%;
+        --donors-bg-scale: 190%;
+    }
+}
+
+
+
 @media (max-width: 699px) {
     .character {
         height: 400px;
@@ -181,6 +193,17 @@ body {
         --video-bg-x: 80%;
         --video-bg-y: 100%;
         --video-bg-scale: 190%;
+        --donors-bg-x: 80%;
+        --donors-bg-y: 100%;
+        --donors-bg-scale: 190%;
+    }
+}
+
+@media (max-width: 563px) {
+    :root {
+        --donors-bg-x: 75%;
+        --donors-bg-y: 90%;
+        --donors-bg-scale: 430%;
     }
 }
 
@@ -195,9 +218,29 @@ body {
         --video-bg-x: 70%;
         --video-bg-y: 90%;
         --video-bg-scale: 230%;
+        --donors-bg-x: 75%;
+        --donors-bg-y: 90%;
+        --donors-bg-scale: 430%;
     }
 }
 
+
+
+@media (max-width: 394px) {
+    :root {
+    --donors-bg-x: 75%;
+    --donors-bg-y: 20%;
+    --donors-bg-scale: 590%;
+    }
+}
+
+@media (max-width: 343px) {
+    :root {
+        --donors-bg-x: 75%!important;
+        --donors-bg-y: 20%!important;
+        --donors-bg-scale: 970%!important;
+    }
+}
 
 @media (max-width: 291px) {
     .character {
@@ -210,6 +253,9 @@ body {
         --video-bg-x: 50%!important;
         --video-bg-y: 70%!important;
         --video-bg-scale: 390%!important;
+        --donors-bg-x: 75%!important;
+        --donors-bg-y: 20%!important;
+        --donors-bg-scale: 970%!important;
     }
 }
 
@@ -247,6 +293,7 @@ body {
     margin: 0 auto;
     text-align: center;
     width: fit-content;
+    transition: all 0.3s ease;
 }
 
 .typewriter-title {
@@ -424,6 +471,7 @@ body {
     background-size: var(--video-bg-scale, 170%);
     opacity: 0.5;
     z-index: -1;
+    transition: all 0.3s ease;
 }
 
 .video-container {
@@ -661,6 +709,7 @@ body {
     background-size: var(--donors-bg-scale, 100%);
     opacity: 0.5;
     z-index: -1;
+    transition: all 0.3s ease;
 }
 
 .donors-list {
