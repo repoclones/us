@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             starContainer.appendChild(star);
         }
         
-        introContainer.appendChild(starContainer);
+        document.body.appendChild(starContainer);
     }
 
     // Create floating space stars for the content page background
