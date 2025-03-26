@@ -50,13 +50,13 @@
   }
   
   #neuroSide {
-    background-image: url('/IMG_20250310_100157.jpg');
+    background-image: url('./IMG_20250310_100157.jpg');
     flex-basis: 50%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
   
   #evilSide {
-    background-image: url('/evilstare.png');
+    background-image: url('./evilstare.png');
     flex-basis: 50%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
