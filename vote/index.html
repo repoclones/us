@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuro vs Evil</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Vote for your side!</h1>
+    
+    <div id="votingSection">
+      <div class="sides-container">
+        <div id="neuroSide" class="side" data-team="neuro">
+          <h2>Neuro</h2>
+          <span id="neuroPercent">50%</span>
+          <span id="neuroCount" class="vote-count">0 votes</span>
+        </div>
+        <div id="evilSide" class="side" data-team="evil">
+          <h2>Evil</h2>
+          <span id="evilPercent">50%</span>
+          <span id="evilCount" class="vote-count">0 votes</span>
+        </div>
+      </div>
+      
+      <div class="captcha-container">
+        <div id="g-recaptcha" class="g-recaptcha"></div>
+        <div class="button-container">
+          <button id="voteNeuro" class="vote-btn" disabled>Vote for Neuro</button>
+          <button id="voteEvil" class="vote-btn" disabled>Vote for Evil</button>
+        </div>
+        <p id="message">Complete the captcha to vote</p>
+        <p id="cooldownTimer"></p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="script.js"></script>
+</body>
+</html>
