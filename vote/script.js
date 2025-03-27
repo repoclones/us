@@ -21,7 +21,7 @@ updateDisplay();
 voteNeuroBtn.addEventListener('click', () => handleVote('neuro'));
 voteEvilBtn.addEventListener('click', () => handleVote('evil'));
 
-
+// ✅ Function to load reCAPTCHA dynamically
 function loadRecaptcha(callback) {
   const script = document.createElement('script');
   script.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit";
@@ -31,11 +31,10 @@ function loadRecaptcha(callback) {
   document.head.appendChild(script);
 }
 
-// Load reCAPTCHA before accessing `grecaptcha`
+// ✅ Ensure reCAPTCHA loads before usage
 loadRecaptcha(() => {
   console.log("reCAPTCHA script loaded.");
 });
-
 
 // Enable vote buttons if reCAPTCHA is completed
 function onCaptchaComplete(token) {
@@ -147,11 +146,19 @@ function disableVoteButtons() {
   voteEvilBtn.disabled = true;
 }
 
-// Initialize reCAPTCHA
-document.addEventListener('DOMContentLoaded', () => {
+// ✅ Initialize reCAPTCHA safely
+function onRecaptchaLoad() {
+  if (typeof grecaptcha === "undefined") {
+    console.warn("reCAPTCHA script not yet loaded, retrying...");
+    setTimeout(onRecaptchaLoad, 1000); // Retry after 1 second
+    return;
+  }
+
   grecaptcha.render('g-recaptcha', {
     'sitekey': '6LcVmQArAAAAALYy49qAW8U82gt8o0Gn9qaq1BF_',
     'callback': onCaptchaComplete,
     'expired-callback': onCaptchaExpired
   });
-});
+
+  console.log("reCAPTCHA initialized.");
+}
