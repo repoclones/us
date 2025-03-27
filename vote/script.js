@@ -24,7 +24,7 @@ voteEvilBtn.addEventListener('click', () => handleVote('evil'));
 
 function loadRecaptcha(callback) {
   const script = document.createElement('script');
-  script.src = "https://www.google.com/recaptcha/api.js";
+  script.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit";
   script.async = true;
   script.defer = true;
   script.onload = callback;
