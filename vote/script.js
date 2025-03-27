@@ -21,6 +21,22 @@ updateDisplay();
 voteNeuroBtn.addEventListener('click', () => handleVote('neuro'));
 voteEvilBtn.addEventListener('click', () => handleVote('evil'));
 
+
+function loadRecaptcha(callback) {
+  const script = document.createElement('script');
+  script.src = "https://www.google.com/recaptcha/api.js";
+  script.async = true;
+  script.defer = true;
+  script.onload = callback;
+  document.head.appendChild(script);
+}
+
+// Load reCAPTCHA before accessing `grecaptcha`
+loadRecaptcha(() => {
+  console.log("reCAPTCHA script loaded.");
+});
+
+
 // Enable vote buttons if reCAPTCHA is completed
 function onCaptchaComplete(token) {
   if (!cooldownActive) {
