@@ -1,101 +1,141 @@
-const config = {
-    apiEndpoint: "https://twinswar.gbp.workers.dev/" // Replace with your actual Worker URL
-  };
-  
-  let captchaToken = null;
-  let cooldownActive = false;
-  const cooldownDuration = 5000; // 5 seconds cooldown
-  const messageEl = document.getElementById("message");
-  const voteButtons = document.querySelectorAll(".vote-button");
-  let currentStats = { teamA: 0, teamB: 0 };
-  const testMode = false; // Set to true to simulate votes without API calls
-  
-  // Load reCAPTCHA token
-  function loadCaptcha() {
-    grecaptcha.ready(() => {
-      grecaptcha.execute("Y6LcVmQArAAAAALYy49qAW8U82gt8o0Gn9qaq1BF_", { action: "vote" }).then(token => {
-        captchaToken = token;
-      });
-    });
-  }
-  
-  // Disable vote buttons
-  function disableVoteButtons() {
-    voteButtons.forEach(button => (button.disabled = true));
-  }
-  
-  // Enable vote buttons
-  function enableVoteButtons() {
-    voteButtons.forEach(button => (button.disabled = false));
-  }
-  
-  // Handle vote click
-  async function handleVote(team) {
-    if (!captchaToken || cooldownActive) return;
-  
-    disableVoteButtons();
-    messageEl.textContent = "Processing your vote...";
-  
-    try {
-      // In test mode, simulate API call
-      if (testMode) {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        processVoteResult(team);
-      } else {
-        const response = await fetch(config.apiEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ team, captchaToken }) // Send token to Cloudflare Worker
-        });
-  
-        const result = await response.json();
-  
-        if (result.success) {
-          processVoteResult(team, result.stats);
-        } else {
-          throw new Error(result.message || "Vote failed");
-        }
-      }
-    } catch (error) {
-      messageEl.textContent = `Error: ${error.message}. Please try again.`;
-      messageEl.style.color = "red";
-      enableVoteButtons();
-    }
-  
-    startCooldown();
-  }
-  
-  // Process vote result
-  function processVoteResult(team, updatedStats = null) {
-    messageEl.textContent = "Vote recorded successfully!";
+// DOM Elements
+const voteNeuroBtn = document.getElementById('voteNeuro');
+const voteEvilBtn = document.getElementById('voteEvil');
+const messageEl = document.getElementById('message');
+const cooldownTimerEl = document.getElementById('cooldownTimer');
+const neuroPercentEl = document.getElementById('neuroPercent');
+const evilPercentEl = document.getElementById('evilPercent');
+const neuroCountEl = document.getElementById('neuroCount');
+const evilCountEl = document.getElementById('evilCount');
+
+// State variables
+let cooldownActive = false;
+let cooldownInterval = null;
+const cooldownSeconds = 30;
+const apiEndpoint = "https://twinswar.gbp.workers.dev/vote";
+
+// Initialize
+updateDisplay();
+
+// Event listeners
+voteNeuroBtn.addEventListener('click', () => handleVote('neuro'));
+voteEvilBtn.addEventListener('click', () => handleVote('evil'));
+
+// Enable vote buttons if reCAPTCHA is completed
+function onCaptchaComplete(token) {
+  if (!cooldownActive) {
+    voteNeuroBtn.disabled = false;
+    voteEvilBtn.disabled = false;
+    messageEl.textContent = "Captcha verified! You can now vote.";
     messageEl.style.color = "green";
-  
-    if (updatedStats) {
-      currentStats = updatedStats;
-      updateDisplay();
+  }
+}
+
+// Disable vote buttons if reCAPTCHA expires
+function onCaptchaExpired() {
+  voteNeuroBtn.disabled = true;
+  voteEvilBtn.disabled = true;
+  messageEl.textContent = "Captcha expired. Please solve again.";
+  messageEl.style.color = "#cc0000";
+}
+
+// Handle the voting process
+async function handleVote(team) {
+  if (cooldownActive) return;
+
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    messageEl.textContent = "Please complete the captcha.";
+    messageEl.style.color = "red";
+    return;
+  }
+
+  disableVoteButtons();
+  messageEl.textContent = "Processing your vote...";
+
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ team, captchaResponse })
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      processVoteResult(result.stats);
+    } else {
+      throw new Error(result.message || 'Vote failed');
     }
-  
-    startCooldown();
+  } catch (error) {
+    messageEl.textContent = `Error: ${error.message}. Please try again.`;
+    messageEl.style.color = "red";
+    if (!cooldownActive) enableVoteButtons();
+  } finally {
+    grecaptcha.reset();
   }
-  
-  // Start cooldown
-  function startCooldown() {
-    cooldownActive = true;
-    setTimeout(() => {
+}
+
+// Process the vote result and update the display
+function processVoteResult(stats) {
+  updateDisplay(stats);
+  startCooldown();
+  messageEl.textContent = "Vote recorded successfully!";
+  messageEl.style.color = "green";
+}
+
+// Update the display with the latest vote counts and percentages
+function updateDisplay(stats = { neuro: 50, evil: 50, neuroCount: 0, evilCount: 0 }) {
+  neuroPercentEl.textContent = `${stats.neuro.toFixed(1)}%`;
+  evilPercentEl.textContent = `${stats.evil.toFixed(1)}%`;
+  neuroCountEl.textContent = `${stats.neuroCount} votes`;
+  evilCountEl.textContent = `${stats.evilCount} votes`;
+}
+
+// Start the cooldown period after voting
+function startCooldown() {
+  cooldownActive = true;
+  disableVoteButtons();
+
+  let timeLeft = cooldownSeconds;
+  updateCooldownDisplay(timeLeft);
+
+  clearInterval(cooldownInterval);
+  cooldownInterval = setInterval(() => {
+    timeLeft--;
+    updateCooldownDisplay(timeLeft);
+
+    if (timeLeft <= 0) {
+      clearInterval(cooldownInterval);
       cooldownActive = false;
+      cooldownTimerEl.textContent = "";
       enableVoteButtons();
-      loadCaptcha(); // Refresh reCAPTCHA token
-    }, cooldownDuration);
-  }
-  
-  // Update display
-  function updateDisplay() {
-    document.getElementById("teamA-votes").textContent = currentStats.teamA;
-    document.getElementById("teamB-votes").textContent = currentStats.teamB;
-  }
-  
-  // Initialize
-  window.onload = () => {
-    loadCaptcha();
-  };
-  
+    }
+  }, 1000);
+}
+
+// Update the cooldown timer display
+function updateCooldownDisplay(seconds) {
+  cooldownTimerEl.textContent = `Cooldown: ${seconds} seconds remaining`;
+}
+
+// Enable vote buttons
+function enableVoteButtons() {
+  voteNeuroBtn.disabled = false;
+  voteEvilBtn.disabled = false;
+}
+
+// Disable vote buttons
+function disableVoteButtons() {
+  voteNeuroBtn.disabled = true;
+  voteEvilBtn.disabled = true;
+}
+
+// Initialize reCAPTCHA
+document.addEventListener('DOMContentLoaded', () => {
+  grecaptcha.render('g-recaptcha', {
+    'sitekey': '6LcVmQArAAAAALYy49qAW8U82gt8o0Gn9qaq1BF_',
+    'callback': onCaptchaComplete,
+    'expired-callback': onCaptchaExpired
+  });
+});
