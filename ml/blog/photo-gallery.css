@@ -1,0 +1,119 @@
+/* Gallery Section Styles */
+.gallery-section {
+    margin-bottom: 3rem;
+    border-top: 1px dashed #444;
+    padding-top: 2rem;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery-item:hover {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #f8f8f8;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    max-width: 100%;
+    max-height: 180px;
+    border: 1px solid #ddd;
+}
+
+.gallery-caption {
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.gallery-caption h4 {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.gallery-caption p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Dark theme overrides for gallery */
+body.dark-theme .gallery-item {
+    background-color: #333;
+    border-color: #444;
+}
+
+body.dark-theme .gallery-image {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .gallery-image img {
+    border-color: #555;
+}
+
+body.dark-theme .gallery-caption {
+    border-color: #444;
+}
+
+body.dark-theme .gallery-caption h4 {
+    color: #ddd;
+}
+
+body.dark-theme .gallery-caption p {
+    color: #aaa;
+}
+
+/* Fallback for images */
+.gallery-image img:not([src]),
+.gallery-image img[src=""] {
+    display: none;
+}
+
+.gallery-image img:not([src]) + .fallback-text,
+.gallery-image img[src=""] + .fallback-text {
+    display: block;
+    padding: 2rem;
+    background-color: #eee;
+    font-style: italic;
+    color: #666;
+}
+
+body.dark-theme .gallery-image img:not([src]) + .fallback-text,
+body.dark-theme .gallery-image img[src=""] + .fallback-text {
+    background-color: #444;
+    color: #ddd;
+}
+
+/* Media query for responsive galleries */
+@media (max-width: 768px) {
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+}

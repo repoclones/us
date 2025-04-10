@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "config": "./config.js"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-area">
+            <h1>Snake Game</h1>
+            <div class="score-container">
+                <span>Score: <span id="score">0</span></span>
+                <span>High Score: <span id="high-score">0</span></span>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div class="controls">
+                <div class="game-controls">
+                    <button id="start-btn">Start Game</button>
+                    <button id="autoplay-btn">Autoplay</button>
+                </div>
+                <div class="mobile-controls">
+                    <button id="up-btn">⬆️</button>
+                    <div class="horizontal-controls">
+                        <button id="left-btn">⬅️</button>
+                        <button id="right-btn">➡️</button>
+                    </div>
+                    <button id="down-btn">⬇️</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Power-ups</h2>
+            <div class="legend">
+                <h3>Discovered:</h3>
+                <ul id="power-up-list">
+                    <li><span class="food-dot" style="background-color: #F44336;"></span> Regular</li>
+                    <li class="undiscovered"><span class="food-dot" style="background-color: #777;"></span> Power-up</li>
+                </ul>
+            </div>
+            <div id="active-power-ups" class="active-powers">
+                <h3>Active:</h3>
+                <ul id="active-powers-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="game.js"></script>
+</body>
+</html>

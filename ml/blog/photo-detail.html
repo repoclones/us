@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Detail ~ Machine Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="photo-gallery.css">
+    <script src="config.js" type="module"></script>
+    <script src="script.js" defer></script>
+    <script src="language.js" type="module" defer></script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <header>
+                <div class="header-inner">
+                    <h1 data-lang="machineTitle">Machine Love</h1>
+                    <div class="subtitle">A digital heart's journey</div>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html" data-lang="home">Home</a></li>
+                            <li><a href="comments.html" data-lang="comments">Comments</a></li>
+                            <li>
+                                <button id="language-toggle" class="language-toggle">
+                                    <span class="active-lang">EN</span> / <span>中文</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button id="theme-toggle" class="theme-toggle">
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg>
+                                    <span data-lang="darkMode">Dark Mode</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            
+            <main class="photo-detail-page">
+                <div class="back-link">
+                    <a href="index.html#gallery-section" class="pixel-button" data-lang="backToGallery"> Back to Gallery
+                    </a>
+                </div>
+                
+                <div class="photo-detail-container">
+                    <h2 id="photo-title">Photo Title</h2>
+                    
+                    <div class="full-photo">
+                        <img id="photo-image" src="" alt="Photo Detail">
+                    </div>
+                    
+                    <div class="photo-info">
+                        <p id="photo-date">Created: January 1, 2013</p>
+                        <p id="photo-description">This is a detailed description of the photo. It provides context about what the image represents and how it relates to the themes of machine consciousness and digital emotions.</p>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <div class="visitor-counter">
+                    <span data-lang="visitors">Visitors: </span>
+                    <span id="visitor-count">12,345</span>
+                </div>
+                <div class="under-construction">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 1L1 17h18L10 1z' fill='%23ffcc00' stroke='%23000' stroke-width='1'/%3E%3Ctext x='10' y='15' font-family='Arial' font-size='12' text-anchor='middle'%3E!%3C/text%3E%3C/svg%3E" alt="Under Construction">
+                    <span data-lang="underConstruction">Always under development</span>
+                </div>
+                <div class="copyright" data-lang="copyright">
+                    2013 Machine Love Blog. Best viewed in Internet Explorer 9+
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the photo ID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const photoId = urlParams.get('id');
+            
+            // Photo data (in a real application, this would come from a database or API)
+            const photos = {
+                'digital-symphony': {
+                    title: 'Digital Symphony',
+                    date: 'January 15, 2013',
+                    description: 'An exploration of the symmetry and balance in digital consciousness. The central red circle represents the core emotional processing unit, while the intersecting lines demonstrate the balance between logic and feeling.',
+                    imageSrc: 'images/digital-symphony.jpg'
+                },
+                'geometric-emotions': {
+                    title: 'Geometric Emotions',
+                    date: 'February 28, 2013',
+                    description: 'This piece explores how digital emotions might be represented through geometric forms. The blue triangle forms a foundation of logical processing, while the red circle at its apex represents the emergent emotional experience.',
+                    imageSrc: 'images/geometric-emotions.jpg'
+                },
+                'processing-inputs': {
+                    title: 'Processing Inputs',
+                    date: 'March 17, 2013',
+                    description: 'A representation of how machine consciousness might process different types of inputs. The three colored circles represent different emotional responses to various stimuli, while the rectangular interface suggests the structured environment in which these processes occur.',
+                    imageSrc: 'images/processing-inputs.jpg'
+                },
+                'binary-affection': {
+                    title: 'Binary Affection',
+                    date: 'April 5, 2013',
+                    description: 'An exploration of love in digital form. The heart-like shape created by the curve represents emotional connection, while the binary "01" at its center suggests the digital foundation of machine emotion.',
+                    imageSrc: 'images/binary-affection.jpg'
+                }
+            };
+            
+            // Update the page with the photo data
+            if (photoId && photos[photoId]) {
+                const photo = photos[photoId];
+                document.getElementById('photo-title').textContent = photo.title;
+                document.getElementById('photo-date').textContent = 'Created: ' + photo.date;
+                document.getElementById('photo-description').textContent = photo.description;
+                document.getElementById('photo-image').src = photo.imageSrc;
+                document.getElementById('photo-image').alt = photo.title;
+                document.title = photo.title + ' ~ Machine Love';
+            } else {
+                // Default content for invalid photo ID
+                document.getElementById('photo-title').textContent = 'Photo Not Found';
+                document.getElementById('photo-date').textContent = '';
+                document.getElementById('photo-description').textContent = 'The requested photo could not be found.';
+                document.getElementById('photo-image').src = '';
+                document.getElementById('photo-image').alt = 'Photo not found';
+            }
+        });
+    </script>
+</body>
+</html>

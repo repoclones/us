@@ -1,0 +1,896 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+    background-image: url("textureWEB.jpg");
+    background-attachment: fixed;
+}
+
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #eaeaea;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #6b9fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #97bdff;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    /*font-weight: normal;*/
+    margin-bottom: 0.5em;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(to bottom, #333, #222);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 5px solid #ff6b6b;
+}
+
+.header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1em;
+    color: #ccc;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+nav li {
+    margin: 0 0.5rem;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+}
+
+nav a.active {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: #383838;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.welcome h2 {
+    color: #666;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.animated-heart {
+    margin: 1.5rem auto;
+}
+
+.animated-heart svg {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Featured Posts */
+.featured {
+    margin-bottom: 2rem;
+}
+
+.featured h2, .thought-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    position: relative;
+}
+
+.featured h2:after, .thought-box h2:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #ff6b6b;
+    margin: 0.5rem auto;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.post-card {
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 1.5rem;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h3 {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+/* Machine Thought Box */
+.thought-box {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px dashed #444;
+}
+
+.quote {
+    font-style: italic;
+    background-color: #333;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pixel-button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pixel-button:hover {
+    background-color: #ff5252;
+}
+
+.pixel-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #ddd;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.visitor-counter {
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
+.under-construction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.under-construction img {
+    margin-right: 0.5rem;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Blog Page Specific Styles */
+.blog-page {
+    display: flex;
+    flex-direction: column;
+    padding-right: 300px;
+    position: relative;
+}
+
+.blog-sidebar {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 250px;
+    padding-left: 1.5rem;
+    border-left: 1px solid #444;
+}
+
+.blog-post {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #444;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.post-meta {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+.comment-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #444;
+}
+
+.comment-section h4 {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.comment {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #333;
+    display: flex;
+    gap: 1rem;
+}
+
+.comment-avatar {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-date {
+    color: #777;
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #444;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #333;
+}
+
+.sidebar-section ul {
+    list-style: none;
+}
+
+.sidebar-section li {
+    margin-bottom: 0.5rem;
+}
+
+.subscribe-form {
+    margin-bottom: 1rem;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #444;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination a, .pagination span {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid #444;
+    color: #666;
+}
+
+.pagination a.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+.pagination span.current-page {
+    background-color: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
+/* About Page Specific Styles */
+.about-section, .about-author, .faq-section {
+    margin-bottom: 3rem;
+}
+
+.about-content, .author-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.about-image, .author-image {
+    flex-shrink: 0;
+}
+
+.about-text, .author-bio {
+    flex-grow: 1;
+}
+
+.about-text p, .author-bio p {
+    margin-bottom: 1rem;
+}
+
+.author-title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #444;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-question {
+    padding: 1rem;
+    background-color: #383838;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 1rem;
+}
+
+.faq-answer {
+    padding: 1rem;
+    background-color: #333;
+    border: 1px solid #444;
+    border-top: none;
+}
+
+/* Credits Page Specific Styles */
+.credits-content {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.machine-love-visual {
+    flex-shrink: 0;
+}
+
+.credits-text {
+    flex-grow: 1;
+}
+
+.credits-text p.lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.credits-text h3 {
+    margin-top: 1.5rem;
+    color: #555;
+}
+
+.credits-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Special Thanks Section Updates */
+.special-thanks {
+    margin-top: 3rem;
+    border-top: 1px dashed #444;
+    padding-top: 2rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Language Toggle Improved Styles */
+.language-toggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: background-color 0.3s;
+}
+
+.language-toggle:hover {
+    background-color: #444;
+}
+
+.active-lang {
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+/* Fallback for images */
+.fallback-text {
+    display: none;
+}
+
+/* Comments Page Styles */
+.comments-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.comments-intro {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.comment-form {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+.comments-display {
+    margin-top: 2rem;
+}
+
+.loading-comments {
+    text-align: center;
+    padding: 2rem;
+    color: #333;
+}
+
+.error-message {
+    padding: 1.5rem;
+    background-color: #fff0f0;
+    border: 1px solid #ffcaca;
+    border-radius: 5px;
+    margin: 1rem 0;
+    text-align: center;
+    color: #d00;
+}
+
+.no-comments {
+    padding: 2rem;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme .comments-intro,
+body.dark-theme .comment-form {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #ccc;
+}
+
+body.dark-theme .form-group label {
+    color: #ccc;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea {
+    background-color: #333;
+    border-color: #444;
+    color: #ccc;
+}
+
+body.dark-theme .comment {
+    background-color: #333;
+    border-color: #444;
+    color: #ccc;
+}
+
+body.dark-theme .comment-author {
+    color: #ddd;
+}
+
+body.dark-theme .no-comments {
+    background-color: #333;
+    color: #aaa;
+}
+
+body.dark-theme .error-message {
+    background-color: #3a2022;
+    border-color: #5e3638;
+    color: #ff9999;
+}
+
+body.dark-theme .profile-pic {
+    border-color: #444;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.theme-toggle svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Photo Detail Page Styles */
+.photo-detail-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-link {
+    margin-bottom: 2rem;
+}
+
+.photo-detail-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2rem;
+}
+
+.full-photo {
+    margin: 2rem 0;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.full-photo img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+}
+
+.photo-info {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    line-height: 1.6;
+    color: #333;
+}
+
+#photo-date {
+    color: #777;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Dark Theme Overrides for Photo Detail */
+body.dark-theme .photo-detail-container {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-theme .full-photo {
+    background-color: #333;
+}
+
+body.dark-theme .full-photo img {
+    border-color: #444;
+}
+
+body.dark-theme .photo-info {
+    border-color: #444;
+    color: #ccc;
+}
+
+body.dark-theme #photo-date {
+    color: #aaa;
+}
+
+body.dark-theme #photo-title {
+    color: #ddd;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+    background-color: #202020;
+    color: #ccc;
+    background-image: url("textureDarkWEB.jpg");
+}
+
+body.dark-theme .page-container {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme a {
+    color: #ddd;
+}
+
+body.dark-theme a:hover {
+    color: #ddd;
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #666;
+    color: #eee;
+}
+
+body.dark-theme .post-card, 
+body.dark-theme .comment,
+body.dark-theme .thought-box,
+body.dark-theme .comments-intro,
+body.dark-theme .comment-form {
+    background-color: #333;
+    border-color: #444;
+}
+
+body.dark-theme .post-card h3,
+body.dark-theme .blog-post h3 {
+    color: #ddd;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .blog-page {
+        padding-right: 2rem;
+    }
+    
+    .blog-sidebar {
+        position: static;
+        width: 100%;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 2rem;
+    }
+    
+    .about-content, .author-content, .credits-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .art-gallery, .photo-gallery {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.25rem 0;
+    }
+    
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+    .page-container {
+        width: 100%;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .art-gallery, .photo-gallery {
+        gap: 1rem;
+    }
+}
+
+.credits-section {
+    background: linear-gradient(to bottom, rgba(240, 240, 240, 0.8), rgba(255, 255, 255, 0.95));
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section {
+    margin-bottom: 3rem;
+    border-top: 1px dashed #444;
+    padding-top: 2rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Overrides for Sections */
+body.dark-theme .credits-section {
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(50, 50, 50, 0.95));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .gallery-section {
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(35, 35, 35, 0.8));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .special-thanks {
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(35, 35, 35, 0.8));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}

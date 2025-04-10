@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop-frame {
+    position: relative;
+    width: 85%;  
+    max-width: 1632px;  
+    height: auto;
+    margin: 0 auto;
+}
+
+.screen-background {
+    position: absolute;
+    background-color: white;
+    z-index: 1; /* Positioned behind the iframe */
+}
+
+.laptop-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.embedded-site {
+    position: absolute;
+    top: 84px;  
+    left: 409px;  
+    width: 813px;  
+    height: 616px;  
+    border: none;
+    z-index: 2; /* Positioned in front of the white background */
+}
+
+/* Modal overlay styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+
+.window-body {
+    padding: 15px;
+    background-color: #ece9d8;
+}
+
+.mode-button {
+    min-width: 100px;
+    padding: 8px 12px;
+    font-weight: bold;
+  
+}
+
+.title-bar{
+  height: 25px;
+}
+
+.hover-desc {
+    font-size: 0.85em;
+    font-style: italic;
+    text-align: center;
+    height: 2em;
+    margin-top: 10px;
+    color: #444;
+    background: #f5f5f5;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design for maintaining proportions */
+@media (max-aspect-ratio: 16/9) {
+    .laptop-frame {
+        width: auto;
+        height: 85vh;  
+    }
+    
+    .laptop-image {
+        width: auto;
+        height: 85vh;  
+    }
+    
+    .embedded-site {
+        top: calc(99 * 85vh / 1080);
+        left: calc(481 * 85vh / 1080);
+        width: calc(957 * 85vh / 1080);
+        height: calc(725 * 85vh / 1080);
+    }
+    
+    .screen-background {
+        top: calc(99 * 85vh / 1080);
+        left: calc(481 * 85vh / 1080);
+        width: calc(957 * 85vh / 1080);
+        height: calc(725 * 85vh / 1080);
+    }
+}
+
+/* Mobile view - now using a more generic approach */
+@media (max-width: 768px) {
+    #laptop-mode {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .laptop-frame, .laptop-image {
+        display: none;
+    }
+    
+    .embedded-site {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999; /* Ensure it's on top of everything */
+    }
+    
+    .screen-background, .container {
+        display: none;
+    }
+    
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+}

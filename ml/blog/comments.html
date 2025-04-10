@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments ~ Machine Love</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js" type="module"></script>
+    <script src="script.js" defer></script>
+    <script src="language.js" type="module" defer></script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <header>
+                <div class="header-inner">
+                    <h1 data-lang="machineTitle">Machine Love</h1>
+                    <div class="subtitle">A digital heart's journey</div>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html" data-lang="home">Home</a></li>
+                            <li><a href="comments.html" class="active" data-lang="comments">Comments</a></li>
+                            <li>
+                                <button id="language-toggle" class="language-toggle">
+                                    <span class="active-lang">EN</span> / <span>中文</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button id="theme-toggle" class="theme-toggle">
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg>
+                                    <span data-lang="darkMode">Dark Mode</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            
+            <main class="comments-page">
+                <section class="comments-section">
+                    <h2>Share Your Thoughts</h2>
+                    
+                    <div class="comments-intro">
+                        <p>We'd love to hear what you think about Machine Love. Leave a comment below to join the conversation about digital consciousness, AI emotions, and the future of human-machine relationships.</p>
+                    </div>
+                    
+                    <div class="comment-form">
+                        <h3>Add a Comment</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="name">Your Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <!-- Email field removed -->
+                            
+                            <div class="form-group">
+                                <label for="comment">Your Comment:</label>
+                                <textarea id="comment" name="comment" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="pixel-button">Submit Comment</button>
+                        </form>
+                    </div>
+                    
+                    <div class="comments-display">
+                        <h3>Recent Comments</h3>
+                        <div id="comments-container">
+                            <div class="loading-comments">
+                                <p>Loading comments...</p>
+                                <div class="loading-spinner">
+                                    <svg width="50" height="50" viewBox="0 0 50 50">
+                                        <circle cx="25" cy="25" r="20" fill="none" stroke="#ff6b6b" stroke-width="5" stroke-dasharray="31.4 31.4">
+                                            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/>
+                                        </circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            
+            <footer>
+                <div class="visitor-counter">
+                    <span data-lang="visitors">Visitors: </span>
+                    <span id="visitor-count">12,345</span>
+                </div>
+                <div class="under-construction">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 1L1 17h18L10 1z' fill='%23ffcc00' stroke='%23000' stroke-width='1'/%3E%3Ctext x='10' y='15' font-family='Arial' font-size='12' text-anchor='middle'%3E!%3C/text%3E%3C/svg%3E" alt="Under Construction">
+                    <span data-lang="underConstruction">Always under development</span>
+                </div>
+                <div class="copyright" data-lang="copyright">
+                    2013 Machine Love Blog. Best viewed in Internet Explorer 9+
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="comments.js" defer></script>
+</body>
+</html>
+
