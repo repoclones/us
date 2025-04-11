@@ -20,8 +20,8 @@ export const translations = {
         
         // Footer
         visitors: "Visitors:",
-        underConstruction: "Always under development",
-        copyright: "2013 Machine Love Blog. Best viewed in Internet Explorer 9+"
+        underConstruction: "Made with <3",
+        copyright: "2025 Machine Love Project"
     },
     zh: {
         // Navigation
