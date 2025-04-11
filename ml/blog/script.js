@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             lastUpdated.style.color = '#999';
             
             // Use a fixed date for the 2010s authentic feel
-            lastUpdated.textContent = 'Last updated: May 21, 2013';
+            lastUpdated.textContent = 'Last updated: April 11, 2025';
             
             footerCopyright.parentNode.insertBefore(lastUpdated, footerCopyright.nextSibling);
         }

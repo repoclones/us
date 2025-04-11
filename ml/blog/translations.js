@@ -6,9 +6,9 @@ export const translations = {
         comments: "Comments",
         darkMode: "Dark Mode",
         lightMode: "Light Mode",
+        tagline: '"I will always be in love!"',
         
         // Home page
-        machineTitle: "Machine Love",
         songInspiration: "Song Inspiration",
         philosophicalInspirations: "Philosophical Inspirations",
         technicalCredits: "Technical Credits",
@@ -17,9 +17,8 @@ export const translations = {
         machineThought: "Machine Thought of the Day",
         generateNew: "Generate New Thought",
         backToGallery: "Back to Gallery",
-        
+        artist: "Artist: ",
         // Footer
-        visitors: "Visitors:",
         underConstruction: "Made with <3",
         copyright: "2025 Machine Love Project"
     },
@@ -29,9 +28,8 @@ export const translations = {
         comments: "评论",
         darkMode: "深色模式",
         lightMode: "浅色模式",
-        
+        tagline: '"我将永远相爱！"',
         // Home page
-        machineTitle: "机器之爱",
         songInspiration: "歌曲灵感",
         philosophicalInspirations: "哲学启发",
         technicalCredits: "技术支持",
@@ -40,13 +38,15 @@ export const translations = {
         machineThought: "每日机器思想",
         generateNew: "生成新思想",
         backToGallery: "返回画廊",
-        
+        artist: "画师: ",
         // Footer
-        visitors: "访客数:",
-        underConstruction: "永远在开发中",
-        copyright: "2013 机器之爱博客。建议使用 Internet Explorer 9+ 浏览"
+        underConstruction: "???",
+        copyright: "???"
     }
 };
 
 export default translations;
 
+// TRANSLATIONS WILL COME LATER
+// AAAAA
+// creds first

@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Update page title if on homepage
-        if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
-            document.title = translations[lang].machineTitle;
-        }
+        
         
         // Update theme toggle text
         const themeToggle = document.getElementById('theme-toggle');

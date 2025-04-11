@@ -46,12 +46,14 @@
                 <div class="photo-detail-container">
                     <h2 id="photo-title">No Title</h2>
                     
-                    <div class="full-photo">
+                    <div id="full-photo" class="full-photo">
                         <img id="photo-image" src="" alt="Photo Detail">
+
+                        
                     </div>
                     
                     <div class="photo-info">
-                        <p id="photo-date">Artist: NaN</p>
+                        <p id="photo-artist">Artist: NaN</p>
                         <p id="photo-description">No description.</p>
                     </div>
                 </div>
@@ -70,65 +72,347 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the photo ID from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const photoId = urlParams.get('id');
-            
-            // Photo data (in a real application, this would come from a database or API)
-            const photos = {
-                'neurows': {
-                    title: 'Neurows XP Logo',
-                    date: 'waya13, fFrequence',
-                    description: 'The Neurows XP OS used for the intro of the video. Edited by waya13, the gear logo originally from fFrequence!\n\nfFrequence: https://x.com/Frequence_',
-                    imageSrc: './images/neurows.png'
-                },
-                'geometric-emotions': {
-                    title: 'Geometric Emotions',
-                    date: 'February 28, 2013',
-                    description: 'This piece explores how digital emotions might be represented through geometric forms. The blue triangle forms a foundation of logical processing, while the red circle at its apex represents the emergent emotional experience.',
-                    imageSrc: 'images/geometric-emotions.jpg'
-                },
-                'processing-inputs': {
-                    title: 'Processing Inputs',
-                    date: 'March 17, 2013',
-                    description: 'A representation of how machine consciousness might process different types of inputs. The three colored circles represent different emotional responses to various stimuli, while the rectangular interface suggests the structured environment in which these processes occur.',
-                    imageSrc: 'images/processing-inputs.jpg'
-                },
-                'binary-affection': {
-                    title: 'Binary Affection',
-                    date: 'April 5, 2013',
-                    description: 'An exploration of love in digital form. The heart-like shape created by the curve represents emotional connection, while the binary "01" at its center suggests the digital foundation of machine emotion.',
-                    imageSrc: 'images/binary-affection.jpg'
-                }
-            };
-            
-            // Function to convert URLs in text to hyperlinks and handle line breaks
-            function processText(text) {
-                // Convert URLs to hyperlinks
-                text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-                // Replace \n with <br> for line breaks
-                text = text.replace(/\n/g, '<br>');
-                return text;
-            }
-            
-            // Update the page with the photo data
-            if (photoId && photos[photoId]) {
-                const photo = photos[photoId];
-                document.getElementById('photo-title').textContent = photo.title;
-                document.getElementById('photo-date').textContent = 'Artist: ' + photo.date;
-                document.getElementById('photo-description').innerHTML = processText(photo.description);
-                document.getElementById('photo-image').src = photo.imageSrc;
-                document.getElementById('photo-image').alt = photo.title;
-                document.title = photo.title + ' ~ Machine Love';
-            } else {
-                // Default content for invalid photo ID
-                document.getElementById('photo-title').textContent = 'Photo Not Found';
-                document.getElementById('photo-date').textContent = '';
-                document.getElementById('photo-description').textContent = 'The requested photo could not be found.';
-                document.getElementById('photo-image').src = '';
-                document.getElementById('photo-image').alt = 'Photo not found';
-            }
+    const urlParams = new URLSearchParams(window.location.search);
+    const photoId = urlParams.get('id');
+
+    const photos = {
+        'neurows': {
+            title: 'Neurows XP Logo',
+            artist: 'waya13, fFrequence',
+            description: 'The Neurows XP OS used for the intro of the video. Edited by waya13, the gear logo originally from fFrequence!\n\nfFrequence: https://x.com/Frequence_',
+            imageSrc: './images/neurows.png' // now an array
+        },
+        'stazer': {
+            title: 'Neuro Pixel Art',
+            artist: 'Stazer',
+            description: 'bilibili: 稳定器stz \nX: https://x.com/Stazer124659\nDiscord: abxy02',
+            imageSrc: ['./images/stazer.gif', './images/stazer_heart.gif']
+        },
+        'heren': {
+            title: 'Part 1',
+            artist: '禾人 (heren)',
+            description: '"bilibili: 禾予禾人\nx: https://x.com/heyuheren9538\nDiscord: heyuheren"',
+            imageSrc: './images/Part1.jpg'
+        },
+        'wimowo': {
+            title: 'Part 2',
+            artist: 'wimowo',
+            description: 'Pixiv: https://www.pixiv.net/en/users/45813022',
+            imageSrc: './images/wimowo.gif'
+    },
+    'icelychee': {
+            title: 'Part 3',
+            artist: 'icelychee',
+            description: 'bilibili: 冰岩荔枝\nDiscord: icelychee_0620',
+            imageSrc: ['./images/Part3.png', './images/icelychee.gif']
+    },
+    'change1560': {
+            title: 'Part 4',
+            artist: 'Change1560',
+            description: 'bilibili: 成吉柯德1560\nDiscord: change1560',
+            imageSrc: './images/Part4.png'
+    },
+    'goyu24': {
+            title: 'Part 5',
+            artist: 'GOYU24',
+            description: 'bilibili: Goyu九里\nx: https://x.com/Goyu_Gyuri',
+            imageSrc: './images/goyu24.gif'
+    },
+    'p3r': {
+            title: 'Part 6',
+            artist: 'P3R',
+            description: 'x: https://x.com/atari_desu\nDiscord: p3r__',
+            imageSrc: './images/Part6.gif'
+    },
+    'belltten': {
+            title: 'Part 7',
+            artist: 'Belltten',
+            description: 'bilibili: Beltten\r\nx: https://x.com/beltten78319\r\nDiscord: beltten',
+            imageSrc: './images/beltten.gif'
+    },
+    'liquain': {
+            title: 'Part 8',
+            artist: 'Liquain, Lukuwo',
+            description: 'bilibili: liquain\r\nx: https://x.com/liquain_\r\nDiscord: liquain\r\nAnimated by Lukuwo',
+            imageSrc: ['./images/liquain.png', './images/a_liquain.gif']
+    },
+    'a618paster': {
+            title: 'Part 9',
+            artist: 'A618paster, shinbaru',
+            description: 'bilibili: A618paster\r\nx: x.com/a618paster\r\nDiscord: koishoi_83174\r\nPixiv: https://www.pixiv.net/users/75254077\r\nAnimated by Shinbaru\r\n',
+            imageSrc: './images/a618paster.gif'
+    },
+    'ptitsa': {
+            title: 'Part 10',
+            artist: 'PTITSA',
+            description: 'bilibili: PTITSA\r\nx: https://x.com/PtitsaQAQ\r\nDiscord: ptitsa_qaq',
+            imageSrc: './images/ptitsa.gif'
+    },
+    '233boxhsahz': {
+            title: 'Part 11',
+            artist: '轩-盒子',
+            description: 'bilibili:  轩-盒子\r\nx: https://x.com/233boxHsahz\r\nDiscord: fiery_kitten_56656',
+            imageSrc: './images/233boxhsahz.gif'
+    },
+    'jackthefridge': {
+            title: 'Thumbnail 1',
+            artist: '坛子鸦',
+            description: 'bilibili: 冰箱坛子鸦\r\nx: https://x.com/JackTheFridge\r\nDiscord: donzduck',
+            imageSrc: './images/Thumbnail1.png'
+    },
+    'paccha': {
+            title: 'Animation 1',
+            artist: 'Paccha',
+            description: 'https://linktr.ee/paccha_\r\nx: https://x.com/paccha_7\r\nDiscord: paccha_\nThe Neurolings (Desktop Pet) are also made by Paccha!\r\nDownload: https://drive.google.com/file/d/1IyMWZUKge1FIBfHs46HbDE08Pg69YYPj/view?pli=1\r\n\r\nVideos in the browser:\r\n\r\nAI VTuber sings Your Reality on stream - Neuro-sama\r\nhttps://www.youtube.com/watch?v=p73En072i6U\r\nSeishun Complex - Neuro-sama Cover Animation ft. anny\r\nhttps://www.youtube.com/watch?v=nGmwH2ZYlP4',
+            imageSrc: './images/paccha.gif'
+    },
+    'lightspeed': {
+            title: 'Animation 2',
+            artist: 'Lightspeed',
+            description: 'bilibili: 光速行动\r\nx: https://x.com/LightSpeed159\r\nDiscord: light_speeeed',
+            imageSrc: './images/lightspeed.gif'
+    },
+    'pchu': {
+            title: 'Animation 3',
+            artist: 'Pchu',
+            description: 'x: https://x.com/__Pchu__\r\nDiscord: pchu_chu',
+            imageSrc: './images/pchu.gif'
+    },
+    'troobs': {
+            title: 'Part 12',
+            artist: 'Troobs',
+            description: 'x: https://x.com/TroobsART\r\nDiscord: troobsart',
+            imageSrc: './images/troobs.gif'
+    },
+    'taishixiaoming1': {
+            title: 'Part 13',
+            artist: '太史小明',
+            description: '',
+            imageSrc: './images/'
+    },
+    'skyrealplane': {
+            title: 'Part 14',
+            artist: 'Skyrealplane',
+            description: '',
+            imageSrc: './images/'
+    },
+    'camillet': {
+            title: 'Part 15',
+            artist: '卡米雷特',
+            description: '',
+            imageSrc: './images/'
+    },
+    'suijilisnjie': {
+            title: 'Part 16',
+            artist: '随机连接',
+            description: '',
+            imageSrc: './images/'
+    },
+    'copper1ion': {
+            title: 'Part 17',
+            artist: 'Copper1ion',
+            description: '',
+            imageSrc: './images/'
+    },
+    'eenightlamp': {
+            title: 'Part 18',
+            artist: 'Eenightlamp',
+            description: '',
+            imageSrc: './images/eenightlamp.gif'
+    },
+    'yli_uxu': {
+            title: 'Part 19',
+            artist: '叶漓漓漓漓, shinbaru',
+            description: '',
+            imageSrc: './images/'
+    },
+    'muqinglan': {
+            title: 'Part 20',
+            artist: '纸烛',
+            description: 'bilibili: MQl1111000000\r\nDiscord: muqinglan_',
+            imageSrc: './images/Part20.jpg'
+    },
+    'conversion806f': {
+            title: 'Part 21',
+            artist: '27 (conversion80.6f), shinbaru',
+            description: '',
+            imageSrc: './images/'
+    },
+    'lukuwo': {
+            title: 'Part 22',
+            artist: 'Lukuwo',
+            description: '',
+            imageSrc: './images/'
+    },
+    'nostyx': {
+            title: 'Thumbnail 2',
+            artist: 'Nostyx',
+            description: '',
+            imageSrc: './images/'
+    },
+    'kaze': {
+            title: 'Animation 4',
+            artist: 'Kaze',
+            description: '',
+            imageSrc: './images/'
+    },
+    'bloont': {
+            title: 'Animation 5',
+            artist: 'Bloont',
+            description: '',
+            imageSrc: './images/'
+    },
+    'douraze': {
+            title: 'Part 23',
+            artist: 'Douraze',
+            description: '',
+            imageSrc: './images/'
+    },
+    'whitcy': {
+            title: 'Part 24',
+            artist: 'Whitcy白冰',
+            description: 'bilibili: 悠游摇曳Whitcy\r\nx: https://x.com/Whitcy5525\r\nDiscord: whitcy',
+            imageSrc: './images/Part24.png'
+    },
+    'kanatae': {
+            title: 'Part 25',
+            artist: 'kanataE-吉',
+            description: 'bilibili: 吉_ビナス\r\nx: x.com/Endlesscrossing\r\nDiscord: i_will___',
+            imageSrc: './images/Part25.png'
+    },
+    'example': {
+            title: 'Part 26',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Part 27',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Part 28',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Part 29',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Part 30',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Part 31',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: 'Animation 6',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'lingyou': {
+            title: 'Thumbnail 3 & Piano Segment',
+            artist: 'Lingyou',
+            description: 'bilibili: 意念艾特感叹号\r\nDiscord: lingyou_',
+            imageSrc: './images/Thumbnail3.png'
+    },
+    'example': {
+            title: 'LIFE Neuro-sama Lipsync Edit',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+    'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: './images/'
+    },
+        'example': {
+            title: '',
+            artist: '',
+            description: '',
+            imageSrc: ''
+        },
+    };
+
+    function processText(text) {
+        text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+        return text.replace(/\n/g, '<br>');
+    }
+
+    if (photoId && photos[photoId]) {
+        const photo = photos[photoId];
+        document.getElementById('photo-title').textContent = photo.title;
+        document.getElementById('photo-artist').textContent = 'Artist: ' + photo.artist;
+        document.getElementById('photo-description').innerHTML = processText(photo.description);
+
+        const imageContainer = document.getElementById('full-photo');
+        imageContainer.innerHTML = ''; // Clear previous content in case of multiple renders
+
+        const imageSources = Array.isArray(photo.imageSrc) ? photo.imageSrc : [photo.imageSrc];
+
+        imageSources.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = photo.title;
+            img.style.maxWidth = '100%';
+            img.style.marginBottom = '1em';
+            imageContainer.appendChild(img);
         });
+
+        document.title = photo.title + ' ~ Machine Love';
+    } else {
+        document.getElementById('photo-title').textContent = 'Photo Not Found';
+        document.getElementById('photo-artist').textContent = '';
+        document.getElementById('photo-description').textContent = "The requested photo could not be found. Either the ID is not specified or the ID doesn't exist.";
+        const imageContainer = document.getElementById('photo-image');
+        imageContainer.innerHTML = '';
+    }
+});
+
     </script>
     
 </body>
