@@ -1,0 +1,299 @@
+<script>
+        const artworkData = {
+    'neurows': {
+        title: 'Neurows XP Logo',
+        artist: 'waya13, fFrequence',
+        imageSrc: './images/neurows.png'
+    },
+   'stazer': {
+        title: 'Neuro Pixel Art',
+        artist: 'Stazer',
+        imageSrc: './images/stazer.gif',
+        size: '200px'
+    },
+    'heren': {
+            title: 'Part 1',
+            artist: '禾人 (heren)',
+            description: 'bilibili: 禾予禾人\nx: https://x.com/heyuheren9538\nDiscord: heyuheren',
+            imageSrc: './images/Part1.jpg'
+    },
+    'wimowo': {
+            title: 'Part 2',
+            artist: 'wimowo',
+            description: 'Pixiv: https://www.pixiv.net/en/users/45813022',
+            imageSrc: './images/wimowo.gif'
+    },
+    'icelychee': {
+            title: 'Part 3',
+            artist: 'icelychee',
+            description: 'bilibili: 冰岩荔枝\nDiscord: icelychee_0620',
+            imageSrc: './images/Part3.png'
+    },
+    'change1560': {
+            title: 'Part 4',
+            artist: 'Change1560',
+            description: 'bilibili: 成吉柯德1560\nDiscord: change1560',
+            imageSrc: './images/Part4.png'
+    },
+    'goyu24': {
+            title: 'Part 5',
+            artist: 'GOYU24',
+            description: 'bilibili: Goyu九里\nx: https://x.com/Goyu_Gyuri',
+            imageSrc: './images/thumbs/thumbs-part5.png'
+    },
+    'p3r': {
+            title: 'Part 6',
+            artist: 'P3R',
+            description: 'x: https://x.com/atari_desu\nDiscord: p3r__',
+            imageSrc: './images/Part6.gif',
+            size: '200px'
+    },
+    'belltten': {
+            title: 'Part 7',
+            artist: 'Belltten',
+            description: 'bilibili: Beltten\r\nx: https://x.com/beltten78319\r\nDiscord: beltten',
+            imageSrc: './images/beltten.gif'
+    },
+    'liquain': {
+            title: 'Part 8',
+            artist: 'Liquain, Lukuwo',
+            description: 'bilibili: liquain\r\nx: https://x.com/liquain_\r\nDiscord: liquain\r\nAnimated by Lukuwo',
+            imageSrc: './images/liquain.png'
+    },
+    'a618paster': {
+            title: 'Part 9',
+            artist: 'A618paster, shinbaru',
+            description: 'bilibili: A618paster\r\nx: x.com/a618paster\r\nDiscord: koishoi_83174\r\nPixiv: https://www.pixiv.net/users/75254077\r\nAnimated by Shinbaru\r\n',
+            imageSrc: './images/thumbs/thumbs-part9.gif'
+    },
+    'ptitsa': {
+            title: 'Part 10',
+            artist: 'PTITSA',
+            description: 'bilibili: PTITSA\r\nx: https://x.com/PtitsaQAQ\r\nDiscord: ptitsa_qaq',
+            imageSrc: './images/ptitsa.gif'
+    },
+    '233boxhsahz': {
+            title: 'Part 11',
+            artist: '轩-盒子',
+            description: 'bilibili:  轩-盒子\r\nx: https://x.com/233boxHsahz\r\nDiscord: fiery_kitten_56656',
+            imageSrc: './images/233boxhsahz.gif'
+    },
+    'jackthefridge': {
+            title: 'Thumbnail 1',
+            artist: '坛子鸦',
+            description: 'bilibili: 冰箱坛子鸦\r\nx: https://x.com/JackTheFridge\r\nDiscord: donzduck',
+            imageSrc: './images/Thumbnail1.png'
+    },
+    'paccha': {
+            title: 'Animation 1',
+            artist: 'Paccha',
+            description: 'https://linktr.ee/paccha_\r\nx: https://x.com/paccha_7\r\nDiscord: paccha_\nThe Neurolings (Desktop Pet) are also made by Paccha!\r\nDownload: https://drive.google.com/file/d/1IyMWZUKge1FIBfHs46HbDE08Pg69YYPj/view?pli=1\r\n\r\nVideos in the browser:\r\n\r\nAI VTuber sings Your Reality on stream - Neuro-sama\r\nhttps://www.youtube.com/watch?v=p73En072i6U\r\nSeishun Complex - Neuro-sama Cover Animation ft. anny\r\nhttps://www.youtube.com/watch?v=nGmwH2ZYlP4',
+            imageSrc: './images/paccha.gif'
+    },
+    'lightspeed': {
+            title: 'Animation 2',
+            artist: 'Lightspeed',
+            description: 'bilibili: 光速行动\r\nx: https://x.com/LightSpeed159\r\nDiscord: light_speeeed',
+            imageSrc: './images/lightspeed.gif'
+    },
+    'pchu': {
+            title: 'Animation 3',
+            artist: 'Pchu',
+            description: 'x: https://x.com/__Pchu__\r\nDiscord: pchu_chu',
+            imageSrc: './images/pchu.gif'
+    },
+    'troobs': {
+            title: 'Part 12',
+            artist: 'Troobs',
+            description: 'x: https://x.com/TroobsART\r\nDiscord: troobsart',
+            imageSrc: './images/troobs.gif'
+    },
+    'taishixiaoming1': {
+            title: 'Part 13',
+            artist: '太史小明',
+            description: 'bilibili: 太史小明\r\nx: https://x.com/taishixiaoming1\r\nDiscord: suijidiaoluobiaoqingbaobot',
+            imageSrc: './images/taishixiaoming1.gif'
+    },
+    'skyrealplane': {
+            title: 'Part 14',
+            artist: 'Skyrealplane',
+            description: 'bilibili: skyrealplane\r\nx: https://x.com/skyrealplane\r\nDiscord: skyrealplane',
+            imageSrc: './images/skyrealplane.gif'
+    },
+    'camillet': {
+            title: 'Part 15',
+            artist: '卡米雷特',
+            description: 'bilibili: 卡米雷特',
+            imageSrc: './images/camillet.gif'
+    },
+    'suijilisnjie': {
+            title: 'Part 16',
+            artist: '随机连接',
+            description: 'bilibili: 随机连接',
+            imageSrc: './images/suijilisnjie.gif'
+    },
+    'copper1ion': {
+            title: 'Part 17',
+            artist: 'Copper1ion',
+            description: 'bilibili: CuN2O6 \nx: https://x.com/Cooper1ion\nDiscord: cooper1ion',
+            imageSrc: './images/copper1ion.gif'
+    },
+    'eenightlamp': {
+            title: 'Part 18',
+            artist: 'Eenightlamp',
+            description: 'bilibili: 环保节能小夜灯\r\nx: https://x.com/eenightlamp\r\nDiscord: eenightlamp',
+            imageSrc: './images/eenightlamp.gif'
+    },
+    'yli_uxu': {
+            title: 'Part 19',
+            artist: '叶漓漓漓漓, shinbaru',
+            description: 'bilibili：暁山桃\r\nx：https://x.com/Yli_uxu\r\nDiscord：11uxu\r\nAnimated by Shinbaru',
+            imageSrc: './images/yli_uxu.gif'
+    },
+    'muqinglan': {
+            title: 'Part 20',
+            artist: '纸烛',
+            description: 'bilibili: MQl1111000000\r\nDiscord: muqinglan_',
+            imageSrc: './images/Part20.jpg'
+    },
+    'conversion806f': {
+            title: 'Part 21',
+            artist: '27 (conversion80.6f), shinbaru',
+            description: 'bilibili: 二十七度火\r\nx: https://x.com/Conversion806f\r\nDiscord: conversion80.6f\r\nAnimated by Shinbaru',
+            imageSrc: './images/conversion806f.gif'
+    },
+    'lukuwo': {
+            title: 'Part 22',
+            artist: 'Lukuwo',
+            description: 'bilibili: 乐星子\r\nx: https://x.com/lukuwo2333\r\nDiscord: lukuwo',
+            imageSrc: './images/lukowo.gif'
+    },
+    'nostyx': {
+            title: 'Thumbnail 2',
+            artist: 'Nostyx',
+            description: 'x: https://x.com/nostyx_x \r\nDiscord: nostyx_x',
+            imageSrc: './images/Thumbnail2.png'
+    },
+    'kaze': {
+            title: 'Animation 4',
+            artist: 'Kaze',
+            description: 'bilibili: 孤独的雪鸮\r\nx: https://x.com/koishiflandre1\r\nDiscord: snowlkaze',
+            imageSrc: './images/kaze.gif'
+    },
+    'bloont': {
+            title: 'Animation 5',
+            artist: 'Bloont',
+            description: 'bilibili: 炭块UwU\r\nDiscord: bloont_',
+            imageSrc: './images/bloont.gif'
+    },
+    'douraze': {
+            title: 'Part 23',
+            artist: 'Douraze',
+            description: 'bilibili: E_Douraze\r\nx: https://x.com/DourazeE57303\r\nDiscord: e_douraze',
+            imageSrc: './images/douraze.gif'
+    },
+    'whitcy': {
+            title: 'Part 24',
+            artist: 'Whitcy白冰',
+            description: 'bilibili: 悠游摇曳Whitcy\r\nx: https://x.com/Whitcy5525\r\nDiscord: whitcy',
+            imageSrc: './images/Part24.png'
+    },
+    'kanatae': {
+            title: 'Part 25',
+            artist: 'kanataE-吉',
+            description: 'bilibili: 吉_ビナス\r\nx: x.com/Endlesscrossing\r\nDiscord: i_will___',
+            imageSrc: './images/Part25.png'
+    },
+    'gigetsu': {
+            title: 'Part 26',
+            artist: '曦月',
+            description: 'bilibili: 曦月_Gigetsu\r\nDiscord：Gigetsu#4369',
+            imageSrc: './images/gigetsu.gif'
+    },
+    'fians': {
+            title: 'Part 27',
+            artist: 'fians, shinbaru',
+            description: 'bilibili: 萨雨莲\r\nx: https://x.com/fiansand\r\nDiscord: fians_51090\r\nAnimated by Shinbaru',
+            imageSrc: './images/fiansand.gif'
+    },
+    'food': {
+            title: 'Part 28',
+            artist: 'food',
+            description: 'x: https://x.com/tanhuluu\r\nDiscord: food0606\r\nAnimated by Shinbaru',
+            imageSrc: './images/tanhuluu.gif'
+    },
+    'ame0': {
+            title: 'Part 29',
+            artist: 'Ame0',
+            description: 'bilibili: Ame_desu\r\nx: https://x.com/HDaHrBUapT57ndh\r\nDiscord: ame.000_57340',
+            imageSrc: './images/ame0.gif'
+    },
+    'nen': {
+            title: 'Part 30',
+            artist: 'NEN',
+            description: 'bilibili: nen_329\r\nx: https://x.com/hnlngsu192961\r\nDiscord: nen0517',
+            imageSrc: './images/nen.gif'
+    },
+    'borzoi': {
+            title: 'Part 31',
+            artist: 'Borzoi, shinbaru',
+            description: 'x: https://x.com/Deueeuui223\r\nDiscord: borzoi_rizz\r\nAnimated by Shinbaru',
+            imageSrc: './images/borzoi.gif'
+    },
+    'moneka': {
+            title: 'Animation 6',
+            artist: 'Moneka',
+            description: 'x: https://x.com/Monikaphobia\r\nDiscord: monikaphobia',
+            imageSrc: './images/moneka.gif'
+    },
+    'lingyou': {
+            title: 'Thumbnail 3 & Piano Segment',
+            artist: 'Lingyou',
+            description: 'bilibili: 意念艾特感叹号\r\nDiscord: lingyou_',
+            imageSrc: './images/Thumbnail3.png'
+    },
+    'life': {
+            title: 'LIFE Neuro-sama Lipsync Edit',
+            artist: 'meotashi, Eggpie',
+            description: 'Life original video: https://www.youtube.com/watch?v=MDc1mjrIsPM\r\nMouth edited by: Eggpie\r\nbilibili: 地球翼_CRW\r\nDiscord: eocelot\r\nx: https://x.com/EggpieART',
+            imageSrc: './images/life.jpg'
+    }
+};
+        function generateGallery() {
+    const galleryContainer = document.getElementById('photo-gallery'); // Assuming you have a container with id 'gallery'
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    for (const key in artworkData) {
+        const artwork = artworkData[key];
+        
+        const galleryItem = document.createElement('a');
+        galleryItem.href = `./photo-detail.html?id=${key}`;
+        galleryItem.classList.add('gallery-item');
+
+        const galleryImage = document.createElement('div');
+        galleryImage.classList.add('gallery-image');
+        
+        const img = document.createElement('img');
+        img.src = artwork.imageSrc;
+        img.alt = artwork.title;
+        img.style.maxHeight = artwork.size == null ? "" : artwork.size;
+        galleryImage.appendChild(img);
+        
+        const galleryCaption = document.createElement('div');
+        galleryCaption.classList.add('gallery-caption');
+        
+        const title = document.createElement('h4');
+        title.textContent = artwork.title;
+        galleryCaption.appendChild(title);
+        
+        const artist = document.createElement('p');
+        artist.innerHTML = savedLanguage === 'en' ? '<span data-lang="artist">Artist: </span>' + artwork.artist : '<span data-lang="artist">画师: </span>' + artwork.artist;
+        galleryCaption.appendChild(artist);
+        
+        galleryItem.appendChild(galleryImage);
+        galleryItem.appendChild(galleryCaption);
+        
+        galleryContainer.appendChild(galleryItem);
+    }
+}
+ generateGallery();
+    </script>
