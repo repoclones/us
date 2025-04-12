@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const commentsContainer = document.getElementById('comments-container');
     
     // Cloudflare Workers endpoint
-    const WORKER_URL = 'https://machine-love-comments.your-worker.workers.dev';
+    const WORKER_URL = 'https://ml.gbp.workers.dev';
     
     // Function to fetch comments
     async function fetchComments() {
@@ -109,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset form
                 commentForm.reset();
-                alert('Comment submitted successfully!');
+                alert('Comment submitted. It will show up after approval.');
+
                 
                 // Refresh comments
                 fetchComments();
