@@ -1,3 +1,6 @@
+import { config } from './config.js';
+import { translations } from './translations.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const contentIframe = document.getElementById('content-iframe');
     const modeSelector = document.getElementById('mode-selector');
@@ -11,21 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if viewport is mobile-sized
     const isMobileViewport = () => window.innerWidth <= 768;
     
+    // Helper to set description with current language
+    function updateModeDescription(key) {
+        const lang = config.language.current || 'en';
+        modeDescription.textContent = translations[lang][key] || '';
+    }
+
     // Setup button descriptions on hover
     laptopModeBtn.addEventListener('mouseover', () => {
-        modeDescription.textContent = "View the site inside a laptop frame";
+        updateModeDescription('laptopHover');
     });
-    
+
     fullscreenModeBtn.addEventListener('mouseover', () => {
-        modeDescription.textContent = "View the site in fullscreen mode";
+        updateModeDescription('fullscreenHover');
     });
-    
+
     laptopModeBtn.addEventListener('mouseout', () => {
-        modeDescription.textContent = "Select a viewing mode";
+        updateModeDescription('selectMode');
     });
-    
+
     fullscreenModeBtn.addEventListener('mouseout', () => {
-        modeDescription.textContent = "Select a viewing mode";
+        updateModeDescription('selectMode');
     });
     
     // Button functionality

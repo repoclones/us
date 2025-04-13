@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,35 +15,45 @@
             <iframe src="about:blank" class="embedded-site" id="content-iframe"></iframe>
         </div>
     </div>
-    
+
     <div class="modal-overlay" id="mode-selector">
         <div class="window" style="width: 350px">
             <div class="title-bar">
-                <div class="title-bar-text">Machine Love</div>
-                <div class="title-bar-controls"></div>
+                <div class="title-bar-text" data-lang="title">Machine Love</div>
+                <div class="title-bar-controls">
+                </div>
             </div>
             <div class="window-body">
-                <p style="text-align: center; margin-bottom: 15px;">How would you like to experience the site?</p>
+                <p style="text-align: center; margin-bottom: 15px;" data-lang="question">
+                    How would you like to experience the site?
+                </p>
                 <div class="button-container">
                     <button id="laptop-mode" class="mode-button">
                         <svg width="16" height="16" style="margin-right: 5px; vertical-align: text-bottom;" viewBox="0 0 16 16">
                             <rect x="1" y="3" width="14" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1"/>
                             <rect x="3" y="12" width="10" height="1" rx="0.5" fill="currentColor"/>
                         </svg>
-                        Laptop
+                        <span data-lang="laptop">Laptop</span>
                     </button>
                     <button id="fullscreen-mode" class="mode-button">
                         <svg width="16" height="16" style="margin-right: 5px; vertical-align: text-bottom;" viewBox="0 0 16 16">
                             <path d="M1,4V1H4M12,1H15V4M15,12V15H12M4,15H1V12" fill="none" stroke="currentColor" stroke-width="1.5"/>
                         </svg>
-                        Fullscreen
+                        <span data-lang="fullscreen">Fullscreen</span>
                     </button>
                 </div>
-                <p class="hover-desc" id="mode-description">Select a viewing mode</p>
+                <p class="hover-desc" id="mode-description" data-lang="selectMode">
+                    Select a viewing mode
+                </p>
+                <center><button id="language-toggle" style="margin-top: 20px">
+                    <span class="active-lang">EN</span> / <span>中文</span>
+                  </button></center>
             </div>
         </div>
     </div>
-    
-    <script src="./script.js"></script>
+
+    <script type="module" src="./language.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
+
