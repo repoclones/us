@@ -895,3 +895,23 @@ body.dark-theme .special-thanks {
     background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(35, 35, 35, 0.8));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
+.layout2{
+    display: flex;flex-direction: row;align-items: center;gap: 20px;
+}
+
+.layout2 img{
+    width: 350px;height: fit-content;margin-top:50px;
+}
+
+@media (max-width: 738px) {
+    .layout2 {
+      flex-direction: column; /* switch to vertical */
+      align-items: flex-start; /* optional: align text to left */
+    }
+  
+    .layout2 img {
+      width: 100%; /* optional: make image full width on small screens */
+      max-width: 300px;
+    }
+  }
