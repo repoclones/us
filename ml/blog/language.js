@@ -42,15 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
         // Update theme toggle text
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            const isDark = document.body.classList.contains('dark-theme');
-            const svgContent = themeToggle.querySelector('svg').outerHTML;
-            if (isDark) {
-                themeToggle.innerHTML = svgContent + ' ' + translations[lang].lightMode;
-            } else {
-                themeToggle.innerHTML = svgContent + ' ' + translations[lang].darkMode;
-            }
-        }
+
     }
 });

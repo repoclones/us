@@ -4,8 +4,6 @@ export const translations = {
         // Navigation
         home: "Home",
         comments: "Comments",
-        darkMode: "Dark Mode",
-        lightMode: "Light Mode",
         tagline: '"I will always be in love!"',
         lead1: "This collab is a tribute to <strong>Neuro-sama</strong> and her community. Original song is called <strong>Machine Love</strong>, which is a tribute to <strong>耳のあるロボットの唄</strong> (Song of the Eared Robot) by nwp8861.",
         lead2: "It is about the truths that lay in hiding within artifice, and a computer falling in love.",
@@ -34,8 +32,6 @@ export const translations = {
         // Navigation
         home: "首页",
         comments: "评论",
-        darkMode: "深色模式",
-        lightMode: "浅色模式",
         tagline: '"我的爱将永远滚烫!"',
         lead1: "此次合作是对<strong>Neuro-sama</strong>及其社区的致敬。原曲名为<strong>《Machine Love》</strong>，这首歌本身也是对nwp8861创作的<strong>《Song of the Eared Robot(有耳朵的机器人之歌)》</strong>的致敬。",
         lead2: "它讲述了隐藏在人工造物中的真相，以及一台计算机坠入爱河的故事。",

@@ -5,9 +5,7 @@ export const translations = {
         fullscreen: "Fullscreen",
         selectMode: "Select a viewing mode",
         laptopHover: "View the site inside a laptop frame",
-        fullscreenHover: "View the site in fullscreen mode",
-        darkMode: "Dark Mode",
-        lightMode: "Light Mode"
+        fullscreenHover: "View the site in fullscreen mode"
     },
     zh: {
         question: "您希望如何体验本网站？",
@@ -15,8 +13,6 @@ export const translations = {
         fullscreen: "全屏模式",
         selectMode: "选择查看模式",
         laptopHover: "在笔记本框架中查看网站",
-        fullscreenHover: "以全屏模式查看网站",
-        darkMode: "深色模式",
-        lightMode: "浅色模式"
+        fullscreenHover: "以全屏模式查看网站"
     }
 };
