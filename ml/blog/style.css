@@ -911,7 +911,7 @@ body.dark-theme .special-thanks {
     }
   
     .layout2 img {
-      width: auto; /* optional: make image full width on small screens */
-      max-width: 300px;
+      width: 100%; /* optional: make image full width on small screens */
+      max-width: 400px;
     }
   }
