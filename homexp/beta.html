@@ -1,166 +1,43 @@
+
+<!--
+
+plan:
+1. make desktop icons first
+2. make taskbar work
+3. window 
+
+-->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/xp.css">
-  <style>
-    body {
-      
-      overflow: hidden;
-      background: url(./wallpaper.png) no-repeat center center fixed; 
-      background-size: cover;
-      transition: filter 0.5s ease-in-out;
-      z-index: -1;
-    }
-    .icons {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      
-    }
-    
-    .icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 10px;
-      cursor: url(point3.png), pointer;
-    }
-    
-    .icon img {
-      width: 48px;
-      height: 48px;
-    }
-    
-    .icon-label {
-      margin-top: 4px;
-      font-size: 12px;
-    }
-  </style>
-  <title>Neurosama Scuffed XP</title>
+  <link rel="stylesheet" type="text/css" href="./xp.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
  
-  <style>
-    .window {
-      width: 400px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .window .title-bar {
-      cursor: move;
-    }
-        .title-bar-text {
-      user-select: none; /* Make the title bar text not selectable */
-    }
-
-    .slider {
-      width: 150px !important;
-      margin: 20px;
-    }
-  </style>
-
-
-<style>
-    /* Custom styles for the chatroom */
-    .chat-container {
-      width: 95%;
-      height: 300px;
-      background-color: #ffffff;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    .chat-message {
-      margin-bottom: 10px;
-    }
-
-    .chat-message .user {
-      font-weight: bold;
-    }
-
-    .chat-message .time {
-      color: #808080;
-      font-size: 0.8em;
-    }
-
-    .chat-input {
-      width: 100%;
-      padding: 5px;
-      box-sizing: border-box;
-    }
-
-    .send-button {
-      margin-top: 10px;
-      width: 100px;
-      padding: 5px;
-      cursor: pointer;
-    }
-  .marquee {
-  display: block;
-  left: 0;
-  position: absolute;
-  top: 0;
-}
-  .logo {
-  fill: #fff;
-}
-.bodys {
-  width:100%;
-  height: 100%;
-  margin: 0;
-  min-height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-@keyframes shake-it {
-    0% {
-        text-shadow: 0 0 rgba(0, 255, 255, .5), 0 0 rgba(255, 0, 0, .5);
-        box-shadow: 0 0 rgba(0, 255, 255, .5), 0 0 rgba(255, 0, 0, .5);
-    }
-    25% {
-        text-shadow: -2px 0 rgba(0, 255, 255, .5), 2px 0 rgba(255, 0, 0, .5);
-        box-shadow: -2px 0 rgba(0, 255, 255, .5), 2px 0 rgba(255, 0, 0, .5);
-    }
-    50% {
-        text-shadow: -5px 0 rgba(0, 255, 255, .5), 3px 0 rgba(255, 0, 0, .5);
-        box-shadow: -5px 0 rgba(0, 255, 255, .5), 3px 0 rgba(255, 0, 0, .5);
-    }
-    100% {
-        text-shadow: 3px 0 rgba(0, 255, 255, .5), 5px 0 rgba(255, 0, 0, .5);
-        box-shadow: 3px 0 rgba(0, 255, 255, .5), 5px 0 rgba(255, 0, 0, .5);
-    }
-}
-
-
-  </style>
-
+  <title>Neurows XP</title>
   
   <script>
-window.onload = function() {
-  const windowElement = document.querySelector('.window');
-  const settingsWindowElement = document.querySelector('#w-settings');
-  const baWindowElement = document.querySelector('#w-ba');
-  const testWindowElement = document.querySelector('#w-test');
-  const smolscaredWindowElement = document.querySelector('#w-smolscared');
-  const evildanceWindowElement = document.querySelector('#w-evildance');
-  const neurorollWindowElement = document.querySelector('#w-neuroroll');
+window.onload = function () {
+  const windows = document.querySelectorAll('.window');
+  const dicons = document.querySelectorAll('.dicon');
 
-  
   let isDragging = false;
   let offsetX = 0;
   let offsetY = 0;
-  
+  let selectedIcon = null;
+  let clickTimeout = null;
+
   function handleMouseDown(e, element) {
     isDragging = true;
     offsetX = e.clientX - element.offsetLeft;
     offsetY = e.clientY - element.offsetTop;
+
+    
+    selectIcon(element);
   }
-  
+
   function handleMouseMove(e, element) {
     if (isDragging) {
       const x = e.clientX - offsetX;
@@ -169,100 +46,133 @@ window.onload = function() {
       element.style.top = y + 'px';
     }
   }
-  
+
   function handleMouseUp() {
     isDragging = false;
   }
-  
-  windowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, windowElement);
+
+  function selectIcon(icon) {
+    if (selectedIcon && selectedIcon !== icon) {
+      selectedIcon.classList.remove('selected');
+    }
+    selectedIcon = icon;
+    icon.classList.add('selected');
+  }
+
+  function deselectIcon() {
+  if (selectedIcon) {
+    selectedIcon.classList.remove('selected');
+    selectedIcon = null;
+  }
+}
+
+// Deselect when clicking on empty space
+document.addEventListener('mousedown', function (e) {
+  const isClickInsideIcon = e.target.closest('.dicon');
+  if (!isClickInsideIcon) {
+    deselectIcon();
+  }
+});
+
+  for (let i = 0; i < windows.length; ++i) {
+    const windowi = windows[i];
+    windowi.querySelector('.title-bar').addEventListener('mousedown', function(e) {
+    handleMouseDown(e, windowi);
   });
   
-  windowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, windowElement);
+  windowi.addEventListener('mousemove', function(e) {
+    handleMouseMove(e, windowi);
   });
   
-  windowElement.addEventListener('mouseup', handleMouseUp);
-  
-  settingsWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, settingsWindowElement);
-  });
-  
-  settingsWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, settingsWindowElement);
-  });
-  
-  settingsWindowElement.addEventListener('mouseup', handleMouseUp);
-
-  baWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, baWindowElement);
-  });
-  
-  baWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, baWindowElement);
-  });
-  
-  baWindowElement.addEventListener('mouseup', handleMouseUp);
-
-
-
-  testWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, testWindowElement);
-  });
-  
-  testWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, testWindowElement);
-  });
-  
-  testWindowElement.addEventListener('mouseup', handleMouseUp);
-
-
-
-  
-
-    smolscaredWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, smolscaredWindowElement);
-  });
-  
-  smolscaredWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, smolscaredWindowElement);
-  });
-  
-  smolscaredWindowElement.addEventListener('mouseup', handleMouseUp);
-
-
-
-
-   evildanceWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, evildanceWindowElement);
-  });
-  
-  evildanceWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, evildanceWindowElement);
-  });
-  
-  evildanceWindowElement.addEventListener('mouseup', handleMouseUp);
-
- neurorollWindowElement.querySelector('.title-bar').addEventListener('mousedown', function(e) {
-    handleMouseDown(e, neurorollWindowElement);
-  });
-  
-  neurorollWindowElement.addEventListener('mousemove', function(e) {
-    handleMouseMove(e, neurorollWindowElement);
-  });
-  
-  neurorollWindowElement.addEventListener('mouseup', handleMouseUp);
-
-
- 
-  
+  windowi.addEventListener('mouseup', handleMouseUp);
 };
+
+
+let startX = 10;
+let startY = 10;
+let spacingY = 80;
+
+dicons.forEach((icon, index) => {
+  icon.style.position = 'absolute';
+  icon.style.left = startX + 'px';
+  icon.style.top = (startY + spacingY * index) + 'px';
+});
+
+
+
+  for (let i = 0; i < dicons.length; ++i) {
+    const icon = dicons[i];
+    const wrapper = icon.querySelector('.dicon-wrapper');
+
+    icon.addEventListener('mousedown', function (e) {
+      handleMouseDown(e, icon);
+    });
+
+    icon.addEventListener('mousemove', function (e) {
+      handleMouseMove(e, icon);
+    });
+
+    icon.addEventListener('mouseup', function (e) {
+      handleMouseUp();
+    });
+
+    icon.addEventListener('click', function () {
+      if (clickTimeout) {
+        clearTimeout(clickTimeout);
+        clickTimeout = null;
+        handleDoubleClick(icon);
+      } else {
+        clickTimeout = setTimeout(() => {
+          selectIcon(icon);
+          clickTimeout = null;
+        }, 250);
+      }
+    });
+
+    icon.addEventListener('dblclick', function () {
+      // Prevent native dblclick default
+      event.preventDefault();
+    });
+  }
+
+  // Custom function to run on double click
+  function handleDoubleClick(icon) {
+    const wrapper = icon.querySelector('.dicon-wrapper');
+    const id = wrapper.id;
+    if (id === "folder-games") {
+      // Run your desired function here
+      folder_games();
+      // Or trigger some function: openFolderGames();
+    } else if (id === "folder-pages") {
+      folder_pages();
+    } else {
+
+    }
+  }
+};
+
+
+
     
   </script>
 </head>
 <body style="background-color: #3B6EA5;">
    <script src="jquery.js"></script>
-   
+
+   <div class="dicon">
+    <div class="dicon-wrapper" id="folder-games">
+    <img src="./icons/games.gif" alt="Games">
+    </div>
+    <p>Games</p>
+   </div>
+   <div class="dicon">
+    <div class="dicon-wrapper" id="folder-pages">
+      <img src="./icons/pages.png" alt="Pages">
+    </div>
+    <p>Pages</p>
+   </div>
+
+
   <div class="window">
     <div class="title-bar">
       <div class="title-bar-text" id="title-window">Loading...</div>
@@ -460,7 +370,7 @@ function atr() {
 
 
  
-  <script src="app.js"></script>
-  <script src="/assets/anti.js"></script>
+  <script src="beta.js"></script>
+  <!--<script src="/assets/anti.js"></script>-->
 </body>
 </html>

@@ -1,0 +1,20 @@
+<li class="icon">
+          <img src="./icons/pages.png" alt="Pages" id="folder-pages">
+          <div class="icon-label">Pages</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/settings.png" alt="Settings" id="app-settings">
+          <div class="icon-label">Settings</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/badapple_kage.png" alt="Bad Apple" id="app-ba">
+          <div class="icon-label">Bad Apple</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/changelog.png" alt="Changelog" id="app-changelog">
+          <div class="icon-label">Changelog</div>
+        </li>
+        <li class="icon">
+          <img src="./icons/calculator.png" alt="Calculator" id="app-lcalc">
+          <div class="icon-label">Calculator</div>
+        </li>
