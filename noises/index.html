@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nuero.fun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>nuero.fun</h1>
+        </header>
+        
+        <div class="file-system">
+            <div id="breadcrumb">
+                <span>Home</span>
+            </div>
+            
+            <div id="file-list">
+                <!-- Files and folders will be populated here -->
+                <div class="loading">Loading files...</div>
+            </div>
+        </div>
+        
+        <div id="popup-overlay" class="hidden">
+            <div id="popup-content">
+                <div id="popup-header">
+                    <h2 id="popup-title">File</h2>
+                    <button id="popup-close" class="button">Close</button>
+                </div>
+                <div id="popup-body">
+                    <!-- Content will be populated here -->
+                </div>
+                <div id="popup-footer">
+                    <button id="popup-download" class="button">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
