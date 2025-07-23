@@ -36,5 +36,3 @@ function iAmNotNamingFunctionsCorrectlyUnlessImLegallyObligatedSo(spamRefresh, u
     localStorage.setItem('spamRefresh', spamRefresh);
 };
 
-
-
