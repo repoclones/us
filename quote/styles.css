@@ -421,6 +421,78 @@ header p {
     border-radius: 4px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     display: block;
+    cursor: crosshair;
+}
+
+#preview-canvas:active {
+    cursor: grabbing;
+}
+
+.preset-controls {
+    padding: 1rem 0;
+}
+
+.preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.preset-option {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    backdrop-filter: blur(10px);
+    min-height: 120px;
+}
+
+.preset-option:hover {
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(255, 71, 87, 0.3);
+}
+
+.preset-option.active {
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.2);
+}
+
+.preset-option img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.preset-option span {
+    display: block;
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#stroke-type {
+    padding: 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'First Coffee', monospace;
+    margin-right: 0.5rem;
 }
 
 @media (max-width: 1024px) {

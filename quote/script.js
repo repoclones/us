@@ -3,6 +3,298 @@ class CharacterCreator {
         this.canvas = document.getElementById('preview-canvas');
         this.ctx = this.canvas.getContext('2d');
         this.images = {};
+        this.thumbnails = {};
+        
+        // Define image configuration with thumbnails
+        this.imageConfig = {
+    "background": [
+        {
+            "file": "background/room.png",
+            "name": "Evil's Room",
+            "thumb": "thumb/background/room.png"
+        },
+        {
+            "file": "background/mc-bed.png",
+            "name": "Minecraft Bed",
+            "thumb": "thumb/background/mc-bed.png"
+        },
+        {
+            "file": "background/mc-server.png",
+            "name": "Minecraft Server",
+            "thumb": "thumb/background/mc-server.png"
+        },
+        {
+            "file": "background/room-flames.png",
+            "name": "Evil's Room on Fire",
+            "thumb": "thumb/background/room-flames.png"
+        },
+        {
+            "file": "background/room-oddfilm.png",
+            "name": "Evil's Room Oddfilm",
+            "thumb": "thumb/background/room-oddfilm.png"
+        },
+        {
+            "file": "background/room-oddfilmflames.png",
+            "name": "Evil's Room Oddfilm Fire",
+            "thumb": "thumb/background/room-oddfilmflames.png"
+        },
+        {
+            "file": "background/room-og.png",
+            "name": "Evil's Room (OG)",
+            "thumb": "thumb/background/room-og.png"
+        },
+        {
+            "file": "background/splatter.png",
+            "name": "Splatter",
+            "thumb": "thumb/background/splatter.png"
+        }
+    ],
+    "backOverlay": [
+        {
+            "file": "back-front-ov/evilfumo-ov.png",
+            "name": "Evil Fumo",
+            "thumb": "thumb/back-front-ov/evilfumo-ov.png"
+        },
+        {
+            "file": "back-front-ov/horn-ov.png",
+            "name": "Abber Horn",
+            "thumb": "thumb/back-front-ov/horn-ov.png"
+        },
+        {
+            "file": "back-front-ov/mcneuros-ov.png",
+            "name": "McNeuros Hat",
+            "thumb": "thumb/back-front-ov/mcneuros-ov.png"
+        },
+        {
+            "file": "back-front-ov/mic-ov.png",
+            "name": "Microphone",
+            "thumb": "thumb/back-front-ov/mic-ov.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov1.png",
+            "name": "Plasma Globe 1",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov1.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov2.png",
+            "name": "Plasma Globe 2",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov2.png"
+        },
+        {
+            "file": "back-front-ov/tail-ov.png",
+            "name": "Abber Tail",
+            "thumb": "thumb/back-front-ov/tail-ov.png"
+        },
+        {
+            "file": "back-front-ov/tail2-ov.png",
+            "name": "Abber Tail 2",
+            "thumb": "thumb/back-front-ov/tail2-ov.png"
+        },
+        {
+            "file": "back-front-ov/wahh-ov.png",
+            "name": "Wahh",
+            "thumb": "thumb/back-front-ov/wahh-ov.png"
+        }
+    ],
+    "body": [
+        {
+            "file": "body/evil-aloof.png",
+            "name": "Evil Aloof",
+            "thumb": "thumb/body/evil-aloof.png"
+        },
+        {
+            "file": "body/evil-aloofsmile.png",
+            "name": "Evil Happy Aloof",
+            "thumb": "thumb/body/evil-aloofsmile.png"
+        },
+        {
+            "file": "body/evil-crying.png",
+            "name": "Evil Crying",
+            "thumb": "thumb/body/evil-crying.png"
+        },
+        {
+            "file": "body/evil-disappointed.png",
+            "name": "Evil Disappointed",
+            "thumb": "thumb/body/evil-disappointed.png"
+        },
+        {
+            "file": "body/evil-disgusted.png",
+            "name": "Evil Disgusted",
+            "thumb": "thumb/body/evil-disgusted.png"
+        },
+        {
+            "file": "body/evil-dread.png",
+            "name": "Evil Dread",
+            "thumb": "thumb/body/evil-dread.png"
+        },
+        {
+            "file": "body/evil-fear.png",
+            "name": "Evil Fear",
+            "thumb": "thumb/body/evil-fear.png"
+        },
+        {
+            "file": "body/evil-happyhiyorihandsneko.png",
+            "name": "Evil Neko with Happy Hiyori Hands",
+            "thumb": "thumb/body/evil-happyhiyorihandsneko.png"
+        },
+        {
+            "file": "body/evil-hearteyes.png",
+            "name": "Evil Heart Eyes",
+            "thumb": "thumb/body/evil-hearteyes.png"
+        },
+        {
+            "file": "body/evil-hiyoriarms.png",
+            "name": "Evil Hiyori Arms",
+            "thumb": "thumb/body/evil-hiyoriarms.png"
+        },
+        {
+            "file": "body/evil-inquisitive.png",
+            "name": "Evil Inquisitive",
+            "thumb": "thumb/body/evil-inquisitive.png"
+        },
+        {
+            "file": "body/evil-inquisitivesmile.png",
+            "name": "Evil Happy Inquisitive",
+            "thumb": "thumb/body/evil-inquisitivesmile.png"
+        },
+        {
+            "file": "body/evil-openmouth.png",
+            "name": "Evil Open Mouth",
+            "thumb": "thumb/body/evil-openmouth.png"
+        },
+        {
+            "file": "body/evil-pensive.png",
+            "name": "Evil Pensive",
+            "thumb": "thumb/body/evil-pensive.png"
+        },
+        {
+            "file": "body/evil-question.png",
+            "name": "Evil Question",
+            "thumb": "thumb/body/evil-question.png"
+        },
+        {
+            "file": "body/evil-starryeyes.png",
+            "name": "Evil Starry Eyes 1",
+            "thumb": "thumb/body/evil-starryeyes.png"
+        },
+        {
+            "file": "body/evil-starryeyes2.png",
+            "name": "Evil Starry Eyes 2",
+            "thumb": "thumb/body/evil-starryeyes2.png"
+        },
+        {
+            "file": "body/evil-starryeyes3.png",
+            "name": "Evil Starry Eyes 3",
+            "thumb": "thumb/body/evil-starryeyes3.png"
+        },
+        {
+            "file": "body/evil-talking.png",
+            "name": "Evil Talking",
+            "thumb": "thumb/body/evil-talking.png"
+        },
+        {
+            "file": "body/evil-unamused.png",
+            "name": "Evil Unamused",
+            "thumb": "thumb/body/evil-unamused.png"
+        },
+        {
+            "file": "body/evil-unamusedhearteyesneko.png",
+            "name": "Evil Neko with Unamused Heart Eyes",
+            "thumb": "thumb/body/evil-unamusedhearteyesneko.png"
+        },
+        {
+            "file": "body/evil-yandere.png",
+            "name": "Evil Yandere",
+            "thumb": "thumb/body/evil-yandere.png"
+        },
+        {
+            "file": "body/evil-yandereish.png",
+            "name": "Evil Yandere-ish",
+            "thumb": "thumb/body/evil-yandereish.png"
+        },
+        {
+            "file": "body/full-body-2.png",
+            "name": "Evil Full Body 2",
+            "thumb": "thumb/body/full-body-2.png"
+        },
+        {
+            "file": "body/full-body-smile.png",
+            "name": "Evil Happy Full Body",
+            "thumb": "thumb/body/full-body-smile.png"
+        },
+        {
+            "file": "body/full-body.png",
+            "name": "Evil Full Body",
+            "thumb": "thumb/body/full-body.png"
+        }
+    ],
+    "frontOverlay": [
+        {
+            "file": "back-front-ov/evilfumo-ov.png",
+            "name": "Evil Fumo",
+            "thumb": "thumb/back-front-ov/evilfumo-ov.png"
+        },
+        {
+            "file": "back-front-ov/horn-ov.png",
+            "name": "Abber Horn",
+            "thumb": "thumb/back-front-ov/horn-ov.png"
+        },
+        {
+            "file": "back-front-ov/mcneuros-ov.png",
+            "name": "McNeuros Hat",
+            "thumb": "thumb/back-front-ov/mcneuros-ov.png"
+        },
+        {
+            "file": "back-front-ov/mic-ov.png",
+            "name": "Microphone",
+            "thumb": "thumb/back-front-ov/mic-ov.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov1.png",
+            "name": "Plasma Globe 1",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov1.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov2.png",
+            "name": "Plasma Globe 2",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov2.png"
+        },
+        {
+            "file": "back-front-ov/tail-ov.png",
+            "name": "Abber Tail",
+            "thumb": "thumb/back-front-ov/tail-ov.png"
+        },
+        {
+            "file": "back-front-ov/tail2-ov.png",
+            "name": "Abber Tail 2",
+            "thumb": "thumb/back-front-ov/tail2-ov.png"
+        },
+        {
+            "file": "back-front-ov/wahh-ov.png",
+            "name": "Wahh",
+            "thumb": "thumb/back-front-ov/wahh-ov.png"
+        }
+    ],
+    "logo": [
+        {
+            "file": "logo/evilneuro.png",
+            "name": "Logo 1",
+            "thumb": null
+        },
+        {
+            "file": "logo/evilneuro2.png",
+            "name": "Logo 2",
+            "thumb": null
+        }
+    ]
+};
+
+        // Define text borders for different logos
+        this.textBorders = {
+            'logo/evilneuro.png': { start: { x: 38, y: 252 }, end: { x: 1012, y: 880 } },
+            'default': { start: { x: 100, y: 100 }, end: { x: 1500, y: 800 } }
+        };
+        
         this.currentLayers = {
             background: 'background/room.png',
             backOverlay: '',
@@ -11,86 +303,53 @@ class CharacterCreator {
             logo: 'logo/evilneuro.png'
         };
         
+        // Transform states for each layer
+        this.transforms = {
+            backOverlay: { x: 0, y: 0, scale: 1, rotation: 0 },
+            frontOverlay: { x: 0, y: 0, scale: 1, rotation: 0 }
+        };
+        
+        // Interaction state
+        this.selectedLayer = null;
+        this.isDragging = false;
+        this.isScaling = false;
+        this.isRotating = false;
+        this.dragStart = { x: 0, y: 0 };
+        this.initialTransform = null;
+        
+        // Loading state
+        this.isLoadingPreview = false;
+        
         this.textSettings = {
             text: 'Evil Neuro',
-            color: '#ff4757',
+            strokeType: 'default',
+            strokeColor: '#4e1912',
             size: 100,
             bold: true
         };
 
-        // Text borders for different logos
-        this.textBorders = {
-            'logo/evilneuro.png': { start: { x: 37, y: 251 }, end: { x: 1011, y: 879 } },
-            // Add more logo borders here as needed
-            'default': { start: { x: 100, y: 100 }, end: { x: 1500, y: 800 } }
+        // Define stroke color presets
+        this.strokeColors = {
+            default: '#4e1912',
+            neuro: '#00ff41'
         };
 
-        // Image configuration - easily add new images here
-        this.imageConfig = {
-            background: [
-                { file: 'background/room.png', name: "Evil's Room" },
-                { file: 'background/mc-bed.png', name: "Minecraft Bed" },
-                { file: 'background/mc-server.png', name: "Minecraft Server" },
-                { file: 'background/room-flames.png', name: "Evil's Room on Fire" },
-                { file: 'background/room-oddfilm.png', name: "Evil's Room Oddfilm" },
-                { file: 'background/room-oddfilmflames.png', name: "Evil's Room Oddfilm Fire" },
-                { file: 'background/room-og.png', name: "Evil's Room (OG)" },
-                { file: 'background/splatter.png', name: "Splatter" }
-            ],
-            backOverlay: [
-                { file: 'back-front-ov/evilfumo-ov.png', name: "Evil Fumo" },
-                { file: 'back-front-ov/horn-ov.png', name: "Abber Horn" },
-                { file: 'back-front-ov/mcneuros-ov.png', name: "McNeuros Hat" },
-                { file: 'back-front-ov/mic-ov.png', name: "Microphone" },
-                { file: 'back-front-ov/plasma-globe-ov1.png', name: "Plasma Globe 1" },
-                { file: 'back-front-ov/plasma-globe-ov2.png', name: "Plasma Globe 2" },
-                { file: 'back-front-ov/tail-ov.png', name: "Abber Tail" },
-                { file: 'back-front-ov/tail2-ov.png', name: "Abber Tail 2" },
-                { file: 'back-front-ov/wahh-ov.png', name: "Wahh" }
-            ],
-            body: [
-                { file: 'body/evil-aloof.png', name: "Evil Aloof" },
-                { file: 'body/evil-aloofsmile.png', name: "Evil Happy Aloof" },
-                { file: 'body/evil-crying.png', name: "Evil Crying" },
-                { file: 'body/evil-disappointed.png', name: "Evil Disappointed" },
-                { file: 'body/evil-disgusted.png', name: "Evil Disgusted" },
-                { file: 'body/evil-dread.png', name: "Evil Dread" },
-                { file: 'body/evil-fear.png', name: "Evil Fear" },
-                { file: 'body/evil-happyhiyorihandsneko.png', name: "Evil Neko with Happy Hiyori Hands" },
-                { file: 'body/evil-hearteyes.png', name: "Evil Heart Eyes" },
-                { file: 'body/evil-hiyoriarms.png', name: "Evil Hiyori Arms" },
-                { file: 'body/evil-inquisitive.png', name: "Evil Inquisitive" },
-                { file: 'body/evil-inquisitivesmile.png', name: "Evil Happy Inquisitive" },
-                { file: 'body/evil-openmouth.png', name: "Evil Open Mouth" },
-                { file: 'body/evil-pensive.png', name: "Evil Pensive" },
-                { file: 'body/evil-question.png', name: "Evil Question" },
-                { file: 'body/evil-starryeyes.png', name: "Evil Starry Eyes 1" },
-                { file: 'body/evil-starryeyes2.png', name: "Evil Starry Eyes 2" },
-                { file: 'body/evil-starryeyes3.png', name: "Evil Starry Eyes 3" },
-                { file: 'body/evil-talking.png', name: "Evil Talking" },
-                { file: 'body/evil-unamused.png', name: "Evil Unamused" },
-                { file: 'body/evil-unamusedhearteyesneko.png', name: "Evil Neko with Unamused Heart Eyes" },
-                { file: 'body/evil-yandere.png', name: "Evil Yandere" },
-                { file: 'body/evil-yandereish.png', name: "Evil Yandere-ish" },
-                { file: 'body/full-body-2.png', name: "Evil Full Body 2" },
-                { file: 'body/full-body-smile.png', name: "Evil Happy Full Body" },
-                { file: 'body/full-body.png', name: "Evil Full Body" }
-            ],
-            frontOverlay: [
-                { file: 'back-front-ov/evilfumo-ov.png', name: "Evil Fumo" },
-                { file: 'back-front-ov/horn-ov.png', name: "Abber Horn" },
-                { file: 'back-front-ov/mcneuros-ov.png', name: "McNeuros Hat" },
-                { file: 'back-front-ov/mic-ov.png', name: "Microphone" },
-                { file: 'back-front-ov/plasma-globe-ov1.png', name: "Plasma Globe 1" },
-                { file: 'back-front-ov/plasma-globe-ov2.png', name: "Plasma Globe 2" },
-                { file: 'back-front-ov/tail-ov.png', name: "Abber Tail" },
-                { file: 'back-front-ov/tail2-ov.png', name: "Abber Tail 2" },
-                { file: 'back-front-ov/wahh-ov.png', name: "Wahh" }
-            ],
-            logo: [
-                { file: 'logo/evilneuro.png', name: "Logo 1" },
-                { file: 'logo/evilneuro2.png', name: "Logo 2" }
-            ]
+        // Preset configurations
+        this.presets = {
+            evil: {
+                background: 'background/room.png',
+                backOverlay: '',
+                body: 'body/evil-question.png',
+                frontOverlay: '',
+                logo: 'logo/evilneuro.png'
+            },
+            classic: {
+                background: '',
+                backOverlay: '',
+                body: '',
+                frontOverlay: '',
+                logo: 'evilneuro.png'
+            }
         };
 
         this.init();
@@ -98,11 +357,12 @@ class CharacterCreator {
 
     async init() {
         this.showPreloader();
-        await this.preloadImages();
+        await this.preloadAllAssets();
         this.hidePreloader();
         this.setupTabs();
         this.generateImageOptions();
         this.setupEventListeners();
+        this.setupCanvasInteraction();
         this.render();
     }
 
@@ -124,6 +384,89 @@ class CharacterCreator {
         this.preloadAnimationInterval = animationInterval;
     }
 
+    updatePreloadStatus(message, progress = 0) {
+        const loadingText = document.querySelector('.loading-text');
+        const progressBar = document.querySelector('.progress-bar');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        if (loadingText) {
+            loadingText.textContent = message;
+        }
+        
+        if (progressFill) {
+            progressFill.style.width = `${progress}%`;
+        }
+    }
+
+    async preloadAllAssets() {
+        // Collect default images and all thumbnails
+        const preloadImages = new Set();
+        
+        // Add background image
+        preloadImages.add('nertwin_bday_timesqr_bg_v1.png');
+        
+        // Add default images (currently selected)
+        Object.entries(this.currentLayers).forEach(([layer, imageName]) => {
+            if (imageName) {
+                preloadImages.add(imageName);
+            }
+        });
+        
+        // Add all thumbnails
+        Object.values(this.imageConfig).forEach(category => {
+            category.forEach(item => {
+                if (item.thumb) {
+                    preloadImages.add(item.thumb);
+                }
+            });
+        });
+        
+        const imageArray = Array.from(preloadImages);
+        const totalImages = imageArray.length;
+        let loadedImages = 0;
+        
+        this.updatePreloadStatus('Loading thumbnails and defaults...', 0);
+        
+        // Load images in parallel
+        const loadPromises = imageArray.map(async (imageName) => {
+            try {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                await new Promise((resolve, reject) => {
+                    img.onload = () => {
+                        loadedImages++;
+                        const progress = (loadedImages / totalImages) * 90; // 90% for preload
+                        this.updatePreloadStatus(`Loading ${imageName}...`, progress);
+                        resolve();
+                    };
+                    img.onerror = reject;
+                    img.src = imageName;
+                });
+                this.images[imageName] = img;
+            } catch (error) {
+                console.warn(`Failed to load image: ${imageName}`, error);
+                loadedImages++;
+            }
+        });
+        
+        await Promise.all(loadPromises);
+        
+        this.updatePreloadStatus('Finalizing...', 95);
+        
+        // Small delay
+        await new Promise(resolve => setTimeout(resolve, 200));
+        
+        this.updatePreloadStatus('Ready!', 100);
+        
+        // Final delay before hiding preloader
+        await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    async generateThumbnail(img, size = 60) {
+        // Remove this method as we're using pre-made thumbnails
+        return null;
+    }
+
     hidePreloader() {
         const overlay = document.getElementById('preload-overlay');
         clearInterval(this.preloadAnimationInterval);
@@ -134,30 +477,14 @@ class CharacterCreator {
         }, 500);
     }
 
-    async preloadImages() {
-        // Collect all unique image files from config
-        const allImages = new Set();
-        // Add background image
-        allImages.add('nertwin_bday_timesqr_bg_v1.png');
-        
-        Object.values(this.imageConfig).forEach(category => {
-            category.forEach(item => allImages.add(item.file));
-        });
-        
-        for (const imageName of allImages) {
-            try {
-                const img = new Image();
-                img.crossOrigin = 'anonymous';
-                await new Promise((resolve, reject) => {
-                    img.onload = resolve;
-                    img.onerror = reject;
-                    img.src = imageName;
-                });
-                this.images[imageName] = img;
-            } catch (error) {
-                console.warn(`Failed to load image: ${imageName}`, error);
-            }
-        }
+    showPreviewLoading() {
+        this.isLoadingPreview = true;
+        this.render();
+    }
+
+    hidePreviewLoading() {
+        this.isLoadingPreview = false;
+        this.render();
     }
 
     setupTabs() {
@@ -191,16 +518,26 @@ class CharacterCreator {
             const noneOption = this.createImageOption('', 'None', layerType, true);
             container.appendChild(noneOption);
 
-            // Add configured images
+            // Add configured images with thumbnails
             this.imageConfig[layerType].forEach(imageData => {
                 const isActive = this.currentLayers[layerType] === imageData.file;
-                const option = this.createImageOption(imageData.file, imageData.name, layerType, false, isActive);
+                const option = this.createImageOption(imageData.file, imageData.name, layerType, false, isActive, imageData.thumb);
                 container.appendChild(option);
             });
         });
+
+        // Generate preset options
+        const presetContainer = document.querySelector('.preset-grid');
+        if (presetContainer) {
+            // Set evil preset as default active
+            const evilPreset = presetContainer.querySelector('[data-preset="evil"]');
+            if (evilPreset) {
+                evilPreset.classList.add('active');
+            }
+        }
     }
 
-    createImageOption(file, name, layer, isNone = false, isActive = false) {
+    createImageOption(file, name, layer, isNone = false, isActive = false, thumbFile = null) {
         const option = document.createElement('div');
         option.className = `image-option ${isActive ? 'active' : ''}`;
         option.dataset.value = file;
@@ -212,14 +549,16 @@ class CharacterCreator {
                 <span>${name}</span>
             `;
         } else {
+            // Use thumbnail file if available
+            const imageSrc = thumbFile || file;
             option.innerHTML = `
-                <img src="${file}" alt="${name}">
+                <img src="${imageSrc}" alt="${name}" loading="lazy">
                 <span>${name}</span>
             `;
         }
 
         // Use touchstart for better mobile responsiveness
-        const handleSelection = () => {
+        const handleSelection = async () => {
             // Remove active class from siblings
             option.parentNode.querySelectorAll('.image-option').forEach(opt => 
                 opt.classList.remove('active')
@@ -227,9 +566,25 @@ class CharacterCreator {
             // Add active class to clicked option
             option.classList.add('active');
             
+            // Show loading overlay if switching to a different image
+            if (this.currentLayers[layer] !== file && file !== '') {
+                this.showPreviewLoading();
+                
+                // Load the full image if not already loaded
+                if (!this.images[file]) {
+                    await this.loadImage(file);
+                }
+                
+                // Small delay to show loading animation
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
             // Update layer
             this.currentLayers[layer] = file;
             this.render();
+            
+            // Hide loading overlay
+            this.hidePreviewLoading();
         };
 
         option.addEventListener('click', handleSelection);
@@ -241,6 +596,23 @@ class CharacterCreator {
         return option;
     }
 
+    async loadImage(imageName) {
+        if (this.images[imageName]) return; // Already loaded
+        
+        try {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = imageName;
+            });
+            this.images[imageName] = img;
+        } catch (error) {
+            console.warn(`Failed to load image: ${imageName}`, error);
+        }
+    }
+
     setupEventListeners() {
         // Text controls
         document.getElementById('text-input').addEventListener('input', (e) => {
@@ -248,9 +620,25 @@ class CharacterCreator {
             this.render();
         });
 
-        document.getElementById('text-color').addEventListener('change', (e) => {
-            this.textSettings.color = e.target.value;
+        document.getElementById('stroke-type').addEventListener('change', (e) => {
+            this.textSettings.strokeType = e.target.value;
+            const colorInput = document.getElementById('stroke-color');
+            
+            if (e.target.value === 'custom') {
+                colorInput.style.display = 'inline-block';
+                this.textSettings.strokeColor = colorInput.value;
+            } else {
+                colorInput.style.display = 'none';
+                this.textSettings.strokeColor = this.strokeColors[e.target.value];
+            }
             this.render();
+        });
+
+        document.getElementById('stroke-color').addEventListener('change', (e) => {
+            if (this.textSettings.strokeType === 'custom') {
+                this.textSettings.strokeColor = e.target.value;
+                this.render();
+            }
         });
 
         document.getElementById('text-size').addEventListener('input', (e) => {
@@ -268,6 +656,226 @@ class CharacterCreator {
         document.getElementById('download-btn').addEventListener('click', () => {
             this.downloadImage();
         });
+
+        // Keyboard shortcuts for transform controls
+        document.addEventListener('keydown', (e) => {
+            if (this.selectedLayer && e.key === 'Delete') {
+                this.currentLayers[this.selectedLayer] = '';
+                this.selectedLayer = null;
+                this.render();
+            }
+            if (this.selectedLayer && e.key === 'Escape') {
+                this.selectedLayer = null;
+                this.render();
+            }
+        });
+
+        // Preset controls
+        document.querySelectorAll('.preset-option').forEach(option => {
+            option.addEventListener('click', () => {
+                this.applyPreset(option.dataset.preset);
+                
+                // Update active state
+                document.querySelectorAll('.preset-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    }
+
+    setupCanvasInteraction() {
+        const getMousePos = (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const scaleX = this.canvas.width / rect.width;
+            const scaleY = this.canvas.height / rect.height;
+            
+            return {
+                x: (e.clientX - rect.left) * scaleX,
+                y: (e.clientY - rect.top) * scaleY
+            };
+        };
+
+        const getTouchPos = (e) => {
+            if (e.touches.length > 0) {
+                const rect = this.canvas.getBoundingClientRect();
+                const scaleX = this.canvas.width / rect.width;
+                const scaleY = this.canvas.height / rect.height;
+                
+                return {
+                    x: (e.touches[0].clientX - rect.left) * scaleX,
+                    y: (e.touches[0].clientY - rect.top) * scaleY
+                };
+            }
+            return { x: 0, y: 0 };
+        };
+
+        // Mouse events
+        this.canvas.addEventListener('mousedown', (e) => {
+            const pos = getMousePos(e);
+            this.handleInteractionStart(pos);
+        });
+
+        this.canvas.addEventListener('mousemove', (e) => {
+            const pos = getMousePos(e);
+            this.handleInteractionMove(pos);
+        });
+
+        this.canvas.addEventListener('mouseup', () => {
+            this.handleInteractionEnd();
+        });
+
+        // Touch events
+        this.canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            this.handleInteractionStart(pos);
+        });
+
+        this.canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const pos = getTouchPos(e);
+            this.handleInteractionMove(pos);
+        });
+
+        this.canvas.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.handleInteractionEnd();
+        });
+    }
+
+    handleInteractionStart(pos) {
+        // Check if clicking on transform handles first
+        if (this.selectedLayer && this.checkTransformHandles(pos)) {
+            return;
+        }
+
+        // Check overlay layers for selection
+        const overlayLayers = ['frontOverlay', 'backOverlay'];
+        let layerClicked = null;
+
+        // Check from front to back
+        for (const layer of overlayLayers) {
+            if (this.currentLayers[layer] && this.isPointInLayer(pos, layer)) {
+                layerClicked = layer;
+                break;
+            }
+        }
+
+        if (layerClicked) {
+            this.selectedLayer = layerClicked;
+            this.isDragging = true;
+            this.dragStart = pos;
+            this.initialTransform = { ...this.transforms[layerClicked] };
+        } else {
+            this.selectedLayer = null;
+        }
+        this.render();
+    }
+
+    handleInteractionMove(pos) {
+        if (this.isDragging && this.selectedLayer && !this.isScaling && !this.isRotating) {
+            const dx = pos.x - this.dragStart.x;
+            const dy = pos.y - this.dragStart.y;
+            
+            this.transforms[this.selectedLayer].x = this.initialTransform.x + dx;
+            this.transforms[this.selectedLayer].y = this.initialTransform.y + dy;
+            this.render();
+        } else if (this.isScaling && this.selectedLayer) {
+            const centerX = 800 + this.transforms[this.selectedLayer].x;
+            const centerY = 450 + this.transforms[this.selectedLayer].y;
+            
+            const initialDist = Math.sqrt(
+                Math.pow(this.dragStart.x - centerX, 2) + 
+                Math.pow(this.dragStart.y - centerY, 2)
+            );
+            const currentDist = Math.sqrt(
+                Math.pow(pos.x - centerX, 2) + 
+                Math.pow(pos.y - centerY, 2)
+            );
+            
+            if (initialDist > 0) {
+                const scaleFactor = currentDist / initialDist;
+                this.transforms[this.selectedLayer].scale = Math.max(0.1, this.initialTransform.scale * scaleFactor);
+                this.render();
+            }
+        } else if (this.isRotating && this.selectedLayer) {
+            const centerX = 800 + this.transforms[this.selectedLayer].x;
+            const centerY = 450 + this.transforms[this.selectedLayer].y;
+            
+            const initialAngle = Math.atan2(this.dragStart.y - centerY, this.dragStart.x - centerX);
+            const currentAngle = Math.atan2(pos.y - centerY, pos.x - centerX);
+            
+            this.transforms[this.selectedLayer].rotation = this.initialTransform.rotation + (currentAngle - initialAngle);
+            this.render();
+        }
+    }
+
+    handleInteractionEnd() {
+        this.isDragging = false;
+        this.isScaling = false;
+        this.isRotating = false;
+        this.dragStart = { x: 0, y: 0 };
+        this.initialTransform = null;
+    }
+
+    checkTransformHandles(pos) {
+        if (!this.selectedLayer) return false;
+
+        const transform = this.transforms[this.selectedLayer];
+        const centerX = 800 + transform.x;
+        const centerY = 450 + transform.y;
+        
+        // Calculate rotated corner positions
+        const corners = [
+            { x: -800, y: -450 }, // top-left
+            { x: 800, y: -450 },  // top-right
+            { x: 800, y: 450 },   // bottom-right
+            { x: -800, y: 450 }   // bottom-left
+        ];
+        
+        // Check corner scale handles
+        for (let i = 0; i < corners.length; i++) {
+            const corner = corners[i];
+            const rotatedX = centerX + (corner.x * Math.cos(transform.rotation) - corner.y * Math.sin(transform.rotation)) * transform.scale;
+            const rotatedY = centerY + (corner.x * Math.sin(transform.rotation) + corner.y * Math.cos(transform.rotation)) * transform.scale;
+            
+            const cornerDist = Math.sqrt(Math.pow(pos.x - rotatedX, 2) + Math.pow(pos.y - rotatedY, 2));
+            
+            if (cornerDist < 20) {
+                this.isScaling = true;
+                this.dragStart = pos;
+                this.initialTransform = { ...transform };
+                return true;
+            }
+        }
+        
+        // Rotation handle (outside the box, top-center)
+        const rotHandleX = centerX + (0 * Math.cos(transform.rotation) - (-500) * Math.sin(transform.rotation)) * transform.scale;
+        const rotHandleY = centerY + (0 * Math.sin(transform.rotation) + (-500) * Math.cos(transform.rotation)) * transform.scale;
+        const rotHandleDist = Math.sqrt(Math.pow(pos.x - rotHandleX, 2) + Math.pow(pos.y - rotHandleY, 2));
+        
+        if (rotHandleDist < 20) {
+            this.isRotating = true;
+            this.dragStart = pos;
+            this.initialTransform = { ...transform };
+            return true;
+        }
+
+        return false;
+    }
+
+    isPointInLayer(pos, layer) {
+        if (!this.currentLayers[layer] || !this.images[this.currentLayers[layer]]) return false;
+
+        const transform = this.transforms[layer];
+        const centerX = 800 + transform.x;
+        const centerY = 450 + transform.y;
+        
+        // Simple bounding box check (can be improved with actual image bounds)
+        const halfWidth = 200 * transform.scale;
+        const halfHeight = 200 * transform.scale;
+        
+        return pos.x >= centerX - halfWidth && pos.x <= centerX + halfWidth &&
+               pos.y >= centerY - halfHeight && pos.y <= centerY + halfHeight;
     }
 
     drawImage(imageName, layer = 'normal') {
@@ -275,8 +883,116 @@ class CharacterCreator {
         
         const img = this.images[imageName];
         
-        // All images are drawn at the same size and position (full canvas)
-        this.ctx.drawImage(img, 0, 0, 1600, 900);
+        if (layer === 'backOverlay' || layer === 'frontOverlay') {
+            const transform = this.transforms[layer];
+            
+            this.ctx.save();
+            this.ctx.translate(800 + transform.x, 450 + transform.y);
+            this.ctx.rotate(transform.rotation);
+            this.ctx.scale(transform.scale, transform.scale);
+            this.ctx.drawImage(img, -800, -450, 1600, 900);
+            this.ctx.restore();
+        } else {
+            // All other images are drawn at the same size and position (full canvas)
+            this.ctx.drawImage(img, 0, 0, 1600, 900);
+        }
+    }
+
+    drawTransformBox() {
+        if (!this.selectedLayer || !this.currentLayers[this.selectedLayer]) return;
+
+        const transform = this.transforms[this.selectedLayer];
+        const centerX = 800 + transform.x;
+        const centerY = 450 + transform.y;
+        
+        this.ctx.save();
+        this.ctx.translate(centerX, centerY);
+        this.ctx.rotate(transform.rotation);
+        this.ctx.scale(transform.scale, transform.scale);
+        
+        // Draw bounding box
+        this.ctx.strokeStyle = '#ff4757';
+        this.ctx.lineWidth = 3;
+        this.ctx.setLineDash([10, 5]);
+        this.ctx.strokeRect(-800, -450, 1600, 900);
+        
+        // Draw corner scale handles
+        this.ctx.fillStyle = '#ff4757';
+        this.ctx.strokeStyle = '#ffffff';
+        this.ctx.lineWidth = 2;
+        this.ctx.setLineDash([]);
+        
+        const corners = [
+            { x: -800, y: -450 }, // top-left
+            { x: 800, y: -450 },  // top-right
+            { x: 800, y: 450 },   // bottom-right
+            { x: -800, y: 450 }   // bottom-left
+        ];
+        
+        corners.forEach(corner => {
+            this.ctx.beginPath();
+            this.ctx.rect(corner.x - 10, corner.y - 10, 20, 20);
+            this.ctx.fill();
+            this.ctx.stroke();
+        });
+        
+        this.ctx.restore();
+        
+        // Draw rotation handle (outside the box, top-center)
+        const rotHandleX = centerX + (0 * Math.cos(transform.rotation) - (-500) * Math.sin(transform.rotation)) * transform.scale;
+        const rotHandleY = centerY + (0 * Math.sin(transform.rotation) + (-500) * Math.cos(transform.rotation)) * transform.scale;
+        
+        // Draw connection line from box to rotation handle
+        this.ctx.strokeStyle = '#ff4757';
+        this.ctx.lineWidth = 2;
+        this.ctx.setLineDash([5, 5]);
+        this.ctx.beginPath();
+        const topCenterX = centerX + (0 * Math.cos(transform.rotation) - (-450) * Math.sin(transform.rotation)) * transform.scale;
+        const topCenterY = centerY + (0 * Math.sin(transform.rotation) + (-450) * Math.cos(transform.rotation)) * transform.scale;
+        this.ctx.moveTo(topCenterX, topCenterY);
+        this.ctx.lineTo(rotHandleX, rotHandleY);
+        this.ctx.stroke();
+        
+        // Draw rotation handle as a circle with rotation icon
+        this.ctx.fillStyle = '#ff4757';
+        this.ctx.strokeStyle = '#ffffff';
+        this.ctx.lineWidth = 2;
+        this.ctx.setLineDash([]);
+        this.ctx.beginPath();
+        this.ctx.arc(rotHandleX, rotHandleY, 12, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.stroke();
+        
+        // Draw rotation icon inside the circle
+        this.ctx.strokeStyle = '#ffffff';
+        this.ctx.lineWidth = 2;
+        this.ctx.beginPath();
+        this.ctx.arc(rotHandleX, rotHandleY, 8, 0, Math.PI * 1.5);
+        this.ctx.stroke();
+        // Arrow for rotation icon
+        this.ctx.beginPath();
+        this.ctx.moveTo(rotHandleX + 6, rotHandleY - 6);
+        this.ctx.lineTo(rotHandleX + 9, rotHandleY - 3);
+        this.ctx.lineTo(rotHandleX + 6, rotHandleY - 9);
+        this.ctx.stroke();
+        
+        // Add text labels for clarity
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.strokeStyle = '#000000';
+        this.ctx.lineWidth = 1;
+        this.ctx.font = 'bold 14px Arial';
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        
+        // Label for rotation handle
+        this.ctx.strokeText('ROTATE', rotHandleX, rotHandleY + 25);
+        this.ctx.fillText('ROTATE', rotHandleX, rotHandleY + 25);
+        
+        // Label for corner handles (show on one corner to avoid clutter)
+        const bottomRightCornerX = centerX + (800 * Math.cos(transform.rotation) - 450 * Math.sin(transform.rotation)) * transform.scale;
+        const bottomRightCornerY = centerY + (800 * Math.sin(transform.rotation) + 450 * Math.cos(transform.rotation)) * transform.scale;
+        this.ctx.strokeText('SCALE', bottomRightCornerX + 30, bottomRightCornerY);
+        this.ctx.fillText('SCALE', bottomRightCornerX + 30, bottomRightCornerY);
     }
 
     getTextBorder() {
@@ -316,7 +1032,7 @@ class CharacterCreator {
             
             // Add empty line for paragraph breaks (except for the last paragraph)
             if (p < paragraphs.length - 1) {
-                // lines.push('');
+                lines.push('');
             }
         }
         
@@ -388,8 +1104,8 @@ class CharacterCreator {
                 this.ctx.strokeText(line, shadowX, shadowY);
                 this.ctx.fillText(line, shadowX, shadowY);
                 
-                // Draw main text with stroke and fill
-                this.ctx.strokeStyle = '#4e1912'; // Dark reddish-brown stroke
+                // Draw main text with stroke and fill using selected stroke color
+                this.ctx.strokeStyle = this.textSettings.strokeColor;
                 this.ctx.lineWidth = 20; // Increased stroke width
                 this.ctx.fillStyle = '#ffffff'; // White fill
                 
@@ -407,22 +1123,125 @@ class CharacterCreator {
         this.ctx.fillStyle = '#ffffff';
         this.ctx.fillRect(0, 0, 1600, 900);
         
-        // Draw layers in order - all at same size and position
+        // Show loading overlay if needed
+        if (this.isLoadingPreview) {
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            this.ctx.fillRect(0, 0, 1600, 900);
+            
+            // Draw loading spinner
+            this.ctx.save();
+            this.ctx.translate(800, 450);
+            this.ctx.strokeStyle = '#ff4757';
+            this.ctx.lineWidth = 8;
+            this.ctx.lineCap = 'round';
+            
+            const time = Date.now() * 0.005;
+            for (let i = 0; i < 8; i++) {
+                this.ctx.save();
+                this.ctx.rotate((i * Math.PI) / 4);
+                this.ctx.globalAlpha = Math.max(0.1, Math.sin(time + i * 0.5));
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, -60);
+                this.ctx.lineTo(0, -40);
+                this.ctx.stroke();
+                this.ctx.restore();
+            }
+            
+            // Draw loading text
+            this.ctx.fillStyle = '#ffffff';
+            this.ctx.font = 'bold 24px Inter, sans-serif';
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText('Loading...', 0, 20);
+            
+            this.ctx.restore();
+            
+            // Continue animation
+            requestAnimationFrame(() => this.render());
+            return;
+        }
+        
+        // Draw layers in order
         this.drawImage(this.currentLayers.background);
-        this.drawImage(this.currentLayers.backOverlay);
+        this.drawImage(this.currentLayers.backOverlay, 'backOverlay');
         this.drawImage(this.currentLayers.body);
-        this.drawImage(this.currentLayers.frontOverlay);
+        this.drawImage(this.currentLayers.frontOverlay, 'frontOverlay');
         this.drawImage(this.currentLayers.logo);
         
         // Draw text
         this.drawText();
+        
+        // Draw transform box if layer is selected
+        this.drawTransformBox();
+    }
+
+    async applyPreset(presetName) {
+        if (!this.presets[presetName]) return;
+        
+        this.showPreviewLoading();
+        
+        const preset = this.presets[presetName];
+        
+        // Load any new images that aren't already loaded
+        for (const [layer, imageName] of Object.entries(preset)) {
+            if (imageName && !this.images[imageName]) {
+                await this.loadImage(imageName);
+            }
+        }
+        
+        // Apply the preset
+        this.currentLayers = { ...preset };
+        
+        // Reset transforms for overlay layers
+        this.transforms.backOverlay = { x: 0, y: 0, scale: 1, rotation: 0 };
+        this.transforms.frontOverlay = { x: 0, y: 0, scale: 1, rotation: 0 };
+        
+        // Update UI to reflect the changes
+        this.updateImageSelections();
+        
+        // Small delay to show loading animation
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+        this.hidePreviewLoading();
+        this.render();
+    }
+
+    updateImageSelections() {
+        // Update active states for all image options
+        Object.keys(this.imageConfig).forEach(layerType => {
+            const container = document.getElementById(`${layerType}-images`);
+            if (!container) return;
+            
+            container.querySelectorAll('.image-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.value === this.currentLayers[layerType]) {
+                    option.classList.add('active');
+                }
+            });
+        });
     }
 
     downloadImage() {
+        // Store current selection state
+        const previousSelection = this.selectedLayer;
+        
+        // Temporarily deselect layer to hide transform box
+        this.selectedLayer = null;
+        
+        // Re-render without transform box
+        this.render();
+        
+        // Create download link
         const link = document.createElement('a');
         link.download = 'character.png';
         link.href = this.canvas.toDataURL();
         link.click();
+        
+        // Restore previous selection state after a brief delay
+        setTimeout(() => {
+            this.selectedLayer = previousSelection;
+            this.render();
+        }, 100);
     }
 }
 

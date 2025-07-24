@@ -17,24 +17,32 @@
                 <img id="loading-character" src="nur1.png" alt="Loading..." class="loading-character">
             </div>
             <div class="loading-text">Loading...</div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <div class="container">
         <header style="background: rgba(0,0,0,0);backdrop-filter:blur(0px)">
             <h1>Neuro and Evil Quote Generator</h1>
             <p>An image generator specialized for Neuro and Evil quotes</p>
-            <a href="optimized.html" style="color:#ffffff;">Switch to Optimized Version</a>
+            
         </header>
 
-        <div class="creator-layout">
+      <div class="creator-layout">
             <div class="preview-panel">
                 <div class="canvas-container">
                     <canvas id="preview-canvas" width="1600" height="900"></canvas>
                 </div>
+                <marquee><p>[Original Idea and Creator - Emuz] [Website - promote] [with help from Railyx and Recker Ironbase] [Made with <3] </p></marquee>
             </div>
 
             <div class="controls-panel">
+                
                 <div class="tabs-container">
                     <div class="tabs">
                         <button class="tab-button active" data-tab="background">Background</button>
@@ -42,6 +50,7 @@
                         <button class="tab-button" data-tab="body">Body</button>
                         <button class="tab-button" data-tab="frontOverlay">Front Overlay</button>
                         <button class="tab-button" data-tab="logo">Logo</button>
+                        <button class="tab-button" data-tab="preset">Preset</button>
                         <button class="tab-button" data-tab="text">Text</button>
                     </div>
                     
@@ -66,14 +75,34 @@
                             <div class="image-grid" id="logo-images"></div>
                         </div>
                         
+                        <div class="tab-panel" data-panel="preset">
+                            <div class="preset-controls">
+                                <div class="preset-grid">
+                                    <div class="preset-option" data-preset="evil">
+                                        <img src="./thumb/example.png" alt="Evil Neuro Preset">
+                                        <span>Evil Neuro</span>
+                                    </div>
+                                    <div class="preset-option" data-preset="classic">
+                                        <img src="evilneuro-thumb.png" alt="Classic Preset">
+                                        <span>Classic</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="tab-panel" data-panel="text">
                             <div class="text-controls">
                                 <div class="text-controls-layout">
                                     <textarea id="text-input" placeholder="Enter text...">Evil Neuro</textarea>
                                     <div class="text-options">
                                         <label>
-                                            <input type="color" id="text-color" value="#ff4757" disabled>
-                                            Text Color
+                                            Stroke Color:
+                                            <select id="stroke-type">
+                                                <option value="default" selected>Default</option>
+                                                <option value="neuro">Neuro</option>
+                                                <option value="custom">Custom</option>
+                                            </select>
+                                            <input type="color" id="stroke-color" value="#4e1912" style="display: none;">
                                         </label>
                                         <label>
                                             Base Size: <input type="range" id="text-size" min="20" max="100" value="100">
