@@ -1,6 +1,6 @@
 export const config = {
-    targetMonth: 7,  // July
-    targetDay: 28,   // 28th
+    targetMonth: 3,  
+    targetDay: 25,   
     targetHour: 0,
     targetMinute: 0,
     targetSecond: 0,
