@@ -7,11 +7,33 @@ function initTimer() {
     generateGears();
 }
 
+// Get the next occurrence of the configured date (ignores year)
+function getNextTargetTimestamp(month, day, hour = 0, minute = 0, second = 0) {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+
+    let target = new Date(currentYear, month - 1, day, hour, minute, second);
+
+    // If the target has already passed this year, go to next year
+    if (target.getTime() <= now.getTime()) {
+        target = new Date(currentYear + 1, month - 1, day, hour, minute, second);
+    }
+
+    return Math.floor(target.getTime() / 1000);
+}
+
 // Calculate and update the countdown
 function updateCountdown() {
-    const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
-    const timeLeft = config.targetDate - now;
-    
+    const now = Math.floor(Date.now() / 1000); // Current Unix timestamp
+    const targetTimestamp = getNextTargetTimestamp(
+        config.targetMonth,
+        config.targetDay,
+        config.targetHour || 0,
+        config.targetMinute || 0,
+        config.targetSecond || 0
+    );
+    const timeLeft = targetTimestamp - now;
+
     if (timeLeft <= 0) {
         document.getElementById('days').textContent = '00';
         document.getElementById('hours').textContent = '00';
@@ -19,12 +41,12 @@ function updateCountdown() {
         document.getElementById('seconds').textContent = '00';
         return;
     }
-    
+
     const days = Math.floor(timeLeft / 86400);
     const hours = Math.floor((timeLeft % 86400) / 3600);
     const minutes = Math.floor((timeLeft % 3600) / 60);
     const seconds = timeLeft % 60;
-    
+
     document.getElementById('days').textContent = formatTime(days);
     document.getElementById('hours').textContent = formatTime(hours);
     document.getElementById('minutes').textContent = formatTime(minutes);
@@ -39,61 +61,54 @@ function formatTime(time) {
 // Generate the SVG gears
 function generateGears() {
     const container = document.querySelector('.gears-container');
-    
+
     for (let i = 0; i < config.gears.count; i++) {
         const size = Math.random() * (config.gears.maxSize - config.gears.minSize) + config.gears.minSize;
         const isOutline = Math.random() < config.gears.outlineChance;
-        
+
         const gearElement = document.createElement('div');
         gearElement.classList.add('gear');
-        
-        // Use the provided SVG file
+
         fetch('./2789-200.svg')
             .then(response => response.text())
             .then(svgText => {
                 let color, strokeWidth, stroke;
-                
+
                 if (isOutline) {
-                    // Outline-only gear
                     color = 'none';
                     stroke = 'white';
                     strokeWidth = '5';
                 } else {
-                    // Filled gear with varying color lightness
-                    const lightness = Math.floor(Math.random() * 25) + 75; // 75-100% lightness
+                    const lightness = Math.floor(Math.random() * 25) + 75;
                     color = `hsl(340, 60%, ${lightness}%)`;
                     stroke = 'none';
                     strokeWidth = '0';
                 }
-                
-                // Replace the SVG fill color and add stroke for outlines
+
                 let modifiedSvg = svgText.replace(/fill="[^"]*"/g, `fill="${color}"`);
                 modifiedSvg = modifiedSvg.replace(/<svg/, `<svg stroke="${stroke}" stroke-width="${strokeWidth}"`);
-                
+
                 gearElement.innerHTML = modifiedSvg;
-                
-                // Adjust SVG size
+
                 const svgElement = gearElement.querySelector('svg');
                 if (svgElement) {
                     svgElement.setAttribute('width', size);
                     svgElement.setAttribute('height', size);
                 }
             });
-        
-        // Position the gear randomly
+
         gearElement.style.left = `${Math.random() * 100}%`;
         gearElement.style.top = `${Math.random() * 100}%`;
-        
-        // Set rotation animation
+
         const duration = Math.random() * (config.gears.maxSpeed - config.gears.minSpeed) + config.gears.minSpeed;
         const direction = Math.random() > 0.5 ? 'normal' : 'reverse';
         gearElement.style.animation = `rotate ${duration}s linear infinite ${direction}`;
-        
+
         container.appendChild(gearElement);
     }
 }
 
-// Add rotation animation
+// Add rotation animation style
 const style = document.createElement('style');
 style.textContent = `
     @keyframes rotate {
