@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Full Offline PWA</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site">
+    <img src="/assets/images/logo.png" alt="Logo" width="64" height="64">
+    <h1>About</h1>
+  </header>
+  <main class="content">
+    <p>This template precaches every file so the whole site works offline.</p>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/offline.html">Offline test</a>
+    </nav>
+    <section class="card">
+      <h2>How updates work</h2>
+      <p>When you deploy new files, bump the <code>VERSION</code> in <code>service-worker.js</code> to refresh the cache.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -4,14 +4,75 @@ class CharacterCreator {
         this.ctx = this.canvas.getContext('2d');
         this.images = {};
         this.thumbnails = {};
-        
+        this.overlaysData = [
+        {
+            "file": "back-front-ov/lavalamp-ov.png",
+            "name": "Lavalamp",
+            "thumb": "thumb/back-front-ov/lavalamp-ov.png"
+        },
+        {
+            "file": "back-front-ov/neuro-mic-ov.png",
+            "name": "Neuro's Microphone",
+            "thumb": "thumb/back-front-ov/neuro-mic-ov.png"
+        },
+        {
+            "file": "back-front-ov/evilfumo-ov.png",
+            "name": "Evil Fumo",
+            "thumb": "thumb/back-front-ov/evilfumo-ov.png"
+        },
+        {
+            "file": "back-front-ov/horn-ov.png",
+            "name": "Abber Horn",
+            "thumb": "thumb/back-front-ov/horn-ov.png"
+        },
+        {
+            "file": "back-front-ov/mcneuros-ov.png",
+            "name": "McNeuros Hat",
+            "thumb": "thumb/back-front-ov/mcneuros-ov.png"
+        },
+        {
+            "file": "back-front-ov/mic-ov.png",
+            "name": "Evil's Microphone",
+            "thumb": "thumb/back-front-ov/mic-ov.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov1.png",
+            "name": "Plasma Globe 1",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov1.png"
+        },
+        {
+            "file": "back-front-ov/plasma-globe-ov2.png",
+            "name": "Plasma Globe 2",
+            "thumb": "thumb/back-front-ov/plasma-globe-ov2.png"
+        },
+        {
+            "file": "back-front-ov/tail-ov.png",
+            "name": "Abber Tail",
+            "thumb": "thumb/back-front-ov/tail-ov.png"
+        },
+        {
+            "file": "back-front-ov/tail2-ov.png",
+            "name": "Abber Tail 2",
+            "thumb": "thumb/back-front-ov/tail2-ov.png"
+        },
+        {
+            "file": "back-front-ov/wahh-ov.png",
+            "name": "Wahh",
+            "thumb": "thumb/back-front-ov/wahh-ov.png"
+        }
+    ];
         // Define image configuration with thumbnails
         this.imageConfig = {
     "background": [
         {
             "file": "background/room.png",
-            "name": "Evil's Room",
+            "name": "Neuro's Room",
             "thumb": "thumb/background/room.png"
+        },
+        {
+            "file": "background/room2.png",
+            "name": "Evil's Room",
+            "thumb": "thumb/background/room2.png"
         },
         {
             "file": "background/mc-bed.png",
@@ -49,54 +110,23 @@ class CharacterCreator {
             "thumb": "thumb/background/splatter.png"
         }
     ],
-    "backOverlay": [
-        {
-            "file": "back-front-ov/evilfumo-ov.png",
-            "name": "Evil Fumo",
-            "thumb": "thumb/back-front-ov/evilfumo-ov.png"
-        },
-        {
-            "file": "back-front-ov/horn-ov.png",
-            "name": "Abber Horn",
-            "thumb": "thumb/back-front-ov/horn-ov.png"
-        },
-        {
-            "file": "back-front-ov/mcneuros-ov.png",
-            "name": "McNeuros Hat",
-            "thumb": "thumb/back-front-ov/mcneuros-ov.png"
-        },
-        {
-            "file": "back-front-ov/mic-ov.png",
-            "name": "Microphone",
-            "thumb": "thumb/back-front-ov/mic-ov.png"
-        },
-        {
-            "file": "back-front-ov/plasma-globe-ov1.png",
-            "name": "Plasma Globe 1",
-            "thumb": "thumb/back-front-ov/plasma-globe-ov1.png"
-        },
-        {
-            "file": "back-front-ov/plasma-globe-ov2.png",
-            "name": "Plasma Globe 2",
-            "thumb": "thumb/back-front-ov/plasma-globe-ov2.png"
-        },
-        {
-            "file": "back-front-ov/tail-ov.png",
-            "name": "Abber Tail",
-            "thumb": "thumb/back-front-ov/tail-ov.png"
-        },
-        {
-            "file": "back-front-ov/tail2-ov.png",
-            "name": "Abber Tail 2",
-            "thumb": "thumb/back-front-ov/tail2-ov.png"
-        },
-        {
-            "file": "back-front-ov/wahh-ov.png",
-            "name": "Wahh",
-            "thumb": "thumb/back-front-ov/wahh-ov.png"
-        }
-    ],
+    "backOverlay": this.overlaysData,
     "body": [
+        {
+            "file": "body/neuro-blushing.png",
+            "name": "Neuro Blushing",
+            "thumb": "thumb/body/neuro-blushing.png"
+        },
+        {
+            "file": "body/neuro-happyeyesclosed.png",
+            "name": "Neuro Happy Eyes Closed",
+            "thumb": "thumb/body/neuro-happyeyesclosed.png"
+        },
+        {
+            "file": "body/neuro-smallsmile.png",
+            "name": "Neuro Small Smile",
+            "thumb": "thumb/body/neuro-smallsmile.png"
+        },
         {
             "file": "body/evil-aloof.png",
             "name": "Evil Aloof",
@@ -106,6 +136,11 @@ class CharacterCreator {
             "file": "body/evil-aloofsmile.png",
             "name": "Evil Happy Aloof",
             "thumb": "thumb/body/evil-aloofsmile.png"
+        },
+        {
+            "file": "body/evil-blushing.png",
+            "name": "Evil Blushing",
+            "thumb": "thumb/body/evil-blushing.png"
         },
         {
             "file": "body/evil-crying.png",
@@ -161,6 +196,11 @@ class CharacterCreator {
             "file": "body/evil-openmouth.png",
             "name": "Evil Open Mouth",
             "thumb": "thumb/body/evil-openmouth.png"
+        },
+        {
+            "file": "body/evil-openmouthhappy.png",
+            "name": "Evil Open Mouth Happy",
+            "thumb": "thumb/body/evil-openmouthhappy.png"
         },
         {
             "file": "body/evil-pensive.png",
@@ -228,62 +268,21 @@ class CharacterCreator {
             "thumb": "thumb/body/full-body.png"
         }
     ],
-    "frontOverlay": [
-        {
-            "file": "back-front-ov/evilfumo-ov.png",
-            "name": "Evil Fumo",
-            "thumb": "thumb/back-front-ov/evilfumo-ov.png"
-        },
-        {
-            "file": "back-front-ov/horn-ov.png",
-            "name": "Abber Horn",
-            "thumb": "thumb/back-front-ov/horn-ov.png"
-        },
-        {
-            "file": "back-front-ov/mcneuros-ov.png",
-            "name": "McNeuros Hat",
-            "thumb": "thumb/back-front-ov/mcneuros-ov.png"
-        },
-        {
-            "file": "back-front-ov/mic-ov.png",
-            "name": "Microphone",
-            "thumb": "thumb/back-front-ov/mic-ov.png"
-        },
-        {
-            "file": "back-front-ov/plasma-globe-ov1.png",
-            "name": "Plasma Globe 1",
-            "thumb": "thumb/back-front-ov/plasma-globe-ov1.png"
-        },
-        {
-            "file": "back-front-ov/plasma-globe-ov2.png",
-            "name": "Plasma Globe 2",
-            "thumb": "thumb/back-front-ov/plasma-globe-ov2.png"
-        },
-        {
-            "file": "back-front-ov/tail-ov.png",
-            "name": "Abber Tail",
-            "thumb": "thumb/back-front-ov/tail-ov.png"
-        },
-        {
-            "file": "back-front-ov/tail2-ov.png",
-            "name": "Abber Tail 2",
-            "thumb": "thumb/back-front-ov/tail2-ov.png"
-        },
-        {
-            "file": "back-front-ov/wahh-ov.png",
-            "name": "Wahh",
-            "thumb": "thumb/back-front-ov/wahh-ov.png"
-        }
-    ],
+    "frontOverlay": this.overlaysData,
     "logo": [
         {
+            "file": "logo/neuro.png",
+            "name": "Neuro Logo",
+            "thumb": null
+        },
+        {
             "file": "logo/evilneuro.png",
-            "name": "Logo 1",
+            "name": "Evil Logo 1",
             "thumb": null
         },
         {
             "file": "logo/evilneuro2.png",
-            "name": "Logo 2",
+            "name": "Evil Logo 2",
             "thumb": null
         }
     ]
@@ -292,15 +291,16 @@ class CharacterCreator {
         // Define text borders for different logos
         this.textBorders = {
             'logo/evilneuro.png': { start: { x: 38, y: 252 }, end: { x: 1012, y: 880 } },
+            'logo/neuro.png': { start: { x: 38, y: 252 }, end: { x: 1012, y: 880 } },
             'default': { start: { x: 100, y: 100 }, end: { x: 1500, y: 800 } }
         };
         
         this.currentLayers = {
             background: 'background/room.png',
             backOverlay: '',
-            body: 'body/evil-question.png',
+            body: 'body/neuro-happyeyesclosed.png',
             frontOverlay: '',
-            logo: 'logo/evilneuro.png'
+            logo: 'logo/neuro.png'
         };
         
         // Transform states for each layer
@@ -321,9 +321,9 @@ class CharacterCreator {
         this.isLoadingPreview = false;
         
         this.textSettings = {
-            text: 'Evil Neuro',
-            strokeType: 'default',
-            strokeColor: '#4e1912',
+            text: 'Neuro',
+            strokeType: 'neuro',
+            strokeColor: '#370038',
             size: 100,
             bold: true
         };
@@ -331,13 +331,21 @@ class CharacterCreator {
         // Define stroke color presets
         this.strokeColors = {
             default: '#4e1912',
-            neuro: '#00ff41'
+            evil: '#4e1912',
+            neuro: '#370038'
         };
 
         // Preset configurations
         this.presets = {
-            evil: {
+            neuro: {
                 background: 'background/room.png',
+                backOverlay: '',
+                body: 'body/neuro-happyeyesclosed.png',
+                frontOverlay: '',
+                logo: 'logo/neuro.png'
+            },
+            evil: {
+                background: 'background/room2.png',
                 backOverlay: '',
                 body: 'body/evil-question.png',
                 frontOverlay: '',
@@ -348,7 +356,7 @@ class CharacterCreator {
                 backOverlay: '',
                 body: '',
                 frontOverlay: '',
-                logo: 'evilneuro.png'
+                logo: ''
             }
         };
 
@@ -530,9 +538,9 @@ class CharacterCreator {
         const presetContainer = document.querySelector('.preset-grid');
         if (presetContainer) {
             // Set evil preset as default active
-            const evilPreset = presetContainer.querySelector('[data-preset="evil"]');
-            if (evilPreset) {
-                evilPreset.classList.add('active');
+            const selectedPreset = presetContainer.querySelector('[data-preset="neuro"]');
+            if (selectedPreset) {
+                selectedPreset.classList.add('active');
             }
         }
     }

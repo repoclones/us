@@ -1,21 +1,21 @@
 const assets = [
   './intro.png',
   './speed.gif',
-  './luck (1).png',
-  './luck (2).png',
-  './luck (3).png',
-  './luck (4).png',
-  './luck (5).png',
-  './luck (6).png'
+  './luck-1.png',
+  './luck-2.png',
+  './luck-3.png',
+  './luck-4.png',
+  './luck-5.png',
+  './luck-6.png'
 ];
 
 const resultImages = [
-  './luck (1).png',  // Great luck
-  './luck (2).png',  // Good luck
-  './luck (3).png',  // Middle luck
-  './luck (4).png',  // Small luck
-  './luck (5).png',  // Uncertain luck
-  './luck (6).png'   // Bad luck
+  './luck-1.png',  // Great luck
+  './luck-2.png',  // Good luck
+  './luck-3.png',  // Middle luck
+  './luck-4.png',  // Small luck
+  './luck-5.png',  // Uncertain luck
+  './luck-6.png'   // Bad luck
 ];
 
 const preloader = document.getElementById('preloader');

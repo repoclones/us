@@ -38,7 +38,7 @@
                 <div class="canvas-container">
                     <canvas id="preview-canvas" width="1600" height="900"></canvas>
                 </div>
-                <marquee><p>[Original Idea and Creator - Emuz] [Website - promote] [with help from Railyx and Recker Ironbase] [Made with <3] </p></marquee>
+                <marquee><p>[Original Idea and Creator - Emuz] [Website - promote] [with help from Railyx, Recker Ironbase, and Ultimage] [Made with <3] </p></marquee>
             </div>
 
             <div class="controls-panel">
@@ -78,14 +78,15 @@
                         <div class="tab-panel" data-panel="preset">
                             <div class="preset-controls">
                                 <div class="preset-grid">
+                                    <div class="preset-option" data-preset="neuro">
+                                        <img src="./thumb/example.png" alt="Neuro Preset">
+                                        <span>Neuro</span>
+                                    </div>
                                     <div class="preset-option" data-preset="evil">
                                         <img src="./thumb/example.png" alt="Evil Neuro Preset">
                                         <span>Evil Neuro</span>
                                     </div>
-                                    <div class="preset-option" data-preset="classic">
-                                        <img src="evilneuro-thumb.png" alt="Classic Preset">
-                                        <span>Classic</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -93,13 +94,15 @@
                         <div class="tab-panel" data-panel="text">
                             <div class="text-controls">
                                 <div class="text-controls-layout">
-                                    <textarea id="text-input" placeholder="Enter text...">Evil Neuro</textarea>
+                                    <textarea id="text-input" placeholder="Enter text..."></textarea>
                                     <div class="text-options">
                                         <label>
                                             Stroke Color:
                                             <select id="stroke-type">
-                                                <option value="default" selected>Default</option>
+                                                
                                                 <option value="neuro">Neuro</option>
+                                                <option value="evil">Evil</option>
+                                                
                                                 <option value="custom">Custom</option>
                                             </select>
                                             <input type="color" id="stroke-color" value="#4e1912" style="display: none;">

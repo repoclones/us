@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Full Offline PWA</title>
+  <meta name="description" content="A fully offline-capable Progressive Web App template">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+</head>
+<body>
+  <header class="site">
+    <img src="./assets/images/logo.png" alt="Logo" width="64" height="64">
+    <h1>Full Offline PWA</h1>
+  </header>
+
+  <main class="content">
+    <p>This site is fully cached for offline use. Try going offline after the first load.</p>
+    <nav class="nav">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./offline.html">Offline test</a>
+    </nav>
+
+    <section class="card">
+      <h2>Install App</h2>
+      <p>Install this site to your device for a native-like experience.</p>
+      <button id="install" hidden>Install</button>
+      <p class="hint">On iOS Safari, use <em>Share → Add to Home Screen</em>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Status</h2>
+      <ul id="status"></ul>
+    </section>
+  </main>
+
+  <script src="./assets/js/app.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+      });
+    }
+    let deferredPrompt;
+    const btn = document.getElementById('install');
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      btn.hidden = false;
+    });
+    btn?.addEventListener('click', async () => {
+      btn.hidden = true;
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+    });
+  </script>
+</body>
+</html>

@@ -13,7 +13,7 @@
       <meta name="twitter:image" content="https://nurox.pages.dev/game/luck/intro.png">
       <meta name="twitter:card" content="summary_large_image">
     
-  
+  <link rel="manifest" href="./manifest.json">
 
   
     <meta property="og:description" content="Test your luck with Neuro!">
@@ -36,6 +36,7 @@
     <div id="intro-screen" class="screen">
       <img src="./intro.png" alt="Lucky Girl Intro" class="game-image">
       <button id="roll-button">Test Your Luck!</button>
+      <button id="install">Install</button>
     </div>
     
     <div id="rolling-screen" class="screen hidden">
@@ -46,8 +47,37 @@
     <div id="result-screen" class="screen hidden">
       <img id="result-image" class="game-image" alt="Luck Result">
       <button id="retry-button">Try Again!</button>
+      <button id="install" hidden>Install</button>
     </div>
   </div>
   <script src="game.js"></script>
+<script src="service-worker.js"></script>
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log("SW registered", reg))
+      .catch(err => console.error("SW registration failed", err));
+  });
+}
+
+let deferredPrompt;
+const btn = document.getElementById('install');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (btn) btn.hidden = false;
+});
+
+btn?.addEventListener('click', async () => {
+  btn.hidden = true;
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+});
+</script>
+
 </body>
 </html>
