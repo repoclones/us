@@ -127,6 +127,51 @@ class CharacterCreator {
             "name": "Neuro Small Smile",
             "thumb": "thumb/body/neuro-smallsmile.png"
         },
+    {
+        "file": "body/neuro-afraid.png",
+        "name": "Neuro Afraid",
+        "thumb": "thumb/body/neuro-afraid.png"
+    },
+    {
+        "file": "body/neuro-angryglare.png",
+        "name": "Neuro Angry Glare",
+        "thumb": "thumb/body/neuro-angryglare.png"
+    },
+    {
+        "file": "body/neuro-angryglare2.png",
+        "name": "Neuro Angry Glare 2",
+        "thumb": "thumb/body/neuro-angryglare2.png"
+    },
+    {
+        "file": "body/neuro-annoyed.png",
+        "name": "Neuro Annoyed",
+        "thumb": "thumb/body/neuro-annoyed.png"
+    },
+    {
+        "file": "body/neuro-blushing2.png",
+        "name": "Neuro Blushing 2",
+        "thumb": "thumb/body/neuro-blushing2.png"
+    },
+    {
+        "file": "body/neuro-bored.png",
+        "name": "Neuro Bored",
+        "thumb": "thumb/body/neuro-bored.png"
+    },
+    {
+        "file": "body/neuro-boredlookingup.png",
+        "name": "Neuro Bored Looking Up",
+        "thumb": "thumb/body/neuro-boredlookingup.png"
+    },
+    {
+        "file": "body/neuro-cathappy.png",
+        "name": "Neuro Cat Happy",
+        "thumb": "thumb/body/neuro-cathappy.png"
+    },
+    {
+        "file": "body/neuro-catquestionmarkducky.png",
+        "name": "Neuro Cat Question Mark with Ducky",
+        "thumb": "thumb/body/neuro-catquestionmarkducky.png"
+    },
         {
             "file": "body/evil-aloof.png",
             "name": "Evil Aloof",
