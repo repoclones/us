@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DragonBones Pixi Example</title>
+  <style>
+    html, body { margin:0; padding:0; overflow:hidden; background:#222; }
+    canvas { display:block; }
+  </style>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.12/pixi.min.js"></script>
+  <script src="./dragonBones.js"></script>
+  <script>
+    // Create a transparent Pixi app (no scaling)
+    const app = new PIXI.Application({
+      view: document.getElementById("stage"),
+      width: 1,       // temporary
+      height: 1,
+      backgroundColor: 0x222222
+    });
+
+
+    PIXI.Loader.shared
+ .add("ske", "./mv/role/1/skel.json")
+      .add("tex", "./mv/role/1/tex.json")
+      .add("texpng", "./mv/role/1/tex.png")
+      .load((loader, resources) => {
+        const factory = dragonBones.PixiFactory.factory;
+        factory.parseDragonBonesData(resources.ske.data);
+        factory.parseTextureAtlasData(resources.tex.data, resources.texpng.texture);
+
+
+      window.movethis = function(x,y) {
+    armatureDisplay.x = x;
+  armatureDisplay.y = y;
+};
+window.scalethis = function(scale=1) {
+  armatureDisplay.scale.set(scale);
+
+};
+window.checkcoords = function() {
+  console.log("X: " + armatureDisplay.x);
+  console.log("Y: " + armatureDisplay.y);
+  console.log("Scale: " + armatureDisplay.scale);
+    console.log("Width: " + armatureDisplay.width);
+console.log("Height: " + armatureDisplay.height);
+
+
+};
+        const armatureDisplay = factory.buildArmatureDisplay("mv_role_201");
+        armatureDisplay.animation.play("1");
+
+        // Use the original texture size from the PNG
+        const texture = resources.texpng.texture;
+        app.renderer.resize(texture.width, texture.height);
+
+        // position armature to fit exactly in the canvas
+        const bounds = armatureDisplay.getLocalBounds();
+        armatureDisplay.x = -bounds.x;
+        armatureDisplay.y = -bounds.y + 10;
+
+        app.stage.addChild(armatureDisplay);
+        app.renderer.render(app.stage);  // initial render
+
+        // Screenshot function
+        function saveTransparentPNG() {
+          app.renderer.render(app.stage); // ensure latest frame
+          const url = app.renderer.view.toDataURL("image/png");
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "character.png";
+          a.click();
+        }
+
+        window.addEventListener("keydown", (e) => {
+          if (e.key.toLowerCase() === "p") saveTransparentPNG();
+        });
+
+        console.log("Press 'P' to save a transparent screenshot at original texture size.");
+      });
+  </script>
+</body>
+</html>

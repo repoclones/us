@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen's Maze</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "gsap": "https://esm.sh/gsap@3.12.2"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Queen's Maze</h1>
+        
+        <div class="game-info">
+            <div class="turn-indicator">
+                <span id="game-status">Find and capture the black queen!</span>
+            </div>
+            <button id="reset-btn">New Game</button>
+        </div>
+        
+        <div class="game-options">
+            <label class="option">
+                <input type="checkbox" id="random-pieces" checked>
+                Spawn Random Pieces on Startup
+            </label>
+            <label class="option">
+                <input type="checkbox" id="bigger-board" checked>
+                Bigger Board
+            </label>
+            <div class="slider-option">
+                <label for="maze-density">Maze Density: <span id="maze-density-value">40%</span></label>
+                <input type="range" id="maze-density" min="10" max="70" value="40">
+            </div>
+            <div class="slider-option">
+                <label for="piece-count">Piece Count: <span id="piece-count-value">6</span></label>
+                <input type="range" id="piece-count" min="2" max="32" value="6">
+            </div>
+        </div>
+        
+        <div id="board" class="board"></div>
+        
+        <div class="game-status">
+            <div id="move-counter">Moves: 0</div>
+            <div id="game-message"></div>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

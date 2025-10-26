@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DragonBones Pixi Example</title>
+  <style>
+    html,body { margin:0; padding:0; overflow:hidden; background:#222; }
+    canvas { width:100vw; height:100vh; display:block; }
+  </style>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <!-- PixiJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.12/pixi.min.js"></script>
+  <!-- DragonBones Pixi Runtime -->
+<!--<script src="https://cdn.jsdelivr.net/gh/openfl/dragonbones-pixi/bin/dragonBonesPixi.js"></script>-->
+<script src="./dragonBones.js"></script>
+  <script>
+    const app = new PIXI.Application({
+      view: document.getElementById("stage"),
+      width: window.innerWidth,
+      height: window.innerHeight,
+      backgroundColor: 0x222222
+    });
+
+    PIXI.Loader.shared
+  .add("ske", "./mv_role_201_ske_82d89d67.json")
+      .add("tex", "./mv_role_201_tex_58aa6abb.json")
+      .add("texpng", "./mv_role_201_tex_c4be8467.png")
+  .load((loader, resources) => {
+    const factory = dragonBones.PixiFactory.factory;
+    factory.parseDragonBonesData(resources.ske.data);
+    factory.parseTextureAtlasData(resources.tex.data, resources.texpng.texture);
+
+    const armatureDisplay = factory.buildArmatureDisplay("mv_role_201");
+    armatureDisplay.animation.play("1");
+
+    // center origin
+    armatureDisplay.x = 0;
+    armatureDisplay.y = 0;
+
+    // add to a temporary container to measure bounds
+    const tempContainer = new PIXI.Container();
+    tempContainer.addChild(armatureDisplay);
+    app.stage.addChild(tempContainer);
+
+    // scale if needed
+    armatureDisplay.scale.set(1);
+
+    // get bounds of the armature
+    const bounds = armatureDisplay.getLocalBounds();
+
+    // resize renderer to fit exactly
+  //  app.renderer.resize(bounds.width, bounds.height);
+
+    // position armature at top-left of renderer
+    armatureDisplay.x = -bounds.x;
+    armatureDisplay.y = -bounds.y;
+
+    // render the stage so it fits the armature exactly
+    app.renderer.render(app.stage);
+
+    // screenshot function
+    function saveTransparentPNG() {
+      app.renderer.render(app.stage); // force render
+      const url = app.renderer.view.toDataURL("image/png");
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "character.png";
+      a.click();
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key.toLowerCase() === "p") saveTransparentPNG();
+    });
+
+
+window.scalethis = function(scale=1) {
+  armatureDisplay.scale.set(scale);
+
+};
+window.checkcoords = function() {
+  console.log("X: " + armatureDisplay.x);
+  console.log("Y: " + armatureDisplay.y);
+  console.log("Scale: " + armatureDisplay.scale);
+    console.log("Width: " + armatureDisplay.width);
+console.log("Height: " + armatureDisplay.height);
+
+
+};
+
+// Scale
+armatureDisplay.scale.set(2); // shrink (use >1 to enlarge)
+
+        app.stage.addChild(armatureDisplay);
+      });
+      
+  </script>
+</body>
+</html>

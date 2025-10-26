@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live2D Test</title>
+  <style>
+    html, body { margin: 0; padding: 0; overflow: hidden; background: #222; }
+    canvas { width: 100vw; height: 100vh; display: block; }
+  </style>
+</head>
+<body>
+  <canvas id="live2d"></canvas>
+
+  <!-- Core SDK -->
+  <script src="./live2d.min_c410d615.js"></script>
+  <!-- Framework wrapper -->
+  <script src="./live2dcubismcore.min_464e346e.js"></script>
+
+  <script>
+    // Initialize WebGL
+    const canvas = document.getElementById("live2d");
+    const gl = canvas.getContext("webgl", { alpha: true });
+
+    // Adjust canvas size
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // Load model data
+    Promise.all([
+      fetch("./mv_role_201_ske_82d89d67.json").then(r => r.json()), // skeleton
+      fetch("./mv_role_201_tex_58aa6abb.json").then(r => r.json()), // texture atlas
+      new Promise(res => {
+        const img = new Image();
+        img.src = "./mv_role_201_tex_c4be8467.png"; // the atlas PNG
+        img.onload = () => res(img);
+      })
+    ]).then(([skeleton, atlas, textureImg]) => {
+      // Use PIXI.js or CubismFramework’s model setting loader
+      // Here’s a simplified version using PIXI + Live2D
+      const app = new PIXI.Application({
+        view: canvas,
+        autoStart: true,
+        transparent: true,
+        resizeTo: window
+      });
+
+      const model = new LIVE2DCUBISMPIXI.Model.from({
+        json: skeleton,
+        atlas: atlas,
+        textures: [PIXI.Texture.from(textureImg)]
+      });
+
+      model.position.set(window.innerWidth / 2, window.innerHeight);
+      model.scale.set(1.5);
+
+      app.stage.addChild(model);
+    });
+  </script>
+
+  <!-- PIXI.js is required for LIVE2DCUBISMPIXI -->
+  <script src="https://pixijs.download/release/pixi.min.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubism/live2dcubismframework.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubism/live2dcubismpixi.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-page Form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!--
+    Developer notes:
+    - Pages are controlled with CSS-only via hidden radio inputs. No JS required.
+    - To add a new page:
+      1) Duplicate a radio input below with a new id (e.g., p10).
+      2) Duplicate a .page section inside .pages with a matching id (e.g., step10).
+      3) Add navigation labels "for" the new radio id in the relevant pages.
+    - Final routing:
+      - The submit area shows a "Success" control when the form has no :invalid fields,
+        otherwise an "Error" control appears that routes to the error page.
+  -->
+
+  <!-- Page state controls (outside form so they are not submitted) -->
+  <input type="radio" id="p1" name="pager" hidden checked />
+  <input type="radio" id="p2" name="pager" hidden />
+  <input type="radio" id="p3" name="pager" hidden />
+  <input type="radio" id="p4" name="pager" hidden />
+  <input type="radio" id="p5" name="pager" hidden />
+  <input type="radio" id="p6" name="pager" hidden />
+  <input type="radio" id="p7" name="pager" hidden />
+  <input type="radio" id="p8" name="pager" hidden />
+  <input type="radio" id="perror" name="pager" hidden />
+
+  <main class="form-shell">
+    <header class="form-header" aria-hidden="true">
+      <div class="page-banner"></div>
+    </header>
+    <form action="/submit" method="POST" novalidate>
+      <div class="pages">
+        <!-- Page 1: Greeting -->
+        <section class="page" id="step1" aria-labelledby="step1-title">
+          <div class="page-body">
+            <h2 id="step1-title">The Swarm Request Form</h2>
+            <p>Welcome! This is the swarm request form for [insert canvas here]</p>
+            <img class="mascot bottom-center jump" src="./neurochibi_wave.png" alt="" aria-hidden="true" />
+            <div class="nav">
+              <label class="btn next" for="p2"><span class="btn-text">▶</span></label>
+            </div>
+          </div>
+        </section>
+        
+
+        <!-- Page 2: Notice (required acknowledge) -->
+        <section class="page" id="step2" aria-labelledby="step2-title">
+          <div class="page-body">
+            <h2 id="step2-title">Please read below</h2>
+            <div class="blackboard">
+              <p>This form is used to directly submit requests that ranges from Art Ideas, Templates Changes / Disputes with the Swarm / Complaints (if any) and any questions that genuinely need to be answered or be announced in #council-announcements.
+<br><br>
+<b>All requests submitted through this form will be automatically added to the waitlist, please do be ensured and that your request will eventually be discussed and settled upon.</b> So please be patient with the Swarm Council.
+<br><br>
+<b>Please do not misuse or spam this form for Unrelevant topics/subjects. All requests should be at least related to the on-going canvas in some shape or form.  </b>
+<br><br>
+If for some reason, this form is not sufficient enough or if the request is really urgent, feel free to DM me on Discord: Violezine, I will try to get back to you as soon as possible. </p>
+              <img class="bb-mascot" src="./neurochibi_teach.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="field">
+              <label class="choice">
+                <input type="checkbox" name="ackRead" required />
+                I have read and understand.
+              </label>
+            </div>
+            <div class="nav">
+              <label class="btn prev" for="p1"><span class="btn-text">◀</span></label>
+              <label class="btn next" for="p3"><span class="btn-text">▶</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 3: Yes/No (required) -->
+        <section class="page" id="step3" aria-labelledby="step3-title">
+          <div class="page-body">
+            <h2 id="step3-title">Question</h2>
+            <div class="field">
+              <fieldset>
+                <legend>Are you a part of any factions that is allied with the Swarm?</legend>
+                <label class="choice pill">
+                  <input type="radio" name="allies" value="yes" required />
+                  <span>Yes</span>
+                </label>
+                <label class="choice pill">
+                  <input type="radio" name="allies" value="no" />
+                  <span>No</span>
+                </label>
+              </fieldset>
+            </div>
+            <div class="nav">
+              <label class="btn prev" for="p2"><span class="btn-text">◀</span></label>
+              <label class="btn next" for="p4"><span class="btn-text">▶</span></label>
+            </div>
+            <img class="mascot bottom-right-yesno" src="./neurochibi_noted.png" alt="" aria-hidden="true" />
+          </div>
+        </section>
+
+        <!-- Page 4: Discord Username/ID (required) -->
+        <section class="page" id="step4" aria-labelledby="step4-title">
+          <div class="page-body">
+            <h2 id="step4-title">Discord Username/ID</h2>
+            <p>This will allow the swarm council to contact you in DMs about your request and if possible, let you know when your request is approved / Rejected.
+
+</p>
+            <div class="field input-affix">
+              <label for="discordId">What is your Discord Username/ID?</label>
+              <input id="discordId" name="discordId" type="text" required placeholder="e.g., @user or 1234567890" />
+              <img class="input-end-icon" src="./neurochibi_discord.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="nav">
+              <label class="btn prev" for="p3"><span class="btn-text">◀</span></label>
+              <label class="btn next" for="p5"><span class="btn-text">▶</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 5: Multiple choices + Other (single choice required) -->
+        <section class="page" id="step5" aria-labelledby="step5-title">
+          <div class="page-body">
+            <h2 id="step5-title">Topic of Request</h2>
+            <div class="field">
+              <fieldset id="topicSelector">
+                <legend><b>Select one</b></legend>
+                <p id="choice-text">Hover over an option to see more details.</p>
+                <div class="choice-row">
+                  <button type="button" class="choice-btn pill" data-topic="artidea">Art Idea</button>
+                  <button type="button" class="choice-btn pill" data-topic="template">Template Changes</button>
+                  <button type="button" class="choice-btn pill" data-topic="disputes">Disputes with Swarm</button>
+                  <button type="button" class="choice-btn pill" data-topic="complaints">Complaints</button>
+                  <button type="button" class="choice-btn pill" data-topic="other" id="topicOtherBtn">Other</button>
+                </div>
+                <input type="hidden" name="topic" id="topicHidden" required />
+                <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" placeholder="Type other..." />
+              </fieldset>
+            </div>
+            <div class="nav">
+              <label class="btn prev" for="p4"><span class="btn-text">◀</span></label>
+              <label class="btn next" for="p6"><span class="btn-text">▶</span></label>
+            </div>
+            <img class="mascot bottom-right" src="./evilchibi_noted.png" alt="" aria-hidden="true" />
+          </div>
+        </section>
+
+        <!-- Page 6: Nature of request (required) -->
+        <section class="page" id="step6" aria-labelledby="step6-title">
+          <div class="page-body">
+            <h2 id="step6-title">Nature of request</h2>
+            <div class="field with-top-right">
+              <label for="nature">Write down your request concerning the topic you chosen earlier here.</label>
+              <img class="note-top-right" src="./neurochibi_noted.png" alt="" aria-hidden="true" />
+              <textarea id="nature" name="nature" rows="4" required placeholder="Describe your request..."></textarea>
+            </div>
+            <div class="nav">
+              <label class="btn prev" for="p5"><span class="btn-text">◀</span></label>
+              <label class="btn next" for="p7"><span class="btn-text">▶</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 7: File upload (optional) -->
+        <section class="page" id="step7" aria-labelledby="step7-title">
+          <div class="page-body">
+            <h2 id="step7-title">If applicable, Submit any relevant Images/Arts here</h2>
+            <p>Use this, if necessary, such as Art Ideas/Template Changes or other related images for your request.</p>
+            <div class="field upload-field">
+              <label for="attachment" class="upload-box" id="uploadBox">
+                <svg class="upload-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 0-8h-.4A6 6 0 0 0 6.1 7.7 4.5 4.5 0 0 0 7 18zm5-9v6m0-6-3 3m3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Click to upload or drag and drop</span>
+              </label>
+              <input id="attachment" name="attachment" type="file" multiple />
+              <img class="hold left" src="./neurochibi_hold.png" alt="" aria-hidden="true" />
+              <img class="hold right" src="./evilchibi_hold.png" alt="" aria-hidden="true" />
+            </div>
+
+            <div class="upload-progress" aria-live="polite">
+              <div class="progress-track">
+                <div class="progress-fill" id="uploadProgressFill" style="width:0%"></div>
+              </div>
+              <div class="progress-label">
+                <span id="uploadProgressText">0 / 10 MB</span>
+              </div>
+              <div class="limit-error" id="uploadLimitError" hidden>Total selected exceeds 10 MB. Remove some files.</div>
+            </div>
+
+            <div class="upload-list">
+              <h3 class="list-title">Selected files</h3>
+              <ul id="fileList" class="file-list" aria-live="polite" aria-relevant="additions removals"></ul>
+            </div>
+
+            <div class="nav">
+              <label class="btn prev" for="p6"><span class="btn-text">◀</span></label>
+              <button class="btn submit" id="submitBtn" type="submit"><span class="btn-text">✔</span></button>
+            </div>
+          </div>
+        </section>
+
+      
+      </div>
+    </form>
+
+        
+
+
+    <!-- JS-driven final pages (shown after hiding the form) -->
+    <section id="final-success" class="final-page" style="display:none">
+      <div class="page-body">
+        <h2>Thank you!</h2>
+        <p>Your responses were received successfully! We'll get back to you soon.</p>
+        <div style="display:flex;">
+        <img class="final-mascot" src="./neurochibi_thankyou.png" alt="Thank you mascot" />
+        <img class="final-mascot" src="./evilchibi_thankyou.png" alt="Thank you mascot" /></div>
+        <div class="field">
+          <label for="userID">Your ID for reference:</label>
+          <input id="userIDviewer" type="text" readonly value=""/>
+        </div>
+      </div>
+    </section>
+
+    <section id="final-error" class="final-page" style="display:none">
+      <div class="page-body">
+        <h2>There was a problem</h2>
+        <p>We couldn't submit your request. You can retry, or report the issue. <br>If form is closed, try again another time.</p>
+        <img class="final-mascot" src="./evilchibi_thankyou.png" alt="Error mascot" />
+        <div class="field">
+          <label for="errorDetails">Error response</label>
+          <input id="errorDetails" type="text" readonly value=""/>
+        </div>
+        <div class="final-actions">
+          <button type="button" class="btn" id="finalRetryBtn"><span class="btn-text">↻</span></button>
+          <button type="button" class="btn" id="finalReportBtn"><span class="btn-text">⚑</span></button>
+        </div>
+      </div>
+    </section>
+    <footer class="form-footer" w-tid="325">
+      <div class="page-footer" aria-hidden="true" w-tid="327"></div>
+    </footer>
+  </main>
+  <script type="module" src="./upload.js"></script>
+  <script>
+    const choiceText = document.getElementById("choice-text");
+    const buttons = document.querySelectorAll(".choice-btn");
+// topic descriptions
+const topicDescriptions = {
+  artidea: "No template, HAS TO BE DEFIDDLED BEFOREHAND)/Not in canvas currently/Not in official swarm templates.",
+  template: "Moving of preexisting arts in official swarm templates.",
+  disputes: "Under attack/griefed by the Swarm in any capacity.",
+  complaints: "Venting out your grievances about the swarm to the swarm council.",
+  other: "For anything else not listed below."
+};
+
+
+
+
+
+
+let selectedTopic = null;
+
+buttons.forEach(btn => {
+  const topic = btn.dataset.topic;
+
+  btn.addEventListener("mouseenter", () => {
+    choiceText.textContent = topicDescriptions[topic] || "Unknown topic.";
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    if (selectedTopic) {
+      choiceText.textContent = topicDescriptions[selectedTopic];
+    } else {
+      choiceText.textContent = "Hover over an option to see more details.";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    selectedTopic = topic;
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    choiceText.textContent = topicDescriptions[topic];
+  });
+});
+
+
+  </script>
+  
+  <script>
+    // ask me why i obfuscated this later
+(function(_0x5f1c1b,_0x20335c){const _0x8379fc=_0x52f8,_0x364f7c=_0x5f1c1b();while(!![]){try{const _0x10753c=parseInt(_0x8379fc(0x1df))/0x1+-parseInt(_0x8379fc(0x1e7))/0x2+-parseInt(_0x8379fc(0x1e6))/0x3*(-parseInt(_0x8379fc(0x1ea))/0x4)+-parseInt(_0x8379fc(0x1e0))/0x5*(parseInt(_0x8379fc(0x1e8))/0x6)+parseInt(_0x8379fc(0x1e9))/0x7*(-parseInt(_0x8379fc(0x1e5))/0x8)+parseInt(_0x8379fc(0x1de))/0x9*(parseInt(_0x8379fc(0x1e3))/0xa)+-parseInt(_0x8379fc(0x1dc))/0xb;if(_0x10753c===_0x20335c)break;else _0x364f7c['push'](_0x364f7c['shift']());}catch(_0x328ece){_0x364f7c['push'](_0x364f7c['shift']());}}}(_0x554f,0x98006));function _0x554f(){const _0x2896fb=['cookie',';\x20path=/;\x20max-age=','1334020eCEBOQ','user_id=','16vvWaqz','1098BpJxAY','897502MhFFsu','54uARGii','4132786qAuDwY','7156wPZIzm','match','237050vwHfJE','randomUUID','54RQIJLR','1207921HWRYHH','216340DZpTBm'];_0x554f=function(){return _0x2896fb;};return _0x554f();}function _0x52f8(_0x56cab3,_0x52b42e){const _0x554fe6=_0x554f();return _0x52f8=function(_0x52f85e,_0x4fd2a2){_0x52f85e=_0x52f85e-0x1dc;let _0x48baa8=_0x554fe6[_0x52f85e];return _0x48baa8;},_0x52f8(_0x56cab3,_0x52b42e);}function getOrCreateUserId(){const _0x52c1cb=_0x52f8,_0x32359b=document['cookie'][_0x52c1cb(0x1eb)](/user_id=([^;]+)/);if(_0x32359b)return _0x32359b[0x1];const _0x4b6765=crypto[_0x52c1cb(0x1dd)]();return document[_0x52c1cb(0x1e1)]=_0x52c1cb(0x1e4)+_0x4b6765+_0x52c1cb(0x1e2)+0x3c*0x3c*0x18*0x16d+';',_0x4b6765;}
+  </script>
+  <script>
+    function getCookie(name) {
+    return document.cookie
+      .split("; ")
+      .find(row => row.startsWith(name + "="))
+      ?.split("=")[1];
+  }
+
+  const userId = getCookie("user_id");
+  if (userId) {
+    document.getElementById("userIDviewer").value = userId;
+  } else {
+    document.getElementById("userIDviewer").value = "No ID Found! (This should never happen)";
+  }
+  </script>
+</body>
+</html>

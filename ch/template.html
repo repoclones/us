@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Character Wiki - XP.css</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+</head>
+<body>
+  <!-- Theme toggle button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path class="sun" d="M12 17.5C9.5 17.5 7.5 15.5 7.5 13S9.5 8.5 12 8.5 16.5 10.5 16.5 13 14.5 17.5 12 17.5M12 7C8.7 7 6 9.7 6 13S8.7 19 12 19 18 16.3 18 13 15.3 7 12 7M12 2L14.4 6.4L19.4 5.7L16.2 9.9L18.5 14.1L13.5 13.3L9.5 16.7L9.9 11.7L5.3 9.3L9.7 7.7L11.4 3L12 2Z"/>
+      <path class="moon" d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M19.25,11L21.5,13.5L19.75,16L17,15L14.25,16L12.5,13.5L14.75,11L17,12L19.25,11M12.5,13.5L10.75,16L9,15L6.25,16L4.5,13.5L6.75,11L9,12L11.25,11L12.5,13.5M3,13.5L5.25,11L7.5,12L9.75,11L8,13.5L9.75,16L7.5,15L5.25,16L3,13.5Z" style="display:none"/>
+    </svg>
+  </button>
+  
+  <div class="desktop">
+    <div class="window" style="max-width: 1024px;">
+      <div class="title-bar">
+        <div class="title-bar-text">Character Wiki — Profile & Articles</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="toolbar">
+          <button onclick="location.href='menu.html'">← Menu</button>
+        </div>
+        <div class="content">
+          <aside class="sidebar">
+            <div class="profile-card">
+              <div class="avatar">
+                <img src="https://images.unsplash.com/photo-1545996124-0501ebae84d0?q=80&w=512&auto=format&fit=crop" alt="Character portrait" />
+              </div>
+              <h1 class="name">Aerin Thales</h1>
+              <p class="subtitle">Archivist of the Azure Spire</p>
+              <hr />
+              <div class="field-row-stacked">
+                <label>General Information</label>
+                <ul class="info">
+                  <li><strong>Species:</strong> Human</li>
+                  <li><strong>Age:</strong> 32</li>
+                  <li><strong>Home:</strong> Lumen City</li>
+                  <li><strong>Affiliation:</strong> Azure Spire</li>
+                  <li><strong>Occupation:</strong> Archivist</li>
+                </ul>
+              </div>
+              <div class="field-row-stacked">
+                <label>Attributes</label>
+                <ul class="info">
+                  <li><strong>Intellect:</strong> 9/10</li>
+                  <li><strong>Resolve:</strong> 8/10</li>
+                  <li><strong>Agility:</strong> 6/10</li>
+                </ul>
+              </div>
+              <div class="field-row-stacked">
+                <label>Contact</label>
+                <div class="field-row">
+                  <input type="text" value="aerin@azurespire.org" readonly />
+                  <button class="btn-copy" aria-label="Copy email">Copy</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <main class="articles">
+            <section class="article">
+              <div class="group-box">
+                <div class="group-box-title">Biography</div>
+                <div class="group-box-content">
+                  <p>Aerin Thales grew up among the towering stacks of the Central Athenaeum, where curiosity was a currency. Her pursuit of lost languages led her to the Azure Spire, a scholarly order tasked with safeguarding pre-cataclysmic knowledge.</p>
+                  <p>Known for a calm demeanor and meticulous note-taking, Aerin is often the first to volunteer for expeditions into derelict archives and forgotten vaults.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article">
+              <div class="group-box">
+                <div class="group-box-title">Notable Events</div>
+                <div class="group-box-content">
+                  <ul>
+                    <li>Recovered the Mnemonic Codex from the drowned district (Y14).</li>
+                    <li>Deciphered the Hollow Script, enabling safe traversal of the sub-level tramways.</li>
+                    <li>Negotiated research access with the Iron Conclave.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="article">
+              <div class="group-box">
+                <div class="group-box-title">Skills and Tools</div>
+                <div class="group-box-content">
+                  <p>Polyglot; field cartography; mechanical lock bypass; archival restoration. Carries a compact lumen-lamp, wax pencils, and an indexed folio.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article">
+              <div class="group-box">
+                <div class="group-box-title">Allies and Relations</div>
+                <div class="group-box-content">
+                  <p>Works closely with Surveyor Kade and Mechanist Iri. Maintains cordial relations with the Conclave’s steward, though tensions persist over document custody.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article">
+              <div class="group-box">
+                <div class="group-box-title">Trivia</div>
+                <div class="group-box-content">
+                  <ul>
+                    <li>Collects obsolete tram tokens.</li>
+                    <li>Brews an exceptionally strong chicory tea.</li>
+                    <li>Keeps notes in mirrored script to deter snooping.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

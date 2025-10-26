@@ -1,0 +1,450 @@
+:root {
+  --bg: #FFA3D9;
+  --tile: url('./tiled.png');
+  --panel: #FFD88C;
+  --text: #111;
+  --muted: #666;
+  --border: #e7c36f;
+  --focus: #111;
+  --btn: #111;
+  --btn-text: #fff;
+  --radius: 12px;
+  --shadow: 0 6px 16px rgba(0,0,0,0.12);
+  --icon-size: 22px;
+  --btn-size: 64px;
+  --upload-size: 200px; /* compact square upload box */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Quicksand", "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: var(--tile);
+  background-repeat: repeat;
+  background-size: auto;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+fieldset{
+border-color: black;
+
+}
+
+
+.form-shell {
+  max-width: 760px;
+  margin: 0;
+  padding: 0;
+  background: var(--panel);
+  border: 2px solid #fff; /* white stroke */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  position: relative;
+}
+
+.form-shell::after { content:""; position:absolute; right:8px; bottom:78px; width:128px; height:128px; background:url('./blackhearts30.png') no-repeat center/contain; }
+
+.pages { padding: 24px 28px; }
+
+.page {
+  overflow: clip;
+  max-height: 0;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: max-height 260ms ease, opacity 180ms ease, transform 260ms ease;
+  pointer-events: none;
+}
+
+.final-actions{
+  display: flex;justify-content: center;
+}
+
+/* Show the active page (1..8 and error) */
+#p1:checked ~ .form-shell form .pages #step1,
+#p2:checked ~ .form-shell form .pages #step2,
+#p3:checked ~ .form-shell form .pages #step3,
+#p4:checked ~ .form-shell form .pages #step4,
+#p5:checked ~ .form-shell form .pages #step5,
+#p6:checked ~ .form-shell form .pages #step6,
+#p7:checked ~ .form-shell form .pages #step7,
+#p8:checked ~ .form-shell form .pages #step8,
+#perror:checked ~ .form-shell form .pages #step-error {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+@keyframes fadeOnly {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.form-shell.fade-only .page {
+  transition: opacity 160ms ease, max-height 0s linear;
+  transform: none !important;
+}
+
+.page-body {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.form-header { padding: 16px 28px 0; border-bottom: 1px solid var(--border); }
+
+.page-banner {
+  height: 32px;
+  width: 100%;
+  background-image: url('./header.png');
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  background-size: auto 32px;
+  animation: marqueeX 12s linear infinite;
+}
+.page-footer {
+  height: 32px;
+  width: 100%;
+  background-image: url('./header.png');
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  background-size: auto 32px;
+  margin: -8px 0 12px;
+  animation: marqueeXP 12s linear infinite;
+}
+.form-footer .page-footer { margin: 12px 0 0; }
+
+@keyframes marqueeX { from { background-position: 0 0; } to { background-position: -400px 0; } }
+@keyframes marqueeXP { from { background-position: 0 0; } to { background-position: 400px 0; } }
+
+.field { margin: 14px 0 18px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; text-align: center; }
+
+input[type="text"],
+input[type="email"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+  background: #fff;
+  min-height: 44px;
+}
+/* Affixed end icon for inputs (Page 4) */
+.input-affix { position: relative; }
+.input-affix input[type="text"] { padding-right: 64px; }
+.input-end-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  pointer-events: none;
+  opacity: 0.95;
+}
+textarea { resize: vertical; }
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+  font-weight: 400;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+/* Circular cog buttons with text overlay */
+.btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  position: relative;
+  line-height: 1;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('./2789-200.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80% 80%;
+  animation: cogspin 2s linear infinite;
+  z-index: 0;
+}
+.btn .btn-text { position: relative; z-index: 1; color: var(--btn-text); padding: 0 6px; }
+@keyframes cogspin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.btn:hover { opacity: 0.9; }
+
+.form-footer {
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+/* Final pages outside the form */
+.final-page { padding: 24px 28px; text-align: center; }
+.final-page .page-body { width: 80%; margin: 0 auto; }
+.final-page .final-mascot { display: block; margin: 16px auto 0; height: 140px; width: auto; image-rendering: pixelated; }
+
+/* Gate forward navigation: disable .next on pages with invalid required controls */
+.page:has(:invalid) .next {
+  pointer-events: none;
+  opacity: 0.5;
+  filter: grayscale(0.2);
+}
+
+/* Highlight invalid fields to clarify error reason */
+input:invalid, textarea:invalid, select:invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 2px rgba(192,57,43,0.12);
+}
+
+/* Conditional submit controls on page 7 */
+form:has(:invalid) .go-success { display: none; }
+form:not(:has(:invalid)) .go-error { display: none; }
+
+/* Focus styles */
+input:focus, textarea:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Responsive spacing */
+@media (max-width: 600px) {
+  .pages { padding: 16px 18px; }
+  .form-footer { padding: 12px 18px 18px; }
+  .page-body { width: 94%; }
+
+  /* Scale upload box down on mobile while keeping it square */
+  :root { --upload-size: min(60vw, 200px); }
+
+  /* Adjust mascot offsets slightly for smaller screens */
+  .upload-field .hold.left { left:127px; }
+  .upload-field .hold.right { right:127px; }
+}
+
+/* Blackboard (Page 2) */
+.blackboard {
+  position: relative;
+  background: #1f5e3b;
+  color: #fff;
+  padding: 18px 16px 32px;
+  border: 10px solid #5a3a1f;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.06);
+  text-align: left;
+}
+.blackboard p { margin: 0; }
+/* Teacher mascot overlay on blackboard */
+.bb-mascot {
+  position: absolute;
+  left: -70px;
+  bottom: -16px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Mascots */
+.mascot {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+}
+.mascot.bottom-center { left: 50%; bottom: -8px; transform: translateX(-50%); }
+.mascot.bottom-right  { right: -8px; bottom: -8px; }
+.mascot.bottom-right-yesno  { right: -8px; bottom: 64px; }
+/* Page 6 top-right mascot on input box */
+.with-top-right { position: relative; }
+.note-top-right {
+  position: absolute;
+  right: -8px;
+  top: 22px;
+  width: auto;
+  pointer-events: none;
+}
+
+/* Small jumping animation (Page 1) */
+@keyframes hop {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -8px); }
+}
+.mascot.jump { animation: hop 1.4s ease-in-out infinite; }
+
+#step1 .mascot { position: static; display: block; margin: 12px auto 0; transform: none; }
+#step1 .mascot.jump { animation: hopY 1.4s ease-in-out infinite; }
+@keyframes hopY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* Pill-style radios (Page 3) */
+.choice.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 80ms ease;
+  user-select: none;
+}
+.choice.pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.choice.pill:has(input[type="radio"]:checked) {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+.choice.pill:has(input[type="radio"]:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.choice.pill:active { transform: translateY(1px); }
+
+.upload-field { position: relative; }
+.upload-box {
+  display:flex; align-items:center; justify-content:center; gap:10px; padding:12px; border-color:#bbb; transition:background 160ms ease, border-color 160ms ease;border:2px dashed var(--border); border-radius:12px; background:#fff; color:var(--text);
+  width:var(--upload-size); height:var(--upload-size); margin:0 auto; /* fixed square, centered */
+}
+.upload-box:hover { background:#fafafa; border-color:#999; }
+.upload-icon { width:28px; height:28px; opacity:0.9; }
+.upload-box span { font-size:14px; opacity:0.9; }
+
+.upload-field input[type="file"] { position:absolute; inset:0; opacity:0; cursor:pointer; }
+/* Limit file input overlay to the square upload box */
+#uploadBox + input[type="file"] { width:var(--upload-size); height:var(--upload-size); left:50%; transform:translateX(-50%); top:0; position:absolute; }
+
+.upload-field .hold { position:absolute; top:50%; transform:translateY(-50%); pointer-events:none; }
+.upload-field .hold.left { left:127px; }
+.upload-field .hold.right { right:127px; }
+
+/* Upload progress */
+.upload-progress { margin-top:12px; text-align:center; }
+.progress-track { height:10px; width:100%; background:rgba(0,0,0,0.08); border-radius:6px; overflow:hidden; }
+.progress-fill { height:100%; width:0%; background:#111; transition:width 160ms ease; }
+.progress-label { margin-top:6px; font-size:14px; color:var(--muted); }
+
+/* File list */
+.upload-list { margin-top:12px; text-align:left; }
+.list-title { margin:0 0 8px; font-size:16px; text-align:left; }
+.file-list { list-style:none; padding:0; margin:0; }
+.file-list li { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:#fff; margin-bottom:8px; }
+.file-meta { display:flex; flex-direction:column; }
+.file-name { font-weight:600; font-size:14px; }
+.file-size { font-size:12px; color:var(--muted); }
+.file-remove { appearance:none; border:1px solid var(--border); background:#fff; color:var(--text); border-radius:8px; padding:6px 10px; font-size:13px; cursor:pointer; }
+.file-remove:hover { background:#f7f7f7; }
+
+/* Limit error */
+.limit-error { margin-top:8px; color:#c0392b; font-weight:600; }
+
+/* Page 5: Button-based selection */
+.choice-row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.choice-btn {
+  appearance:none;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 16px;
+  font-size:15px;
+  cursor:pointer;
+  transition:background 160ms ease, color 160ms ease, border-color 160ms ease, transform 80ms ease;
+}
+.choice-btn:hover { background:#f7f7f7; }
+.choice-btn:active { transform:translateY(1px); }
+.choice-btn.active {
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* Page 5: 'Other' input visibility via class */
+#step5 #topicSelector .other-text { display:none; margin-top:8px; }
+#step5 #topicSelector.other-active .other-text { display:block; }
+
+/* End Page 5 visibility */
+
+/* Finalized states: hide all pages, show only success or error */
+.form-shell.finalized form .pages .page { display: none; }
+.form-shell.finalized.show-success form .pages #step8,
+.form-shell.finalized.show-error form .pages #step-error {
+  display: block;
+  max-height: none;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.form-shell.finalized .nav { display: none; }
+
+/* Centered mascot on success/error */
+.final-mascot {
+  display: block;
+  margin: 16px auto 0;
+  height: 140px;
+  width: auto;
+  image-rendering: pixelated;
+}
+
+/* Responsive spacing */
+@media (max-width: 600px) {
+  .pages { padding: 16px 18px; }
+  .form-footer { padding: 12px 18px 18px; }
+  .page-body { width: 94%; }
+
+  /* Scale upload box down on mobile while keeping it square */
+  :root { --upload-size: min(60vw, 200px); }
+
+  /* Adjust mascot offsets slightly for smaller screens */
+  .upload-field .hold.left { left:97px; }
+  .upload-field .hold.right { right:97px; }
+
+  .final-mascot { height: 120px; }
+}
+/* Override mascot positioning for Page 7 on mobile to cling to upload box sides */
+@media (max-width: 600px) {
+  #step7 .upload-field .hold {
+    top: 50%;
+    pointer-events: none;
+  }
+  #step7 .upload-field .hold.left {
+    left: calc(55% - (var(--upload-size) / 2));
+    transform: translate(-95%, -50%);
+  }
+  #step7 .upload-field .hold.right {
+    left: calc(47% + (var(--upload-size) / 2));
+    transform: translate(-5%, -50%);
+  }
+}

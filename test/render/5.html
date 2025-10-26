@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DragonBones Pixi Example</title>
+  <style>
+    html,body { margin:0; padding:0; overflow:hidden; background:#222; }
+    canvas { width:100vw; height:100vh; display:block; }
+  </style>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <!-- PixiJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.12/pixi.min.js"></script>
+  <!-- DragonBones Pixi Runtime -->
+  <!--<script src="https://cdn.jsdelivr.net/gh/openfl/dragonbones-pixi/bin/dragonBonesPixi.js"></script>-->
+  <script src="./dragonBones.js"></script>
+  <script>
+    const app = new PIXI.Application({
+      view: document.getElementById("stage"),
+      width: window.innerWidth,
+      height: window.innerHeight,
+      backgroundAlpha: 0,   // transparent background
+      antialias: true
+    });
+
+    PIXI.Loader.shared
+      .add("ske", "./mv_role_201_ske_82d89d67.json")
+      .add("tex", "./mv_role_201_tex_58aa6abb.json")
+      .add("texpng", "./mv_role_201_tex_c4be8467.png")
+      .load((loader, resources) => {
+        const factory = dragonBones.PixiFactory.factory;
+        factory.parseDragonBonesData(resources.ske.data);
+        factory.parseTextureAtlasData(resources.tex.data, resources.texpng.texture);
+
+        const armatureDisplay = factory.buildArmatureDisplay("mv_role_201");
+        armatureDisplay.animation.play("1");
+        armatureDisplay.x = app.renderer.width / 2;
+        armatureDisplay.y = app.renderer.height * 0.8;
+
+        // helper functions
+        window.movethis = (x, y) => { armatureDisplay.x = x; armatureDisplay.y = y; };
+        window.scalethis = (scale=1) => { armatureDisplay.scale.set(scale); };
+        window.checkcoords = () => {
+          console.log("X: " + armatureDisplay.x);
+          console.log("Y: " + armatureDisplay.y);
+          console.log("Scale: " + armatureDisplay.scale.x);
+          console.log("Width: " + armatureDisplay.width);
+          console.log("Height: " + armatureDisplay.height);
+        };
+
+        // initial scale
+        armatureDisplay.scale.set(2);
+
+        app.stage.addChild(armatureDisplay);
+      });
+
+  // later, after your armature is added:
+function saveTransparentPNG() {
+  // make sure the stage is rendered to the WebGL canvas
+  app.renderer.render(app.stage);
+
+  // create an offscreen canvas to convert to PNG
+  const canvas = document.createElement("canvas");
+  canvas.width = app.renderer.width;
+  canvas.height = app.renderer.height;
+  const ctx = canvas.getContext("2d");
+
+  // draw Pixi WebGL canvas to 2D canvas
+  ctx.drawImage(app.renderer.view, 0, 0);
+
+  // export PNG
+  const url = canvas.toDataURL("image/png");
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "transparent_screenshot.png";
+  a.click();
+}
+
+
+
+    // Press "P" to save screenshot
+    window.addEventListener("keydown", (e) => {
+      if (e.key.toLowerCase() === "p") {
+        saveTransparentPNG();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live2D Cubism Model</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #222;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="live2d"></canvas>
+
+  <!-- PixiJS (v5.x works best with Cubism 4.x) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.12/pixi.min.js"></script>
+
+  <!-- Live2D Cubism Core (your file) -->
+  <script src="./live2dcubismcore.min.js"></script>
+ <script src="./live2d.min_c410d615.js"></script>
+  <!-- Live2D Framework Wrappers (must get from SDK) -->
+  <script src="https://pixijs.download/release/pixi.min.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubism/live2dcubismframework.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubism/live2dcubismpixi.js"></script>
+
+  <script>
+    async function main() {
+      const canvas = document.getElementById("live2d");
+      const app = new PIXI.Application({
+        view: canvas,
+        transparent: true,
+        resizeTo: window,
+        autoStart: true
+      });
+
+      // Load model
+      const model = await LIVE2DCUBISMPIXI.Model.from({
+        json: "./mv_role_201_ske_82d89d67.json",
+        atlas: "./mv_role_201_tex_58aa6abb.json",
+        textures: ["./mv_role_201_tex_c4be8467.png"]
+      });
+
+      // Position and scale
+      model.scale.set(1.5);
+      model.position.set(window.innerWidth / 2, window.innerHeight);
+
+      // Add to stage
+      app.stage.addChild(model);
+    }
+
+    main();
+  </script>
+</body>
+</html>
