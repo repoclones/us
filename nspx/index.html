@@ -304,7 +304,7 @@ buttons.forEach(btn => {
       ?.split("=")[1];
   }
 
-  const userId = getCookie("user_id");
+  const userId = getOrCreateUserId();
   if (userId) {
     document.getElementById("userIDviewer").value = userId;
   } else {
