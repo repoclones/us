@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>SetLocalStorage</title>
+    </head>
+    <body>
+        <p>Setting...</p>
+        <script>
+
+            const url = new URL(request.url);
+            const data = url.searchParams.get("data");
+            const dest = url.searchParams.get("for");
+            if(!data || !dest){
+                endSession();
+            } else {
+                if (dest === "discord_btoa"){
+                    localStorage.setItem("testUserData", data);
+                };
+                endSession();
+            };
+
+
+            function endSession(){
+                document.close();
+                window.close();
+                window.location.href = "https://" + document.domain;
+            }
+        </script>
+    </body>
+</html>
