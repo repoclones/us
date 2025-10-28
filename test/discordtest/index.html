@@ -188,7 +188,7 @@ window.onload = function() {
 
   if(!user){
     stxt.innerHTML = "Logged out.";
-    lbtn.ariaDisabled = false;
+    enableButton();
   } else {
     hasData = true;
     try {
@@ -206,7 +206,7 @@ window.onload = function() {
 
   function enableButton(){
     
-      lbtn.ariaDisabled = false;
+      lbtn.disabled = false;
     if (hasData){
       lbtn.addEventListener("click", function(){ 
       localStorage.removeItem("testUserData");

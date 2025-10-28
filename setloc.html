@@ -6,7 +6,7 @@
         <p>Setting...</p>
         <script>
 
-            const url = new URL(request.url);
+            const url = new URL(window.location.href);
             const data = url.searchParams.get("data");
             const dest = url.searchParams.get("for");
             if(!data || !dest){
