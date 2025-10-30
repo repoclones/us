@@ -185,7 +185,7 @@ window.onload = function() {
   const lbtn = document.getElementById("logBtn");
   var hasData = false;
   const user = localStorage.getItem("testUserData");
-
+  const uname = localStorage.getItem("testUserDataName");
   if(!user){
     stxt.innerHTML = "Logged out.";
     enableButton();
@@ -195,7 +195,7 @@ window.onload = function() {
     const duser = atob(user);
     const juser = JSON.parse(duser);
     console.log(juser);
-    stxt.innerHTML = "Logged in as " + juser.username;
+    stxt.innerHTML = "Logged in as " + uname +"<br>With json data: " + duser;
     enableButton();
     } catch (e){
       stxt.innerHTML = "Not valid user data! Error: " + e;

@@ -3,18 +3,31 @@
         <title>SetLocalStorage</title>
     </head>
     <body>
-        <p>Setting...</p>
+        <p id="texts">Setting...</p>
         <script>
-
+            const txt = document.getElementById("texts");
             const url = new URL(window.location.href);
             const data = url.searchParams.get("data");
             const dest = url.searchParams.get("for");
-            if(!data || !dest){
-                endSession();
+            const uinfo = url.searchParams.get("name");
+            if(!data || !dest || !uinfo){
+                console.error("Missing info.");
+                txt.innerText = "Invalid. Nothing was set."
+                setTimeout(endSession, 1000);
             } else {
                 if (dest === "discord_btoa"){
+                    const tempdata = JSON.parse(atob(data));
+                    if (uinfo == tempdata.username){
+                        txt.innerText = "Set!";
                     localStorage.setItem("testUserData", data);
+                    localStorage.setItem("testUserDataName", uinfo);
+                    } else {
+                        console.warn("U: "+ uinfo + "\nTU: "+ tempdata.username)
+                        txt.innerText = "Invalid. Nothing was set."
+                        setTimeout(endSession, 1000);
+                    };
                 };
+                
                 endSession();
             };
 
