@@ -27,12 +27,41 @@
                         setTimeout(endSession, 1000);
                     };
                 };
+                 if (dest === "nspx"){
+                    console.warn("U: "+ uinfo + "\nD: "+ data);
+                    const response = validateData(data);
+                    if (response){
+                        txt.innerText = "Set!";
+                    localStorage.setItem("nspx.data", data);
+                    localStorage.setItem("nspx.name", uinfo);
+                    } else {
+                        
+                        txt.innerText = "Invalid. Nothing was set."
+                        setTimeout(endSession, 1000);
+                    };
+                };
                 
                 endSession();
             };
 
-
+           async function validateData(data){
+            const postData = {data: data}
+                try {
+                    const response = await fetch(`https://nspx-form.gbp.workers.dev/login/aes/validate`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json' 
+  },
+  body: JSON.stringify(postData) 
+});
+                    if (!response.ok) throw new Error('Not valid');
+                    return await response.json();
+                } catch (error) {
+                    throw error;
+                }
+            };
             function endSession(){
+                debugger; // pause to see setloc errors
                 document.close();
                 window.close();
                 window.location.href = "https://" + document.domain;

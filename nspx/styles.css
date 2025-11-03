@@ -35,6 +35,18 @@ border-color: black;
 
 }
 
+/* Only affects the Discord verification page */
+#step4:not(.verified) .next {
+  pointer-events: none;
+  opacity: 0.5;
+  filter: grayscale(0.2);
+}
+
+#step4.verified .next {
+  pointer-events: auto;
+  opacity: 1;
+  filter: none;
+}
 
 .form-shell {
   max-width: 760px;

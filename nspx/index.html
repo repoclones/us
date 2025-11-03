@@ -100,7 +100,7 @@ If for some reason, this form is not sufficient enough or if the request is real
             <h2 id="step3-title">Question</h2>
             <div class="field">
               <fieldset>
-                <legend>Are you a part of any factions that is allied with the Swarm?</legend>
+                <legend>Are you a part of a faction that is allied with the Swarm?</legend>
                 <label class="choice pill">
                   <input type="radio" name="allies" value="yes" required />
                   <span>Yes</span>
@@ -122,15 +122,20 @@ If for some reason, this form is not sufficient enough or if the request is real
         <!-- Page 4: Discord Username/ID (required) -->
         <section class="page" id="step4" aria-labelledby="step4-title">
           <div class="page-body">
-            <h2 id="step4-title">Discord Username/ID</h2>
-            <p>This will allow the swarm council to contact you in DMs about your request and if possible, let you know when your request is approved / Rejected.
-<br><br><b>Do not attempt to impersonate others when filling out this form.</b> Any forms found doing so will be immediately voided. Use only your discord username and have your messages open in the case we need to contact you to verify identity.
+            <h2 id="step4-title">Discord Verification</h2>
+            <p>Please connect your Discord account. This will identify who you are and allow the swarm council to contact you in DMs about your request and if possible, let you know when your request is approved / Rejected.
+              <br><br>We will only collect your username and user ID for verification.
+
 </p>
             <div class="field input-affix">
-              <label for="discordId">What is your Discord Username/ID?</label>
-              <input id="discordId" name="discordId" type="text" required placeholder="e.g., @user or 1234567890" />
-              <img class="input-end-icon" src="./neurochibi_discord.png" alt="" aria-hidden="true" />
-            </div>
+  <label id="discordStatus">Not verified yet</label>
+  <button id="verifyDiscord" type="button" class="choice-btn pill">
+    Connect Discord
+  </button>
+  <img class="input-end-icon" src="./neurochibi_discord.png" alt="" aria-hidden="true" />
+</div>
+
+
             <div class="nav">
               <label class="btn prev" for="p3"><span class="btn-text">◀</span></label>
               <label class="btn next" for="p5"><span class="btn-text">▶</span></label>
