@@ -3,10 +3,11 @@
 
 document.getElementById("verifyDiscord").addEventListener("click", async () => {
   const page = document.getElementById("step4");
-  
-  // Example: open Discord OAuth or custom JS verification
-  const verified = await yourDiscordVerificationFunction(); // <-- your system
+  if (hasData()) {
 
+  } else {
+    
+  }
   
 });
 
@@ -24,8 +25,10 @@ if (verified) {
 */
 
 function hasData(){
-    const user = localStorage.getItem("nspx.user");
-    if (user){
+    const user = localStorage.getItem("nspx.name");
+    const data = localStorage.getItem("nspx.data");
+    
+    if (user && data){
       
     }
 

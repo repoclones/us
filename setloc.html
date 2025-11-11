@@ -28,12 +28,14 @@
                     };
                 };
                  if (dest === "nspx"){
+                    
                     console.warn("U: "+ uinfo + "\nD: "+ data);
-                    const response = validateData(data);
+                    const response = await validateData(data);
                     if (response){
-                        txt.innerText = "Set!";
+                    const checker = localStorage.getItem("nspx.isChecking");
                     localStorage.setItem("nspx.data", data);
-                    localStorage.setItem("nspx.name", uinfo);
+                    localStorage.setItem("nspx.user", uinfo);
+                    txt.innerText = "Set!";
                     } else {
                         
                         txt.innerText = "Invalid. Nothing was set."
