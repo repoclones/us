@@ -216,6 +216,8 @@ form.addEventListener('submit', async (e) => {
   try {
     const fd = new FormData(form);
     fd.append("user_id", userId);
+    const data = localStorage.getItem("nspx.data");
+    fd.append("data", data)
 
 
 

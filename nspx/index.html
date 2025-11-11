@@ -159,7 +159,7 @@ If for some reason, this form is not sufficient enough or if the request is real
                   <button type="button" class="choice-btn pill" data-topic="other" id="topicOtherBtn">Other</button>
                 </div>
                 <input type="hidden" name="topic" id="topicHidden" required />
-                <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" placeholder="Type other..." />
+                <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" maxlength="64" placeholder="Type other..." />
               </fieldset>
             </div>
             <div class="nav">
@@ -177,7 +177,7 @@ If for some reason, this form is not sufficient enough or if the request is real
             <div class="field with-top-right">
               <label for="nature">Write down your request concerning the topic you chosen earlier here.</label>
               <img class="note-top-right" src="./neurochibi_noted.png" alt="" aria-hidden="true" />
-              <textarea id="nature" name="nature" rows="4" required placeholder="Describe your request..."></textarea>
+              <textarea id="nature" name="nature" rows="4" required placeholder="Describe your request..." maxlength="1344"></textarea>
             </div>
             <div class="nav">
               <label class="btn prev" for="p5"><span class="btn-text">◀</span></label>
@@ -265,6 +265,7 @@ If for some reason, this form is not sufficient enough or if the request is real
     </footer>
   </main>
   <script type="module" src="./upload.js"></script>
+  <script src="./discord.js"></script>
   <script>
     const choiceText = document.getElementById("choice-text");
     const buttons = document.querySelectorAll(".choice-btn");
