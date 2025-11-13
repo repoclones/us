@@ -215,7 +215,13 @@ form.addEventListener('submit', async (e) => {
 
   try {
     const fd = new FormData(form);
-    fd.append("user_id", userId);
+   
+   // fd.append("user_id", userId);
+
+   // we dont need these anymore
+   // thanks daavko, u a real one bro
+   // that legacy userid stays tho cus im lazy removing it atm
+
     const data = localStorage.getItem("nspx.data");
     fd.append("data", data)
 
@@ -233,7 +239,8 @@ form.addEventListener('submit', async (e) => {
       showOnlyError(msg);
       return;
     }
-
+    const retu = await res.json();
+    document.getElementById("userIDviewer").value = retu.id;
     showOnlySuccess();
   } catch (err) {
     showOnlyError(err?.message || 'Network error');
