@@ -279,10 +279,13 @@ const topicDescriptions = {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
+
   document.getElementById("topicHidden").value = "";;
   document.getElementById("topicOtherText").value = "";;
+document.querySelectorAll(".choice-btn").forEach(btn => {
+  btn.classList.remove("selected");
 });
+
 
 
 
