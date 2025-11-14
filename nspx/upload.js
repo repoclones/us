@@ -7,6 +7,7 @@ const limitErrorEl = document.getElementById('uploadLimitError');
 const submitBtn = document.getElementById('submitBtn');
 
 const MAX_TOTAL = 10 * 1024 * 1024; // 10 MB
+const MAX_FILES = 5;
 let files = [];
 
 // Helpers

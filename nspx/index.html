@@ -157,7 +157,7 @@ If for some reason, this form is not sufficient enough or if the request is real
                   <button type="button" class="choice-btn pill" data-topic="complaints">Complaints</button>
                   <button type="button" class="choice-btn pill" data-topic="other" id="topicOtherBtn">Other</button>
                 </div>
-                <input type="hidden" name="topic" id="topicHidden" required />
+                <input type="hidden" name="topic" id="topicHidden" required autocomplete="off" />
                 <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" maxlength="64" placeholder="Type other..." />
               </fieldset>
             </div>
@@ -279,6 +279,10 @@ const topicDescriptions = {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("topicHidden").value = "";;
+  document.getElementById("topicOtherText").value = "";;
+});
 
 
 
