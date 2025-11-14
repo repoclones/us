@@ -7,7 +7,7 @@ const limitErrorEl = document.getElementById('uploadLimitError');
 const submitBtn = document.getElementById('submitBtn');
 
 const MAX_TOTAL = 10 * 1024 * 1024; // 10 MB
-const MAX_FILES = 5;
+const MAX_FILES = 10;
 let files = [];
 
 // Helpers
@@ -23,10 +23,22 @@ function updateProgress() {
   const pct = Math.min(100, Math.round((total / MAX_TOTAL) * 100));
   progressFill.style.width = `${pct}%`;
   progressText.textContent = `${formatBytes(total)} / 10 MB`;
-  const over = total > MAX_TOTAL;
-  limitErrorEl.hidden = !over;
-  submitBtn.disabled = over;
+
+  const overSize = total > MAX_TOTAL;
+  const overCount = files.length > MAX_FILES;
+
+  if (overCount) {
+    limitErrorEl.textContent = `You can only upload up to ${MAX_FILES} files.`;
+  } else if (overSize) {
+    limitErrorEl.textContent = `Total size exceeds 10 MB.`;
+  } else {
+    limitErrorEl.textContent = "";
+  }
+
+  limitErrorEl.hidden = !(overSize || overCount);
+  submitBtn.disabled = overSize || overCount;
 }
+
 function renderList() {
   fileListEl.innerHTML = '';
   files.forEach((f, idx) => {
@@ -64,10 +76,17 @@ function syncInput() {
   input.files = dt.files;
 }
 
-// Add files with limit enforcement (reject files that would push over limit)
+
 function addFiles(list) {
   const incoming = Array.from(list);
   for (const f of incoming) {
+    // dimine-proof
+    if (files.length >= MAX_FILES) {
+      limitErrorEl.hidden = false;
+      submitBtn.disabled = true;
+      break; 
+    }
+
     const newTotal = totalSize() + f.size;
     if (newTotal > MAX_TOTAL) {
       limitErrorEl.hidden = false;
