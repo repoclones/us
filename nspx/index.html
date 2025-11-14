@@ -148,18 +148,27 @@ If for some reason, this form is not sufficient enough or if the request is real
             <h2 id="step5-title">Topic of Request</h2>
             <div class="field">
               <fieldset id="topicSelector">
-                <legend><b>Select one</b></legend>
-                <p id="choice-text">Hover over an option to see more details.</p>
-                <div class="choice-row">
-                  <button type="button" class="choice-btn pill" data-topic="artidea">Art Idea</button>
-                  <button type="button" class="choice-btn pill" data-topic="template">Template Changes</button>
-                  <button type="button" class="choice-btn pill" data-topic="disputes">Disputes with Swarm</button>
-                  <button type="button" class="choice-btn pill" data-topic="complaints">Complaints</button>
-                  <button type="button" class="choice-btn pill" data-topic="other" id="topicOtherBtn">Other</button>
-                </div>
-                <input type="hidden" name="topic" id="topicHidden" required autocomplete="off" />
-                <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" maxlength="64" placeholder="Type other..." />
-              </fieldset>
+  <legend><b>Select one</b></legend>
+  <p id="choice-text"style="max-height: 40px;height: 40px;">Hover over an option to see more details.</p>
+
+  <!-- Real radios (hidden) -->
+  <input type="radio" name="topic" id="topic-artidea" value="artidea" hidden >
+  <input type="radio" name="topic" id="topic-template" value="template" hidden>
+  <input type="radio" name="topic" id="topic-disputes" value="disputes" hidden>
+  <input type="radio" name="topic" id="topic-complaints" value="complaints" hidden>
+  <input type="radio" name="topic" id="topic-other" value="other" hidden required>
+
+  <div class="choice-row">
+    <button type="button" class="choice-btn pill" data-topic="artidea">Art Idea</button>
+    <button type="button" class="choice-btn pill" data-topic="template">Template Changes</button>
+    <button type="button" class="choice-btn pill" data-topic="disputes">Disputes with Swarm</button>
+    <button type="button" class="choice-btn pill" data-topic="complaints">Complaints</button>
+    <button type="button" class="choice-btn pill" data-topic="other" id="topicOtherBtn">Other</button>
+  </div>
+
+  <input type="text" id="topicOtherText" name="topicOtherText" class="other-text" maxlength="64" placeholder="Type other..." />
+</fieldset>
+
             </div>
             <div class="nav">
               <label class="btn prev" for="p4"><span class="btn-text">◀</span></label>
@@ -280,13 +289,13 @@ const topicDescriptions = {
 
 
 
-  document.getElementById("topicHidden").value = "";;
-  document.getElementById("topicOtherText").value = "";;
+
+  document.getElementById("topicOtherText").value = "";
 document.querySelectorAll(".choice-btn").forEach(btn => {
   btn.classList.remove("selected");
 });
 
-
+document.querySelectorAll('input[name="topic"]').forEach(r => r.checked = false);
 
 
 let selectedTopic = null;
@@ -308,6 +317,11 @@ buttons.forEach(btn => {
 
   btn.addEventListener("click", () => {
     selectedTopic = topic;
+
+    // NEW: sync to radio
+  document.querySelector(`input[name="topic"][value="${topic}"]`).checked = true;
+
+
     buttons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 

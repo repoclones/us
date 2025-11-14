@@ -135,12 +135,12 @@ renderList();
 // Page 5: Topic button selection
 const topicSelector = document.getElementById('topicSelector');
 const topicButtons = topicSelector ? topicSelector.querySelectorAll('.choice-btn') : [];
-const topicHidden = document.getElementById('topicHidden');
+
 const topicOtherText = document.getElementById('topicOtherText');
 
 if (topicButtons.length) {
   const setSelection = (val) => {
-    topicHidden.value = val;
+    document.querySelector(`input[name="topic"][value="${val}"]`).checked = true;
     topicButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.topic === val));
     const isOther = val === 'other';
     if (isOther) {
@@ -205,7 +205,7 @@ function resetAllAndShowForm() {
   if (topicButtons.length) {
     topicButtons.forEach(btn => btn.classList.remove('active'));
     topicSelector.classList.remove('other-active');
-    topicHidden.value = '';
+    document.querySelectorAll('input[name="topic"]').forEach(r => r.checked = false);
     topicOtherText.value = '';
     topicOtherText.required = false;
   }
